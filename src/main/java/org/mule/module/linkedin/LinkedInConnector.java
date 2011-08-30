@@ -9,7 +9,6 @@ import com.google.code.linkedinapi.client.enumeration.ProfileField;
 import com.google.code.linkedinapi.client.enumeration.ProfileType;
 import com.google.code.linkedinapi.client.enumeration.SearchParameter;
 import com.google.code.linkedinapi.client.enumeration.SearchSortOrder;
-import com.google.code.linkedinapi.schema.ApiStandardProfileRequest;
 import com.google.code.linkedinapi.schema.Connections;
 import com.google.code.linkedinapi.schema.FacetType;
 import com.google.code.linkedinapi.schema.Likes;
@@ -27,6 +26,7 @@ import org.mule.api.annotations.oauth.OAuthAccessToken;
 import org.mule.api.annotations.oauth.OAuthAccessTokenSecret;
 import org.mule.api.annotations.oauth.OAuthConsumerKey;
 import org.mule.api.annotations.oauth.OAuthConsumerSecret;
+import org.mule.api.annotations.oauth.OAuthVersion;
 import org.mule.api.annotations.oauth.RequiresAccessToken;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
@@ -39,7 +39,8 @@ import java.util.Map;
 import java.util.Set;
 
 @Module(name = "linkedin")
-@OAuth(requestTokenUrl = "https://api.linkedin.com/uas/oauth/requestToken",
+@OAuth(version = OAuthVersion.VERSION_1,
+        requestTokenUrl = "https://api.linkedin.com/uas/oauth/requestToken",
         accessTokenUrl = "https://api.linkedin.com/uas/oauth/accessToken",
         authorizationUrl = "https://api.linkedin.com/uas/oauth/authorize")
 public class LinkedInConnector {
@@ -63,8 +64,8 @@ public class LinkedInConnector {
      * Gets the profile by id.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
      *
-     * @param id            the id
-     * @param profileFields the profile fields
+     * @param id            the id to search
+     * @param profileFields the profile fields to retrieve
      * @return the profile by id
      */
     @Processor
@@ -81,9 +82,9 @@ public class LinkedInConnector {
      * Gets the profile by url.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
      *
-     * @param url           the url
-     * @param profileType   the profile type
-     * @param profileFields
+     * @param url           the url to search
+     * @param profileType   the profile type to search
+     * @param profileFields the profile fields to retrieve
      * @return the profile by url
      */
     @Processor
@@ -100,7 +101,7 @@ public class LinkedInConnector {
      * Gets the profile for current user.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
      *
-     * @param profileFields the profile fields
+     * @param profileFields the profile fields to retrieve
      * @return the profile for current user
      */
     @Processor
@@ -114,31 +115,15 @@ public class LinkedInConnector {
     }
 
     /**
-     * Gets the profile by API request.
-     * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
-     *
-     * @param apiRequest the api request
-     * @return the profile by api request
-     */
-    @Processor
-    @RequiresAccessToken
-    public Person getProfileByApiRequest(ApiStandardProfileRequest apiRequest) {
-        // TODO
-        return null;
-
-    }
-
-
-    /**
      * Gets the network updates.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1006">http://developer.linkedin.com/docs/DOC-1006</a>
      *
-     * @param updateTypes       the update types
-     * @param start             the start, needs to be specified together with count
-     * @param count             the count  needs to be specified together with start
-     * @param startDate         the start date, needs to be specified together with end date
-     * @param endDate           the end date, needs to be specified together with start data
-     * @param showHiddenMembers
+     * @param updateTypes       the update types to retrieve
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param startDate         the start date, if set end date needs to be specified
+     * @param endDate           the end date, if set start date needs to be specified
+     * @param showHiddenMembers whether to show hidden memberts
      * @return the network updates
      */
     @Processor
@@ -146,26 +131,26 @@ public class LinkedInConnector {
     public Network getNetworkUpdates(@Optional List<NetworkUpdateType> updateTypes,
                                      @Optional Integer start,
                                      @Optional Integer count,
-                                     @Optional String startDate,
-                                     @Optional String endDate,
+                                     @Optional Date startDate,
+                                     @Optional Date endDate,
                                      @Optional Boolean showHiddenMembers) {
         if (updateTypes != null && start != null && count != null && startDate != null && endDate != null && showHiddenMembers != null) {
-            return getClient().getNetworkUpdates(createSet(updateTypes), start, count, createDate(startDate), createDate(endDate), showHiddenMembers);
+            return getClient().getNetworkUpdates(createSet(updateTypes), start, count, startDate, endDate, showHiddenMembers);
         }
         if (updateTypes != null && start != null && count != null && startDate != null && endDate != null) {
-            getClient().getNetworkUpdates(createSet(updateTypes), start, count, createDate(startDate), createDate(endDate));
+            getClient().getNetworkUpdates(createSet(updateTypes), start, count, startDate, endDate);
         }
         if (updateTypes != null && start != null && count != null) {
             return getClient().getNetworkUpdates(createSet(updateTypes), start, count);
         }
         if (updateTypes != null && startDate != null && endDate != null) {
-            return getClient().getNetworkUpdates(createSet(updateTypes), createDate(startDate), createDate(endDate));
+            return getClient().getNetworkUpdates(createSet(updateTypes), startDate, endDate);
         }
         if (start != null && count != null) {
             return getClient().getNetworkUpdates(start, count);
         }
         if (startDate != null && endDate != null) {
-            return getClient().getNetworkUpdates(createDate(startDate), createDate(endDate));
+            return getClient().getNetworkUpdates(startDate, endDate);
         }
         if (updateTypes != null) {
             return getClient().getNetworkUpdates(createSet(updateTypes));
@@ -177,11 +162,11 @@ public class LinkedInConnector {
      * Gets the network updates.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1006">http://developer.linkedin.com/docs/DOC-1006</a>
      *
-     * @param updateTypes the update types
-     * @param start       the start
-     * @param count       the count
-     * @param startDate   the start date
-     * @param endDate     the end date
+     * @param updateTypes the update types to retrieve
+     * @param start       the start, if set count needs to be specified
+     * @param count       the count, if set start needs to be specified
+     * @param startDate   the start date, if set end date needs to be specified
+     * @param endDate     the end date, if set start date needs to be specified
      * @return the network updates
      */
     @Processor
@@ -189,19 +174,19 @@ public class LinkedInConnector {
     public Network getUserUpdates(@Optional List<NetworkUpdateType> updateTypes,
                                   @Optional Integer start,
                                   @Optional Integer count,
-                                  @Optional String startDate,
-                                  @Optional String endDate) {
+                                  @Optional Date startDate,
+                                  @Optional Date endDate) {
         if (updateTypes != null && start != null && count != null && startDate != null && endDate != null) {
-            return getClient().getUserUpdates(createSet(updateTypes), start, count, createDate(startDate), createDate(endDate));
+            return getClient().getUserUpdates(createSet(updateTypes), start, count, startDate, endDate);
         }
         if (updateTypes != null && start != null && count != null) {
             return getClient().getUserUpdates(createSet(updateTypes), start, count);
         }
         if (updateTypes != null && startDate != null && endDate != null) {
-            return getClient().getUserUpdates(createSet(updateTypes), createDate(startDate), createDate(endDate));
+            return getClient().getUserUpdates(createSet(updateTypes), startDate, endDate);
         }
         if (startDate != null && endDate != null) {
-            return getClient().getUserUpdates(createDate(startDate), createDate(endDate));
+            return getClient().getUserUpdates(startDate, endDate);
         }
         if (start != null && count != null) {
             return getClient().getUserUpdates(start, count);
@@ -216,12 +201,12 @@ public class LinkedInConnector {
      * Gets the network updates.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1006">http://developer.linkedin.com/docs/DOC-1006</a>
      *
-     * @param id
-     * @param updateTypes the update types
-     * @param start       the start
-     * @param count       the count
-     * @param startDate   the start date
-     * @param endDate     the end date
+     * @param id          the id to search
+     * @param updateTypes the update types to retrieve
+     * @param start       the start, if set count needs to be specified
+     * @param count       the count, if set start needs to be specified
+     * @param startDate   the start date, if set end date needs to be specified
+     * @param endDate     the end date, if set end date needs to be specified
      * @return the network updates
      */
     @Processor
@@ -230,22 +215,22 @@ public class LinkedInConnector {
                                       @Optional List<NetworkUpdateType> updateTypes,
                                       @Optional Integer start,
                                       @Optional Integer count,
-                                      @Optional String startDate,
-                                      @Optional String endDate) {
+                                      @Optional Date startDate,
+                                      @Optional Date endDate) {
         if (updateTypes != null && start != null && count != null && startDate != null && endDate != null) {
-            return getClient().getUserUpdates(id, createSet(updateTypes), start, count, createDate(startDate), createDate(endDate));
+            return getClient().getUserUpdates(id, createSet(updateTypes), start, count, startDate, endDate);
         }
         if (updateTypes != null && start != null && count != null) {
             return getClient().getUserUpdates(id, createSet(updateTypes), start, count);
         }
         if (updateTypes != null && startDate != null && endDate != null) {
-            return getClient().getUserUpdates(id, createSet(updateTypes), createDate(startDate), createDate(endDate));
+            return getClient().getUserUpdates(id, createSet(updateTypes), startDate, endDate);
         }
         if (start != null && count != null) {
             return getClient().getUserUpdates(id, start, count);
         }
         if (startDate != null && endDate != null) {
-            return getClient().getUserUpdates(id, createDate(startDate), createDate(endDate));
+            return getClient().getUserUpdates(id, startDate, endDate);
         }
         if (updateTypes != null) {
             return getClient().getUserUpdates(id, createSet(updateTypes));
@@ -257,7 +242,7 @@ public class LinkedInConnector {
      * Gets the network update comments.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1043">http://developer.linkedin.com/docs/DOC-1043</a>
      *
-     * @param networkUpdateId the network update id
+     * @param networkUpdateId the network update id to search
      * @return the network update comments
      */
     @Processor
@@ -270,7 +255,7 @@ public class LinkedInConnector {
      * Gets the network update likes.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1043">http://developer.linkedin.com/docs/DOC-1043</a>
      *
-     * @param networkUpdateId the network update id
+     * @param networkUpdateId the network update id to search
      * @return the network update likes
      */
     @Processor
@@ -283,11 +268,11 @@ public class LinkedInConnector {
      * Gets the connections for current user.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1004">http://developer.linkedin.com/docs/DOC-1004</a>
      *
-     * @param profileFields    the profile fields
-     * @param start            the start
-     * @param count            the count
-     * @param modificationDate
-     * @param modificationType
+     * @param profileFields    the profile fields to retrieve
+     * @param start            the start, if set count needs to be specified
+     * @param count            the count, if set start needs to be specified
+     * @param modificationDate the modification date, if set modification type needs to be specified
+     * @param modificationType the modification type, if set modification date needs to be specified
      * @return the connections for current user
      */
     @Processor
@@ -295,25 +280,25 @@ public class LinkedInConnector {
     public Connections getConnectionsForCurrentUser(@Optional List<ProfileField> profileFields,
                                                     @Optional Integer start,
                                                     @Optional Integer count,
-                                                    @Optional String modificationDate,
+                                                    @Optional Date modificationDate,
                                                     @Optional ConnectionModificationType modificationType) {
         if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsForCurrentUser(createSet(profileFields), start, count, createDate(modificationDate), modificationType);
+            return getClient().getConnectionsForCurrentUser(createSet(profileFields), start, count, modificationDate, modificationType);
         }
         if (profileFields != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsForCurrentUser(createSet(profileFields), createDate(modificationDate), modificationType);
+            return getClient().getConnectionsForCurrentUser(createSet(profileFields), modificationDate, modificationType);
         }
         if (profileFields != null && start != null && count != null) {
             return getClient().getConnectionsForCurrentUser(createSet(profileFields), start, count);
         }
         if (start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsForCurrentUser(start, count, createDate(modificationDate), modificationType);
+            return getClient().getConnectionsForCurrentUser(start, count, modificationDate, modificationType);
         }
         if (start != null && count != null) {
             return getClient().getConnectionsForCurrentUser(start, count);
         }
         if (modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsForCurrentUser(createDate(modificationDate), modificationType);
+            return getClient().getConnectionsForCurrentUser(modificationDate, modificationType);
         }
         if (profileFields != null) {
             return getClient().getConnectionsForCurrentUser(createSet(profileFields));
@@ -325,12 +310,12 @@ public class LinkedInConnector {
      * Gets the connections by id.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1004">http://developer.linkedin.com/docs/DOC-1004</a>
      *
-     * @param id               the id
-     * @param profileFields    the profile fields
-     * @param start            the start
-     * @param count            the count
-     * @param modificationDate
-     * @param modificationType
+     * @param id               the id to search
+     * @param profileFields    the profile fields to retrieve
+     * @param start            the start, if set count needs to be specified
+     * @param count            the count, if set start needs to be specified
+     * @param modificationDate the modification date, if set modification type needs to be specified
+     * @param modificationType the modification type, if set modification date needs to be specified
      * @return the connections by id
      */
     @Processor
@@ -339,22 +324,22 @@ public class LinkedInConnector {
                                           @Optional List<ProfileField> profileFields,
                                           @Optional Integer start,
                                           @Optional Integer count,
-                                          @Optional String modificationDate,
+                                          @Optional Date modificationDate,
                                           @Optional ConnectionModificationType modificationType) {
         if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsById(id, createSet(profileFields), start, count, createDate(modificationDate), modificationType);
+            return getClient().getConnectionsById(id, createSet(profileFields), start, count, modificationDate, modificationType);
         }
         if (profileFields != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsById(id, createSet(profileFields), createDate(modificationDate), modificationType);
+            return getClient().getConnectionsById(id, createSet(profileFields), modificationDate, modificationType);
         }
         if (profileFields != null && start != null && count != null) {
             return getClient().getConnectionsById(id, createSet(profileFields), start, count);
         }
         if (start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsById(id, start, count, createDate(modificationDate), modificationType);
+            return getClient().getConnectionsById(id, start, count, modificationDate, modificationType);
         }
         if (modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsById(id, createDate(modificationDate), modificationType);
+            return getClient().getConnectionsById(id, modificationDate, modificationType);
         }
         if (start != null && count != null) {
             return getClient().getConnectionsById(id, start, count);
@@ -369,12 +354,12 @@ public class LinkedInConnector {
      * Gets the connections by url.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1004">http://developer.linkedin.com/docs/DOC-1004</a>
      *
-     * @param url              the url
-     * @param profileFields    the profile fields
-     * @param start            the start
-     * @param count            the count
-     * @param modificationDate
-     * @param modificationType
+     * @param url              the url to search
+     * @param profileFields    the profile fields to retrieve
+     * @param start            the start, if set count needs to be specified
+     * @param count            the count, if set start needs to be specified
+     * @param modificationDate the modification date, if set modification type needs to be specified
+     * @param modificationType the modification type, if set modification date needs to be specified
      * @return the connections by url
      */
     @Processor
@@ -383,22 +368,22 @@ public class LinkedInConnector {
                                            @Optional List<ProfileField> profileFields,
                                            @Optional Integer start,
                                            @Optional Integer count,
-                                           @Optional String modificationDate,
+                                           @Optional Date modificationDate,
                                            @Optional ConnectionModificationType modificationType) {
         if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsByUrl(url, createSet(profileFields), start, count, createDate(modificationDate), modificationType);
+            return getClient().getConnectionsByUrl(url, createSet(profileFields), start, count, modificationDate, modificationType);
         }
         if (profileFields != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsByUrl(url, createSet(profileFields), createDate(modificationDate), modificationType);
+            return getClient().getConnectionsByUrl(url, createSet(profileFields), modificationDate, modificationType);
         }
         if (profileFields != null && start != null && count != null) {
             return getClient().getConnectionsByUrl(url, createSet(profileFields), start, count);
         }
         if (start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsByUrl(url, start, count, createDate(modificationDate), modificationType);
+            return getClient().getConnectionsByUrl(url, start, count, modificationDate, modificationType);
         }
         if (modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsByUrl(url, createDate(modificationDate), modificationType);
+            return getClient().getConnectionsByUrl(url, modificationDate, modificationType);
         }
         if (start != null && count != null) {
             return getClient().getConnectionsByUrl(url, start, count);
@@ -413,11 +398,11 @@ public class LinkedInConnector {
      * Search people.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1005">http://developer.linkedin.com/docs/DOC-1005</a>
      *
-     * @param searchParameters the search parameters
-     * @param profileFields
-     * @param start            the start
-     * @param count            the count
-     * @param sortOrder        the sort order
+     * @param searchParameters the search parameters to use
+     * @param profileFields    the profile fields to retriee
+     * @param start            the start, if set count needs to be specified
+     * @param count            the count, if set start needs to be specified
+     * @param sortOrder        the sort order to use, defaults to RELEVANCE
      * @return the people
      */
     @Processor
@@ -426,7 +411,7 @@ public class LinkedInConnector {
                                @Optional List<ProfileField> profileFields,
                                @Optional Integer start,
                                @Optional Integer count,
-                               SearchSortOrder sortOrder) {
+                               @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder) {
         if (searchParameters != null && profileFields != null && start != null && count != null) {
             return getClient().searchPeople(searchParameters, createSet(profileFields), start, count, sortOrder);
         }
@@ -447,11 +432,11 @@ public class LinkedInConnector {
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1005">http://developer.linkedin.com/docs/DOC-1005</a>
      *
      * @param searchParameters the search parameters
-     * @param profileFields
-     * @param start            the start
-     * @param count            the count
-     * @param sortOrder        the sort order, defaults to RELEVANCE
-     * @param facets           the facet type and a comma separated string
+     * @param profileFields    the profile fields to retrieve
+     * @param start            the start, if set count needs to be specified
+     * @param count            the count, if set start needs to be specified
+     * @param sortOrder        the sort order to use, defaults to RELEVANCE
+     * @param facets           the facet type and a comma separated string with all the values
      * @return the people
      */
 
@@ -461,12 +446,8 @@ public class LinkedInConnector {
                                          @Optional List<ProfileField> profileFields,
                                          @Optional Integer start,
                                          @Optional Integer count,
-                                         @Optional SearchSortOrder sortOrder,
-//                                         List<Parameter<FacetType, String>> facets) {
+                                         @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder,
                                          Map<FacetType, String> facets) {
-        if (sortOrder == null) {
-            sortOrder = SearchSortOrder.RELEVANCE;
-        }
         if (profileFields != null && start != null && count != null) {
             return getClient().searchPeople(searchParameters, createSet(profileFields), start, count, sortOrder, adapt(facets));
         }
@@ -484,12 +465,12 @@ public class LinkedInConnector {
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1005">http://developer.linkedin.com/docs/DOC-1005</a>
      *
      * @param searchParameters the search parameters
-     * @param profileFields
-     * @param facetFields
-     * @param start            the start
-     * @param count            the count
+     * @param profileFields    the profile fields to retrieve
+     * @param facetFields      the facet fields to use
+     * @param start            the start, if set count needs to be specified
+     * @param count            the count, if set start needs to be specified
      * @param sortOrder        the sort order, defaults to RELEVANCE
-     * @param facets
+     * @param facets           the facets to use
      * @return the people
      */
 
@@ -500,11 +481,8 @@ public class LinkedInConnector {
                                                     List<FacetField> facetFields,
                                                     @Optional Integer start,
                                                     @Optional Integer count,
-                                                    @Optional SearchSortOrder sortOrder,
+                                                    @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder,
                                                     @Optional Map<FacetType, String> facets) {
-        if (sortOrder == null) {
-            sortOrder = SearchSortOrder.RELEVANCE;
-        }
         if (start != null && count != null && facets != null) {
             return getClient().searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), start, count, sortOrder, adapt(facets));
         }
@@ -628,7 +606,7 @@ public class LinkedInConnector {
      * @param url           the url
      * @param imageUrl      the image url
      * @param visibility    the visibility
-     * @param postToTwitter
+     * @param postToTwitter whether to post to twitter
      */
     @Processor
     @RequiresAccessToken
@@ -641,7 +619,7 @@ public class LinkedInConnector {
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1212">http://developer.linkedin.com/docs/DOC-1212</a>
      *
      * @param shareId     the share id
-     * @param commentText
+     * @param commentText the comment text
      * @param visibility  the visibility
      */
     @Processor
@@ -656,11 +634,6 @@ public class LinkedInConnector {
 
     public void setApiSecret(String apiSecret) {
         this.apiSecret = apiSecret;
-    }
-
-    private Date createDate(String dateString) {
-        // TODO
-        return null;
     }
 
     private <T> Set<T> createSet(List<T> list) {

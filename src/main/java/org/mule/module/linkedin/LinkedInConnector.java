@@ -26,8 +26,6 @@ import org.mule.api.annotations.oauth.OAuthAccessToken;
 import org.mule.api.annotations.oauth.OAuthAccessTokenSecret;
 import org.mule.api.annotations.oauth.OAuthConsumerKey;
 import org.mule.api.annotations.oauth.OAuthConsumerSecret;
-import org.mule.api.annotations.oauth.OAuthVersion;
-import org.mule.api.annotations.oauth.RequiresAccessToken;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 
@@ -39,8 +37,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Module(name = "linkedin")
-@OAuth(version = OAuthVersion.VERSION_1,
-        requestTokenUrl = "https://api.linkedin.com/uas/oauth/requestToken",
+@OAuth(requestTokenUrl = "https://api.linkedin.com/uas/oauth/requestToken",
         accessTokenUrl = "https://api.linkedin.com/uas/oauth/accessToken",
         authorizationUrl = "https://api.linkedin.com/uas/oauth/authorize")
 public class LinkedInConnector {
@@ -52,13 +49,25 @@ public class LinkedInConnector {
     @OAuthConsumerSecret
     private String apiSecret;
 
-    @OAuthAccessToken
-    private String accessToken;
-
-    @OAuthAccessTokenSecret
-    private String accessTokenSecret;
-
     private LinkedInApiClient client;
+
+    /**
+     * Gets the profile for current user.
+     * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
+     *
+     * @param profileFields the profile fields to retrieve
+     * @return the profile for current user
+     */
+    @Processor
+    public Person getProfileForCurrentUser(@OAuthAccessToken String accessToken,
+                                           @OAuthAccessTokenSecret String accessTokenSecret,
+                                           @Optional List<ProfileField> profileFields) {
+        if (profileFields == null) {
+            return getClient(accessToken, accessTokenSecret).getProfileForCurrentUser();
+        } else {
+            return getClient(accessToken, accessTokenSecret).getProfileForCurrentUser(createSet(profileFields));
+        }
+    }
 
     /**
      * Gets the profile by id.
@@ -69,12 +78,14 @@ public class LinkedInConnector {
      * @return the profile by id
      */
     @Processor
-    @RequiresAccessToken
-    public Person getProfileById(String id, @Optional List<ProfileField> profileFields) {
+    public Person getProfileById(@OAuthAccessToken String accessToken,
+                                 @OAuthAccessTokenSecret String accessTokenSecret,
+                                 String id,
+                                 @Optional List<ProfileField> profileFields) {
         if (profileFields == null) {
-            return getClient().getProfileById(id);
+            return getClient(accessToken, accessTokenSecret).getProfileById(id);
         } else {
-            return getClient().getProfileById(id, createSet(profileFields));
+            return getClient(accessToken, accessTokenSecret).getProfileById(id, createSet(profileFields));
         }
     }
 
@@ -88,29 +99,15 @@ public class LinkedInConnector {
      * @return the profile by url
      */
     @Processor
-    @RequiresAccessToken
-    public Person getProfileByUrl(String url, ProfileType profileType, @Optional List<ProfileField> profileFields) {
+    public Person getProfileByUrl(@OAuthAccessToken String accessToken,
+                                  @OAuthAccessTokenSecret String accessTokenSecret,
+                                  String url,
+                                  ProfileType profileType,
+                                  @Optional List<ProfileField> profileFields) {
         if (profileFields == null) {
-            return getClient().getProfileByUrl(url, profileType);
+            return getClient(accessToken, accessTokenSecret).getProfileByUrl(url, profileType);
         } else {
-            return getClient().getProfileByUrl(url, profileType, createSet(profileFields));
-        }
-    }
-
-    /**
-     * Gets the profile for current user.
-     * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
-     *
-     * @param profileFields the profile fields to retrieve
-     * @return the profile for current user
-     */
-    @Processor
-    @RequiresAccessToken
-    public Person getProfileForCurrentUser(@Optional List<ProfileField> profileFields) {
-        if (profileFields == null) {
-            return getClient().getProfileForCurrentUser();
-        } else {
-            return getClient().getProfileForCurrentUser(createSet(profileFields));
+            return getClient(accessToken, accessTokenSecret).getProfileByUrl(url, profileType, createSet(profileFields));
         }
     }
 
@@ -127,35 +124,36 @@ public class LinkedInConnector {
      * @return the network updates
      */
     @Processor
-    @RequiresAccessToken
-    public Network getNetworkUpdates(@Optional List<NetworkUpdateType> updateTypes,
+    public Network getNetworkUpdates(@OAuthAccessToken String accessToken,
+                                     @OAuthAccessTokenSecret String accessTokenSecret,
+                                     @Optional List<NetworkUpdateType> updateTypes,
                                      @Optional Integer start,
                                      @Optional Integer count,
                                      @Optional Date startDate,
                                      @Optional Date endDate,
                                      @Optional Boolean showHiddenMembers) {
         if (updateTypes != null && start != null && count != null && startDate != null && endDate != null && showHiddenMembers != null) {
-            return getClient().getNetworkUpdates(createSet(updateTypes), start, count, startDate, endDate, showHiddenMembers);
+            return getClient(accessToken, accessTokenSecret).getNetworkUpdates(createSet(updateTypes), start, count, startDate, endDate, showHiddenMembers);
         }
         if (updateTypes != null && start != null && count != null && startDate != null && endDate != null) {
-            getClient().getNetworkUpdates(createSet(updateTypes), start, count, startDate, endDate);
+            getClient(accessToken, accessTokenSecret).getNetworkUpdates(createSet(updateTypes), start, count, startDate, endDate);
         }
         if (updateTypes != null && start != null && count != null) {
-            return getClient().getNetworkUpdates(createSet(updateTypes), start, count);
+            return getClient(accessToken, accessTokenSecret).getNetworkUpdates(createSet(updateTypes), start, count);
         }
         if (updateTypes != null && startDate != null && endDate != null) {
-            return getClient().getNetworkUpdates(createSet(updateTypes), startDate, endDate);
+            return getClient(accessToken, accessTokenSecret).getNetworkUpdates(createSet(updateTypes), startDate, endDate);
         }
         if (start != null && count != null) {
-            return getClient().getNetworkUpdates(start, count);
+            return getClient(accessToken, accessTokenSecret).getNetworkUpdates(start, count);
         }
         if (startDate != null && endDate != null) {
-            return getClient().getNetworkUpdates(startDate, endDate);
+            return getClient(accessToken, accessTokenSecret).getNetworkUpdates(startDate, endDate);
         }
         if (updateTypes != null) {
-            return getClient().getNetworkUpdates(createSet(updateTypes));
+            return getClient(accessToken, accessTokenSecret).getNetworkUpdates(createSet(updateTypes));
         }
-        return getClient().getNetworkUpdates();
+        return getClient(accessToken, accessTokenSecret).getNetworkUpdates();
     }
 
     /**
@@ -170,31 +168,32 @@ public class LinkedInConnector {
      * @return the network updates
      */
     @Processor
-    @RequiresAccessToken
-    public Network getUserUpdates(@Optional List<NetworkUpdateType> updateTypes,
+    public Network getUserUpdates(@OAuthAccessToken String accessToken,
+                                  @OAuthAccessTokenSecret String accessTokenSecret,
+                                  @Optional List<NetworkUpdateType> updateTypes,
                                   @Optional Integer start,
                                   @Optional Integer count,
                                   @Optional Date startDate,
                                   @Optional Date endDate) {
         if (updateTypes != null && start != null && count != null && startDate != null && endDate != null) {
-            return getClient().getUserUpdates(createSet(updateTypes), start, count, startDate, endDate);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(createSet(updateTypes), start, count, startDate, endDate);
         }
         if (updateTypes != null && start != null && count != null) {
-            return getClient().getUserUpdates(createSet(updateTypes), start, count);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(createSet(updateTypes), start, count);
         }
         if (updateTypes != null && startDate != null && endDate != null) {
-            return getClient().getUserUpdates(createSet(updateTypes), startDate, endDate);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(createSet(updateTypes), startDate, endDate);
         }
         if (startDate != null && endDate != null) {
-            return getClient().getUserUpdates(startDate, endDate);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(startDate, endDate);
         }
         if (start != null && count != null) {
-            return getClient().getUserUpdates(start, count);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(start, count);
         }
         if (updateTypes != null) {
-            return getClient().getUserUpdates(createSet(updateTypes));
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(createSet(updateTypes));
         }
-        return getClient().getUserUpdates();
+        return getClient(accessToken, accessTokenSecret).getUserUpdates();
     }
 
     /**
@@ -210,32 +209,33 @@ public class LinkedInConnector {
      * @return the network updates
      */
     @Processor
-    @RequiresAccessToken
-    public Network getUserUpdatesById(String id,
+    public Network getUserUpdatesById(@OAuthAccessToken String accessToken,
+                                      @OAuthAccessTokenSecret String accessTokenSecret,
+                                      String id,
                                       @Optional List<NetworkUpdateType> updateTypes,
                                       @Optional Integer start,
                                       @Optional Integer count,
                                       @Optional Date startDate,
                                       @Optional Date endDate) {
         if (updateTypes != null && start != null && count != null && startDate != null && endDate != null) {
-            return getClient().getUserUpdates(id, createSet(updateTypes), start, count, startDate, endDate);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(id, createSet(updateTypes), start, count, startDate, endDate);
         }
         if (updateTypes != null && start != null && count != null) {
-            return getClient().getUserUpdates(id, createSet(updateTypes), start, count);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(id, createSet(updateTypes), start, count);
         }
         if (updateTypes != null && startDate != null && endDate != null) {
-            return getClient().getUserUpdates(id, createSet(updateTypes), startDate, endDate);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(id, createSet(updateTypes), startDate, endDate);
         }
         if (start != null && count != null) {
-            return getClient().getUserUpdates(id, start, count);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(id, start, count);
         }
         if (startDate != null && endDate != null) {
-            return getClient().getUserUpdates(id, startDate, endDate);
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(id, startDate, endDate);
         }
         if (updateTypes != null) {
-            return getClient().getUserUpdates(id, createSet(updateTypes));
+            return getClient(accessToken, accessTokenSecret).getUserUpdates(id, createSet(updateTypes));
         }
-        return getClient().getUserUpdates(id);
+        return getClient(accessToken, accessTokenSecret).getUserUpdates(id);
     }
 
     /**
@@ -246,9 +246,10 @@ public class LinkedInConnector {
      * @return the network update comments
      */
     @Processor
-    @RequiresAccessToken
-    public UpdateComments getNetworkUpdateComments(String networkUpdateId) {
-        return getClient().getNetworkUpdateComments(networkUpdateId);
+    public UpdateComments getNetworkUpdateComments(@OAuthAccessToken String accessToken,
+                                                   @OAuthAccessTokenSecret String accessTokenSecret,
+                                                   String networkUpdateId) {
+        return getClient(accessToken, accessTokenSecret).getNetworkUpdateComments(networkUpdateId);
     }
 
     /**
@@ -259,9 +260,10 @@ public class LinkedInConnector {
      * @return the network update likes
      */
     @Processor
-    @RequiresAccessToken
-    public Likes getNetworkUpdateLikes(String networkUpdateId) {
-        return getClient().getNetworkUpdateLikes(networkUpdateId);
+    public Likes getNetworkUpdateLikes(@OAuthAccessToken String accessToken,
+                                       @OAuthAccessTokenSecret String accessTokenSecret,
+                                       String networkUpdateId) {
+        return getClient(accessToken, accessTokenSecret).getNetworkUpdateLikes(networkUpdateId);
     }
 
     /**
@@ -276,34 +278,35 @@ public class LinkedInConnector {
      * @return the connections for current user
      */
     @Processor
-    @RequiresAccessToken
-    public Connections getConnectionsForCurrentUser(@Optional List<ProfileField> profileFields,
+    public Connections getConnectionsForCurrentUser(@OAuthAccessToken String accessToken,
+                                                    @OAuthAccessTokenSecret String accessTokenSecret,
+                                                    @Optional List<ProfileField> profileFields,
                                                     @Optional Integer start,
                                                     @Optional Integer count,
                                                     @Optional Date modificationDate,
                                                     @Optional ConnectionModificationType modificationType) {
         if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsForCurrentUser(createSet(profileFields), start, count, modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(createSet(profileFields), start, count, modificationDate, modificationType);
         }
         if (profileFields != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsForCurrentUser(createSet(profileFields), modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(createSet(profileFields), modificationDate, modificationType);
         }
         if (profileFields != null && start != null && count != null) {
-            return getClient().getConnectionsForCurrentUser(createSet(profileFields), start, count);
+            return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(createSet(profileFields), start, count);
         }
         if (start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsForCurrentUser(start, count, modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(start, count, modificationDate, modificationType);
         }
         if (start != null && count != null) {
-            return getClient().getConnectionsForCurrentUser(start, count);
+            return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(start, count);
         }
         if (modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsForCurrentUser(modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(modificationDate, modificationType);
         }
         if (profileFields != null) {
-            return getClient().getConnectionsForCurrentUser(createSet(profileFields));
+            return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(createSet(profileFields));
         }
-        return getClient().getConnectionsForCurrentUser();
+        return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser();
     }
 
     /**
@@ -319,35 +322,36 @@ public class LinkedInConnector {
      * @return the connections by id
      */
     @Processor
-    @RequiresAccessToken
-    public Connections getConnectionsById(String id,
+    public Connections getConnectionsById(@OAuthAccessToken String accessToken,
+                                          @OAuthAccessTokenSecret String accessTokenSecret,
+                                          String id,
                                           @Optional List<ProfileField> profileFields,
                                           @Optional Integer start,
                                           @Optional Integer count,
                                           @Optional Date modificationDate,
                                           @Optional ConnectionModificationType modificationType) {
         if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsById(id, createSet(profileFields), start, count, modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsById(id, createSet(profileFields), start, count, modificationDate, modificationType);
         }
         if (profileFields != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsById(id, createSet(profileFields), modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsById(id, createSet(profileFields), modificationDate, modificationType);
         }
         if (profileFields != null && start != null && count != null) {
-            return getClient().getConnectionsById(id, createSet(profileFields), start, count);
+            return getClient(accessToken, accessTokenSecret).getConnectionsById(id, createSet(profileFields), start, count);
         }
         if (start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsById(id, start, count, modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsById(id, start, count, modificationDate, modificationType);
         }
         if (modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsById(id, modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsById(id, modificationDate, modificationType);
         }
         if (start != null && count != null) {
-            return getClient().getConnectionsById(id, start, count);
+            return getClient(accessToken, accessTokenSecret).getConnectionsById(id, start, count);
         }
         if (profileFields != null) {
-            return getClient().getConnectionsById(id, createSet(profileFields));
+            return getClient(accessToken, accessTokenSecret).getConnectionsById(id, createSet(profileFields));
         }
-        return getClient().getConnectionsById(id);
+        return getClient(accessToken, accessTokenSecret).getConnectionsById(id);
     }
 
     /**
@@ -363,35 +367,36 @@ public class LinkedInConnector {
      * @return the connections by url
      */
     @Processor
-    @RequiresAccessToken
-    public Connections getConnectionsByUrl(String url,
+    public Connections getConnectionsByUrl(@OAuthAccessToken String accessToken,
+                                           @OAuthAccessTokenSecret String accessTokenSecret,
+                                           String url,
                                            @Optional List<ProfileField> profileFields,
                                            @Optional Integer start,
                                            @Optional Integer count,
                                            @Optional Date modificationDate,
                                            @Optional ConnectionModificationType modificationType) {
         if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsByUrl(url, createSet(profileFields), start, count, modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url, createSet(profileFields), start, count, modificationDate, modificationType);
         }
         if (profileFields != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsByUrl(url, createSet(profileFields), modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url, createSet(profileFields), modificationDate, modificationType);
         }
         if (profileFields != null && start != null && count != null) {
-            return getClient().getConnectionsByUrl(url, createSet(profileFields), start, count);
+            return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url, createSet(profileFields), start, count);
         }
         if (start != null && count != null && modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsByUrl(url, start, count, modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url, start, count, modificationDate, modificationType);
         }
         if (modificationDate != null && modificationType != null) {
-            return getClient().getConnectionsByUrl(url, modificationDate, modificationType);
+            return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url, modificationDate, modificationType);
         }
         if (start != null && count != null) {
-            return getClient().getConnectionsByUrl(url, start, count);
+            return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url, start, count);
         }
         if (profileFields != null) {
-            return getClient().getConnectionsByUrl(url, createSet(profileFields));
+            return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url, createSet(profileFields));
         }
-        return getClient().getConnectionsByUrl(url);
+        return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url);
     }
 
     /**
@@ -406,25 +411,26 @@ public class LinkedInConnector {
      * @return the people
      */
     @Processor
-    @RequiresAccessToken
-    public People searchPeople(@Optional Map<SearchParameter, String> searchParameters,
+    public People searchPeople(@OAuthAccessToken String accessToken,
+                               @OAuthAccessTokenSecret String accessTokenSecret,
+                               @Optional Map<SearchParameter, String> searchParameters,
                                @Optional List<ProfileField> profileFields,
                                @Optional Integer start,
                                @Optional Integer count,
                                @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder) {
         if (searchParameters != null && profileFields != null && start != null && count != null) {
-            return getClient().searchPeople(searchParameters, createSet(profileFields), start, count, sortOrder);
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), start, count, sortOrder);
         }
         if (searchParameters != null && profileFields != null) {
-            return getClient().searchPeople(searchParameters, createSet(profileFields), sortOrder);
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), sortOrder);
         }
         if (searchParameters != null && start != null && count != null) {
-            return getClient().searchPeople(searchParameters, start, count, sortOrder);
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, start, count, sortOrder);
         }
         if (searchParameters != null) {
-            return getClient().searchPeople(searchParameters, sortOrder);
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, sortOrder);
         }
-        return getClient().searchPeople();
+        return getClient(accessToken, accessTokenSecret).searchPeople();
     }
 
     /**
@@ -441,23 +447,24 @@ public class LinkedInConnector {
      */
 
     @Processor
-    @RequiresAccessToken
-    public People searchPeopleWithFacets(Map<SearchParameter, String> searchParameters,
+    public People searchPeopleWithFacets(@OAuthAccessToken String accessToken,
+                                         @OAuthAccessTokenSecret String accessTokenSecret,
+                                         Map<SearchParameter, String> searchParameters,
                                          @Optional List<ProfileField> profileFields,
                                          @Optional Integer start,
                                          @Optional Integer count,
                                          @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder,
                                          Map<FacetType, String> facets) {
         if (profileFields != null && start != null && count != null) {
-            return getClient().searchPeople(searchParameters, createSet(profileFields), start, count, sortOrder, adapt(facets));
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), start, count, sortOrder, adapt(facets));
         }
         if (profileFields != null) {
-            return getClient().searchPeople(searchParameters, createSet(profileFields), sortOrder, adapt(facets));
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), sortOrder, adapt(facets));
         }
         if (start != null && count != null) {
-            return getClient().searchPeople(searchParameters, start, count, sortOrder, adapt(facets));
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, start, count, sortOrder, adapt(facets));
         }
-        return getClient().searchPeople(searchParameters, sortOrder, adapt(facets));
+        return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, sortOrder, adapt(facets));
     }
 
     /**
@@ -475,8 +482,9 @@ public class LinkedInConnector {
      */
 
     @Processor
-    @RequiresAccessToken
-    public PeopleSearch searchPeopleWithFacetFields(Map<SearchParameter, String> searchParameters,
+    public PeopleSearch searchPeopleWithFacetFields(@OAuthAccessToken String accessToken,
+                                                    @OAuthAccessTokenSecret String accessTokenSecret,
+                                                    Map<SearchParameter, String> searchParameters,
                                                     List<ProfileField> profileFields,
                                                     List<FacetField> facetFields,
                                                     @Optional Integer start,
@@ -484,15 +492,15 @@ public class LinkedInConnector {
                                                     @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder,
                                                     @Optional Map<FacetType, String> facets) {
         if (start != null && count != null && facets != null) {
-            return getClient().searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), start, count, sortOrder, adapt(facets));
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), start, count, sortOrder, adapt(facets));
         }
         if (start != null && count != null) {
-            return getClient().searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), start, count, sortOrder);
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), start, count, sortOrder);
         }
         if (facets != null) {
-            return getClient().searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), sortOrder, adapt(facets));
+            return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), sortOrder, adapt(facets));
         }
-        return getClient().searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), sortOrder);
+        return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), createSet(facetFields), sortOrder);
     }
 
     /**
@@ -502,9 +510,10 @@ public class LinkedInConnector {
      * @param updateText the update text
      */
     @Processor
-    @RequiresAccessToken
-    public void postNetworkUpdate(String updateText) {
-        getClient().postNetworkUpdate(updateText);
+    public void postNetworkUpdate(@OAuthAccessToken String accessToken,
+                                  @OAuthAccessTokenSecret String accessTokenSecret,
+                                  String updateText) {
+        getClient(accessToken, accessTokenSecret).postNetworkUpdate(updateText);
     }
 
     /**
@@ -515,9 +524,11 @@ public class LinkedInConnector {
      * @param commentText     the comment text
      */
     @Processor
-    @RequiresAccessToken
-    public void postComment(String networkUpdateId, String commentText) {
-        getClient().postComment(networkUpdateId, commentText);
+    public void postComment(@OAuthAccessToken String accessToken,
+                            @OAuthAccessTokenSecret String accessTokenSecret,
+                            String networkUpdateId,
+                            String commentText) {
+        getClient(accessToken, accessTokenSecret).postComment(networkUpdateId, commentText);
     }
 
     /**
@@ -527,9 +538,10 @@ public class LinkedInConnector {
      * @param networkUpdateId the network update id
      */
     @Processor
-    @RequiresAccessToken
-    public void likePost(String networkUpdateId) {
-        getClient().likePost(networkUpdateId);
+    public void likePost(@OAuthAccessToken String accessToken,
+                         @OAuthAccessTokenSecret String accessTokenSecret,
+                         String networkUpdateId) {
+        getClient(accessToken, accessTokenSecret).likePost(networkUpdateId);
     }
 
     /**
@@ -539,9 +551,10 @@ public class LinkedInConnector {
      * @param networkUpdateId the network update id
      */
     @Processor
-    @RequiresAccessToken
-    public void unlikePost(String networkUpdateId) {
-        getClient().unlikePost(networkUpdateId);
+    public void unlikePost(@OAuthAccessToken String accessToken,
+                           @OAuthAccessTokenSecret String accessTokenSecret,
+                           String networkUpdateId) {
+        getClient(accessToken, accessTokenSecret).unlikePost(networkUpdateId);
     }
 
     /**
@@ -552,9 +565,11 @@ public class LinkedInConnector {
      * @param postToTwitter whether to post the update to Twitter
      */
     @Processor
-    @RequiresAccessToken
-    public void updateCurrentStatus(String status, @Optional @Default("false") Boolean postToTwitter) {
-        getClient().updateCurrentStatus(status, postToTwitter);
+    public void updateCurrentStatus(@OAuthAccessToken String accessToken,
+                                    @OAuthAccessTokenSecret String accessTokenSecret,
+                                    String status,
+                                    @Optional @Default("false") Boolean postToTwitter) {
+        getClient(accessToken, accessTokenSecret).updateCurrentStatus(status, postToTwitter);
     }
 
     /**
@@ -562,9 +577,9 @@ public class LinkedInConnector {
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1007">http://developer.linkedin.com/docs/DOC-1007</a>
      */
     @Processor
-    @RequiresAccessToken
-    public void deleteCurrentStatus() {
-        getClient().deleteCurrentStatus();
+    public void deleteCurrentStatus(@OAuthAccessToken String accessToken,
+                                    @OAuthAccessTokenSecret String accessTokenSecret) {
+        getClient(accessToken, accessTokenSecret).deleteCurrentStatus();
     }
 
     /**
@@ -576,9 +591,12 @@ public class LinkedInConnector {
      * @param message      the message
      */
     @Processor
-    @RequiresAccessToken
-    public void sendMessage(List<String> recepientIds, String subject, String message) {
-        getClient().sendMessage(recepientIds, subject, message);
+    public void sendMessage(@OAuthAccessToken String accessToken,
+                            @OAuthAccessTokenSecret String accessTokenSecret,
+                            List<String> recepientIds,
+                            String subject,
+                            String message) {
+        getClient(accessToken, accessTokenSecret).sendMessage(recepientIds, subject, message);
     }
 
     /**
@@ -592,9 +610,14 @@ public class LinkedInConnector {
      * @param message   the message
      */
     @Processor
-    @RequiresAccessToken
-    public void sendInviteByEmail(String email, String firstName, String lastName, String subject, String message) {
-        getClient().sendInviteByEmail(email, firstName, lastName, subject, message);
+    public void sendInviteByEmail(@OAuthAccessToken String accessToken,
+                                  @OAuthAccessTokenSecret String accessTokenSecret,
+                                  String email,
+                                  String firstName,
+                                  String lastName,
+                                  String subject,
+                                  String message) {
+        getClient(accessToken, accessTokenSecret).sendInviteByEmail(email, firstName, lastName, subject, message);
     }
 
     /**
@@ -609,9 +632,15 @@ public class LinkedInConnector {
      * @param postToTwitter whether to post to twitter
      */
     @Processor
-    @RequiresAccessToken
-    public void postShare(String commentText, String title, String url, String imageUrl, VisibilityType visibility, @Optional @Default("false") Boolean postToTwitter) {
-        getClient().postShare(commentText, title, url, imageUrl, visibility, postToTwitter);
+    public void postShare(@OAuthAccessToken String accessToken,
+                          @OAuthAccessTokenSecret String accessTokenSecret,
+                          String commentText,
+                          String title,
+                          String url,
+                          String imageUrl,
+                          VisibilityType visibility,
+                          @Optional @Default("false") Boolean postToTwitter) {
+        getClient(accessToken, accessTokenSecret).postShare(commentText, title, url, imageUrl, visibility, postToTwitter);
     }
 
     /**
@@ -623,9 +652,13 @@ public class LinkedInConnector {
      * @param visibility  the visibility
      */
     @Processor
-    @RequiresAccessToken
-    public void reShare(String shareId, String commentText, VisibilityType visibility) {
-        getClient().reShare(shareId, commentText, visibility);
+
+    public void reShare(@OAuthAccessToken String accessToken,
+                        @OAuthAccessTokenSecret String accessTokenSecret,
+                        String shareId,
+                        String commentText,
+                        VisibilityType visibility) {
+        getClient(accessToken, accessTokenSecret).reShare(shareId, commentText, visibility);
     }
 
     public void setApiKey(String apiKey) {
@@ -653,20 +686,11 @@ public class LinkedInConnector {
         return facetList;
     }
 
-    private synchronized LinkedInApiClient getClient() {
+    private synchronized LinkedInApiClient getClient(String accesToken, String accessTokenSecret) {
         if (client == null) {
-            client = LinkedInClientFactory.getClient(apiKey, apiSecret, accessToken, accessTokenSecret);
+            client = LinkedInClientFactory.getClient(apiKey, apiSecret, accesToken, accessTokenSecret);
         }
         return client;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-        client = null;
-    }
-
-    public void setAccessTokenSecret(String accessTokenSecret) {
-        this.accessTokenSecret = accessTokenSecret;
     }
 
     public String getApiKey() {
@@ -675,13 +699,5 @@ public class LinkedInConnector {
 
     public String getApiSecret() {
         return apiSecret;
-    }
-
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public String getAccessTokenSecret() {
-        return accessTokenSecret;
     }
 }

@@ -118,12 +118,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.scribe</groupId>
-            <artifactId>scribe</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-
         <!--  Mule & Devkit -->
         <dependency>
             <groupId>org.mule.modules</groupId>

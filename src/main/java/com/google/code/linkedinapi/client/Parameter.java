@@ -117,4 +117,12 @@ public class Parameter<Name, Value> {
             return false;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Parameter{" +
+                "name=" + name +
+                ", value=" + value +
+                '}';
+    }
 }

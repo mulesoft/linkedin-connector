@@ -54,6 +54,9 @@ public class LinkedInConnector {
     /**
      * Gets the profile for current user.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getProfileForCurrentUser}
+     * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getProfileForCurrentUser}
      *
      * @param profileFields the profile fields to retrieve
      * @return the profile for current user
@@ -72,6 +75,9 @@ public class LinkedInConnector {
     /**
      * Gets the profile by id.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getProfileById}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getProfileById}
      *
      * @param id            the id to search
      * @param profileFields the profile fields to retrieve
@@ -92,6 +98,9 @@ public class LinkedInConnector {
     /**
      * Gets the profile by url.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1002">http://developer.linkedin.com/docs/DOC-1002</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getProfileByUrl}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getProfileByUrl}
      *
      * @param url           the url to search
      * @param profileType   the profile type to search
@@ -114,6 +123,9 @@ public class LinkedInConnector {
     /**
      * Gets the network updates.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1006">http://developer.linkedin.com/docs/DOC-1006</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getNetworkUpdates}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getNetworkUpdates}
      *
      * @param updateTypes       the update types to retrieve
      * @param start             the start, if set count needs to be specified
@@ -159,6 +171,9 @@ public class LinkedInConnector {
     /**
      * Gets the network updates.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1006">http://developer.linkedin.com/docs/DOC-1006</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getUserUpdates}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getUserUpdates}
      *
      * @param updateTypes the update types to retrieve
      * @param start       the start, if set count needs to be specified
@@ -199,6 +214,9 @@ public class LinkedInConnector {
     /**
      * Gets the network updates.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1006">http://developer.linkedin.com/docs/DOC-1006</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getUserUpdatesById}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getUserUpdatesById}
      *
      * @param id          the id to search
      * @param updateTypes the update types to retrieve
@@ -241,6 +259,9 @@ public class LinkedInConnector {
     /**
      * Gets the network update comments.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1043">http://developer.linkedin.com/docs/DOC-1043</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getNetworkUpdateComments}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getNetworkUpdateComments}
      *
      * @param networkUpdateId the network update id to search
      * @return the network update comments
@@ -255,6 +276,9 @@ public class LinkedInConnector {
     /**
      * Gets the network update likes.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1043">http://developer.linkedin.com/docs/DOC-1043</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getNetworkUpdateLikes}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getNetworkUpdateLikes}
      *
      * @param networkUpdateId the network update id to search
      * @return the network update likes
@@ -269,6 +293,9 @@ public class LinkedInConnector {
     /**
      * Gets the connections for current user.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1004">http://developer.linkedin.com/docs/DOC-1004</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getConnectionsForCurrentUser}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getConnectionsForCurrentUser}
      *
      * @param profileFields    the profile fields to retrieve
      * @param start            the start, if set count needs to be specified
@@ -312,6 +339,9 @@ public class LinkedInConnector {
     /**
      * Gets the connections by id.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1004">http://developer.linkedin.com/docs/DOC-1004</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getConnectionsById}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getConnectionsById}
      *
      * @param id               the id to search
      * @param profileFields    the profile fields to retrieve
@@ -357,6 +387,9 @@ public class LinkedInConnector {
     /**
      * Gets the connections by url.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1004">http://developer.linkedin.com/docs/DOC-1004</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getConnectionsByUrl}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:getConnectionsByUrl}
      *
      * @param url              the url to search
      * @param profileFields    the profile fields to retrieve
@@ -402,6 +435,9 @@ public class LinkedInConnector {
     /**
      * Search people.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1005">http://developer.linkedin.com/docs/DOC-1005</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:searchPeople}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:searchPeople}
      *
      * @param searchParameters the search parameters to use
      * @param profileFields    the profile fields to retriee
@@ -436,6 +472,9 @@ public class LinkedInConnector {
     /**
      * Search people.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1005">http://developer.linkedin.com/docs/DOC-1005</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:searchPeopleWithFacets}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:searchPeopleWithFacets}
      *
      * @param searchParameters the search parameters
      * @param profileFields    the profile fields to retrieve
@@ -470,6 +509,9 @@ public class LinkedInConnector {
     /**
      * Search people.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1005">http://developer.linkedin.com/docs/DOC-1005</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:searchPeopleWithFacetFields}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:searchPeopleWithFacetFields}
      *
      * @param searchParameters the search parameters
      * @param profileFields    the profile fields to retrieve
@@ -506,6 +548,9 @@ public class LinkedInConnector {
     /**
      * Post network update.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1009">http://developer.linkedin.com/docs/DOC-1009</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:postNetworkUpdate}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:postNetworkUpdate}
      *
      * @param updateText the update text
      */
@@ -519,6 +564,9 @@ public class LinkedInConnector {
     /**
      * Post comment.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1043">http://developer.linkedin.com/docs/DOC-1043</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:postComment}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:postComment}
      *
      * @param networkUpdateId the network update id
      * @param commentText     the comment text
@@ -534,6 +582,9 @@ public class LinkedInConnector {
     /**
      * Like post.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1043">http://developer.linkedin.com/docs/DOC-1043</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:likePost}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:likePost}
      *
      * @param networkUpdateId the network update id
      */
@@ -547,6 +598,9 @@ public class LinkedInConnector {
     /**
      * Unlike post.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1043">http://developer.linkedin.com/docs/DOC-1043</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:unlikePost}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:unlikePost}
      *
      * @param networkUpdateId the network update id
      */
@@ -560,6 +614,9 @@ public class LinkedInConnector {
     /**
      * Update current status.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1007">http://developer.linkedin.com/docs/DOC-1007</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:updateCurrentStatus}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:updateCurrentStatus}
      *
      * @param status        the status
      * @param postToTwitter whether to post the update to Twitter
@@ -575,6 +632,9 @@ public class LinkedInConnector {
     /**
      * Delete current status.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1007">http://developer.linkedin.com/docs/DOC-1007</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:deleteCurrentStatus}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:deleteCurrentStatus}
      */
     @Processor
     public void deleteCurrentStatus(@OAuthAccessToken String accessToken,
@@ -585,6 +645,9 @@ public class LinkedInConnector {
     /**
      * Send message.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1044">http://developer.linkedin.com/docs/DOC-1044</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:sendMessage}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:sendMessage}
      *
      * @param recepientIds the recepient ids
      * @param subject      the subject
@@ -602,6 +665,9 @@ public class LinkedInConnector {
     /**
      * Send invite.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1012">http://developer.linkedin.com/docs/DOC-1012</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:sendInviteByEmail}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:sendInviteByEmail}
      *
      * @param email     the email
      * @param firstName the first name
@@ -623,6 +689,9 @@ public class LinkedInConnector {
     /**
      * Post share.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1212">http://developer.linkedin.com/docs/DOC-1212</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:postShare}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:postShare}
      *
      * @param commentText   the comment text
      * @param title         the title
@@ -646,6 +715,9 @@ public class LinkedInConnector {
     /**
      * Re-share.
      * For details see <a href="http://developer.linkedin.com/docs/DOC-1212">http://developer.linkedin.com/docs/DOC-1212</a>
+     * <p/>
+     * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:reShare}
+     * {@sample.xml ../../../doc/linkedin-connector.java.sample linkedin:reShare}
      *
      * @param shareId     the share id
      * @param commentText the comment text

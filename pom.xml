@@ -100,14 +100,12 @@
                     <doclet>org.mule.devkit.doclet.Doclava</doclet>
                     <bootclasspath>${sun.boot.class.path}</bootclasspath>
                     <additionalparam>
-                        -quiet
-                        -federate JDK
-                        http://download.oracle.com/javase/6/docs/api/index.html?
-                        -federationxml JDK
-                        http://doclava.googlecode.com/svn/static/api/openjdk-6.xml
+                        -hdf project.artifactId "${project.artifactId}"
+                        -hdf project.groupId "${project.groupId}"
+                        -hdf project.version "${project.version}"
                         -hdf project.name "${project.name}"
-                        -d
-                        ${project.build.directory}/apidocs
+                        -d ${project.build.directory}/apidocs
+                        -htmldir ${basedir}/doc
                     </additionalparam>
                     <useStandardDocletOptions>false</useStandardDocletOptions>
                     <additionalJOption>-J-Xmx1024m</additionalJOption>

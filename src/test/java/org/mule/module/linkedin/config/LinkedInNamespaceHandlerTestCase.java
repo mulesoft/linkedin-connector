@@ -22,8 +22,8 @@ import org.mule.transport.http.HttpConnector;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -75,15 +75,15 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
         moduleObject.setAccessTokenSecret("");
         moduleObject.setOauthVerifier("");
 
-        profileFields = new HashSet<ProfileField>(2);
+        profileFields = new LinkedHashSet<ProfileField>(2);
         profileFields.add(ProfileField.LAST_NAME);
         profileFields.add(ProfileField.HONORS);
 
-        networkUpdateTypes = new HashSet<NetworkUpdateType>(2);
+        networkUpdateTypes = new LinkedHashSet<NetworkUpdateType>(2);
         networkUpdateTypes.add(NetworkUpdateType.PROFILE_UPDATE);
         networkUpdateTypes.add(NetworkUpdateType.RECOMMENDATION_UPDATE);
 
-        searchParameters = new HashMap<SearchParameter, String>(2);
+        searchParameters = new LinkedHashMap<SearchParameter, String>(2);
         searchParameters.put(SearchParameter.CURRENT_COMPANY, "MuleSoft");
         searchParameters.put(SearchParameter.TITLE, "Engineer");
 
@@ -91,7 +91,7 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
         facets.add(new Parameter<FacetType, String>(FacetType.INDUSTRY, "Software"));
         facets.add(new Parameter<FacetType, String>(FacetType.PAST_COMPANY, "MuleSource"));
 
-        facetFields = new HashSet<FacetField>(2);
+        facetFields = new LinkedHashSet<FacetField>(2);
         facetFields.add(FacetField.BUCKET_NAME);
         facetFields.add(FacetField.BUCKET_CODE);
     }

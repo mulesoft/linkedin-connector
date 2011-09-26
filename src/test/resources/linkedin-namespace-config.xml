@@ -13,7 +13,7 @@
 
     <linkedin:config apiKey="qvGcsquonvOyticiGEP7ys8M_s_UZvmvF4RhxkF1AKWE3WGMnQy_Vd2Iqv7dwGZm"
                      apiSecret="cv0MO5Tp7WgsbSBT3AF44ToP45VGV5OgtOBqRa6zPqZ3MYomK38Ma5QLsxdZ4DCG">
-        <linkedin:httpCallbackConfig domain="" port=""/>
+        <linkedin:http-callback-config domain="" localPort="" remotePort=""/>
     </linkedin:config>
 
     <flow name="GetProfileForCurrentUser">

@@ -14,12 +14,11 @@ import com.google.code.linkedinapi.schema.VisibilityType;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mule.api.MuleContext;
-import org.mule.construct.SimpleFlowConstruct;
+import org.mule.construct.Flow;
 import org.mule.module.linkedin.LinkedInClientFactory;
 import org.mule.tck.FunctionalTestCase;
 import org.mule.transport.http.HttpConnector;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -68,7 +67,7 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
         MockitoAnnotations.initMocks(this);
         LinkedInClientFactory.setDefaultClient(mockClient);
 
-        LinkedInConnectorOAuthAdapter moduleObject = muleContext.getRegistry().lookupObject(LinkedInConnectorOAuthAdapter.class);
+        LinkedInConnectorOAuth1Adapter moduleObject = muleContext.getRegistry().lookupObject(LinkedInConnectorOAuth1Adapter.class);
         moduleObject.setAccessToken("");
         moduleObject.setAccessTokenSecret("");
         moduleObject.setOauthVerifier("");
@@ -216,7 +215,7 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
 
 
     private void runFlow(String flowName) throws Exception {
-        SimpleFlowConstruct flowConstruct = (SimpleFlowConstruct) muleContext.getRegistry().lookupFlowConstruct(flowName);
+        Flow flowConstruct = (Flow) muleContext.getRegistry().lookupFlowConstruct(flowName);
         flowConstruct.process(getTestEvent(""));
     }
 }

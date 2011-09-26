@@ -42,6 +42,7 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
     private static final Date START_DATE = new Date(2011 - 1900, 8 - 1, 10);
     private static final Date END_DATE = new Date(2011 - 1900, 8 - 1, 10);
     private static final Date MODIFICATION_DATE = new Date(2011 - 1900, 8 - 1, 20);
+    private static final String HTTP_PORT = "9099";
     private Set<ProfileField> profileFields;
     private Set<NetworkUpdateType> networkUpdateTypes;
     private Set<FacetField> facetFields;
@@ -57,6 +58,8 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
 
     @Override
     protected MuleContext createMuleContext() throws Exception {
+        System.setProperty("http.port", HTTP_PORT);
+
         MuleContext muleContext = super.createMuleContext();
         muleContext.getRegistry().registerObject("connector.http.mule.default", new HttpConnector(muleContext));
         return muleContext;

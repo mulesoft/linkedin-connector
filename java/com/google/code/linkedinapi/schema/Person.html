@@ -1,0 +1,5764 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule LinkedIn Cloud Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
+<title>
+
+  Person
+
+
+| Mule LinkedIn Cloud Connector
+
+</title>
+<link href="../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../", "../../../../../../assets/");
+</script>
+<script src="../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule LinkedIn Cloud Connector</span>
+    
+    <ul id="header-tabs" class="">
+    	<li id="guide"><a href="../../../../../../guide/index.html">
+	    	<span class="en">User Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../../../../../../java/index.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../../../../../../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../java/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/package-summary.html">com.google.code.linkedinapi.client</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/constant/package-summary.html">com.google.code.linkedinapi.client.constant</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/enumeration/package-summary.html">com.google.code.linkedinapi.client.enumeration</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/enumeration/config/package-summary.html">com.google.code.linkedinapi.client.enumeration.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/impl/package-summary.html">com.google.code.linkedinapi.client.impl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/oauth/package-summary.html">com.google.code.linkedinapi.client.oauth</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/package-summary.html">com.google.code.linkedinapi.schema</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/config/package-summary.html">com.google.code.linkedinapi.schema.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/impl/package-summary.html">com.google.code.linkedinapi.schema.impl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/xpp/package-summary.html">com.google.code.linkedinapi.schema.xpp</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Action.html">Action</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Activity.html">Activity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Answer.html">Answer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Answers.html">Answers</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ApiStandardProfileRequest.html">ApiStandardProfileRequest</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Application.html">Application</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Attribution.html">Attribution</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Author.html">Author</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Authority.html">Authority</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Authorization.html">Authorization</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Authors.html">Authors</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Bucket.html">Bucket</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Buckets.html">Buckets</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Certification.html">Certification</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Certifications.html">Certifications</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Company.html">Company</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/CompanyJobUpdate.html">CompanyJobUpdate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/CompanyPersonUpdate.html">CompanyPersonUpdate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/CompanyProfileUpdate.html">CompanyProfileUpdate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Content.html">Content</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Country.html">Country</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/CurrentShare.html">CurrentShare</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Date.html">Date</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/DateOfBirth.html">DateOfBirth</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Editor.html">Editor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Education.html">Education</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Educations.html">Educations</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/EndDate.html">EndDate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Error.html">Error</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Facet.html">Facet</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Facets.html">Facets</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Headers.html">Headers</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/HttpHeader.html">HttpHeader</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccount.html">ImAccount</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccounts.html">ImAccounts</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Inventor.html">Inventor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Inventors.html">Inventors</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/InvitationRequest.html">InvitationRequest</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ItemContent.html">ItemContent</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Job.html">Job</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/JobPoster.html">JobPoster</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Language.html">Language</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Languages.html">Languages</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Like.html">Like</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Likes.html">Likes</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Location.html">Location</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/MailboxItem.html">MailboxItem</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberGroup.html">MemberGroup</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberGroups.html">MemberGroups</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberUrl.html">MemberUrl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberUrlResources.html">MemberUrlResources</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/NameType.html">NameType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Network.html">Network</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/NetworkStats.html">NetworkStats</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/NewPosition.html">NewPosition</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Office.html">Office</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/OldPosition.html">OldPosition</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/OriginalUpdate.html">OriginalUpdate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Patent.html">Patent</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Patents.html">Patents</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/People.html">People</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/PeopleSearch.html">PeopleSearch</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Person.html">Person</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/PersonActivities.html">PersonActivities</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneNumber.html">PhoneNumber</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneNumbers.html">PhoneNumbers</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Position.html">Position</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Positions.html">Positions</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Proficiency.html">Proficiency</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ProfileField.html">ProfileField</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Property.html">Property</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Publication.html">Publication</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/PublicationAuthor.html">PublicationAuthor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Publications.html">Publications</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Publisher.html">Publisher</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Question.html">Question</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/QuestionCategories.html">QuestionCategories</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/QuestionCategory.html">QuestionCategory</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Recipient.html">Recipient</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Recipients.html">Recipients</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Recommendation.html">Recommendation</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsGiven.html">RecommendationsGiven</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsReceived.html">RecommendationsReceived</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationType.html">RecommendationType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Recommendee.html">Recommendee</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Recommender.html">Recommender</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/RelatedConnections.html">RelatedConnections</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/RelationToViewer.html">RelationToViewer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/SchemaElementFactory.html">SchemaElementFactory</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/SchemaEntity.html">SchemaEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ServiceProvider.html">ServiceProvider</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Share.html">Share</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteGroupRequest.html">SiteGroupRequest</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteJobRequest.html">SiteJobRequest</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteStandardProfileRequest.html">SiteStandardProfileRequest</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Skill.html">Skill</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Skills.html">Skills</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Source.html">Source</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/StartDate.html">StartDate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Status.html">Status</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreeCurrentPositions.html">ThreeCurrentPositions</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreePastPositions.html">ThreePastPositions</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/TwitterAccount.html">TwitterAccount</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/TwitterAccounts.html">TwitterAccounts</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Update.html">Update</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/UpdateAction.html">UpdateAction</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/UpdateComment.html">UpdateComment</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/UpdateComments.html">UpdateComments</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/UpdateContent.html">UpdateContent</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Updates.html">Updates</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Visibility.html">Visibility</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Years.html">Years</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Adapter1.html">Adapter1</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/Adapter2.html">Adapter2</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ObjectFactory.html">ObjectFactory</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/FacetType.html">FacetType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccountType.html">ImAccountType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/InviteConnectType.html">InviteConnectType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/NetworkUpdateContentType.html">NetworkUpdateContentType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/NetworkUpdateReturnType.html">NetworkUpdateReturnType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneType.html">PhoneType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/ProficiencyLevelType.html">ProficiencyLevelType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationCode.html">RecommendationCode</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/com/google/code/linkedinapi/schema/VisibilityType.html">VisibilityType</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+
+
+
+
+  <a href="#pubmethods">Methods</a>
+  
+
+
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    interface
+<h1>Person</h1>
+
+
+
+  
+  
+      implements 
+      
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/SchemaEntity.html">SchemaEntity</a> 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">com.google.code.linkedinapi.schema.Person</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-indirect" class="jd-expando-trigger closed"
+          ><img id="subclasses-indirect-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Indirect Subclasses
+
+  <div id="subclasses-indirect">
+      <div id="subclasses-indirect-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../../../../java/com/google/code/linkedinapi/schema/xpp/PersonImpl.html">PersonImpl</a>
+            
+          
+      </div>
+      <div id="subclasses-indirect-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/google/code/linkedinapi/schema/xpp/PersonImpl.html">PersonImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p><p>Java class for anonymous complex type.
+ <p/>
+ <p>The following schema fragment specifies the expected content contained within this class.
+ <p/>
+ <pre>
+ &lt;complexType>
+   &lt;complexContent>
+     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+       &lt;sequence>
+         &lt;element ref="{}id" minOccurs="0"/>
+         &lt;sequence minOccurs="0">
+           &lt;element ref="{}first-name"/>
+           &lt;element ref="{}last-name"/>
+           &lt;element ref="{}headline"/>
+         &lt;/sequence>
+         &lt;sequence minOccurs="0">
+           &lt;element ref="{}location"/>
+           &lt;element ref="{}industry"/>
+         &lt;/sequence>
+         &lt;sequence minOccurs="0">
+           &lt;element ref="{}connections"/>
+           &lt;element ref="{}current-status"/>
+           &lt;element ref="{}current-share"/>
+           &lt;element ref="{}distance"/>
+           &lt;element ref="{}current-status-timestamp"/>
+           &lt;element ref="{}num-recommenders"/>
+           &lt;element ref="{}num-connections"/>
+           &lt;element ref="{}num-connections-capped"/>
+           &lt;element ref="{}relation-to-viewer"/>
+           &lt;element ref="{}summary"/>
+           &lt;element ref="{}public-profile-url"/>
+           &lt;element ref="{}interests"/>
+           &lt;element ref="{}associations"/>
+           &lt;element ref="{}honors"/>
+           &lt;element ref="{}specialties"/>
+           &lt;element ref="{}certifications"/>
+           &lt;element ref="{}patents"/>
+           &lt;element ref="{}publications"/>
+           &lt;element ref="{}skills"/>
+           &lt;element ref="{}languages"/>
+         &lt;/sequence>
+         &lt;element ref="{}positions" minOccurs="0"/>
+         &lt;element ref="{}three-current-positions" minOccurs="0"/>
+         &lt;element ref="{}three-past-positions" minOccurs="0"/>
+         &lt;sequence minOccurs="0">
+           &lt;element ref="{}educations"/>
+           &lt;element ref="{}member-url-resources"/>
+         &lt;/sequence>
+         &lt;sequence minOccurs="0">
+           &lt;element ref="{}api-standard-profile-request"/>
+           &lt;element ref="{}site-standard-profile-request"/>
+         &lt;/sequence>
+         &lt;element ref="{}picture-url" minOccurs="0"/>
+         &lt;element ref="{}recommendations-given" minOccurs="0"/>
+         &lt;element ref="{}recommendations-received" minOccurs="0"/>
+         &lt;element ref="{}member-groups" minOccurs="0"/>
+         &lt;element ref="{}person-activities" minOccurs="0"/>
+         &lt;element ref="{}im-accounts" minOccurs="0"/>
+         &lt;element ref="{}twitter-accounts" minOccurs="0"/>
+         &lt;element ref="{}date-of-birth" minOccurs="0"/>
+         &lt;element ref="{}main-address" minOccurs="0"/>
+         &lt;element ref="{}phone-numbers" minOccurs="0"/>
+       &lt;/sequence>
+       &lt;attribute name="path" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
+     &lt;/restriction>
+   &lt;/complexContent>
+ &lt;/complexType>
+ </pre>
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/ApiStandardProfileRequest.html">ApiStandardProfileRequest</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getApiStandardProfileRequest()">getApiStandardProfileRequest</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the apiStandardProfileRequest property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getAssociations()">getAssociations</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the associations property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Certifications.html">Certifications</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getCertifications()">getCertifications</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the certifications property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getConnections()">getConnections</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the connections property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/CurrentShare.html">CurrentShare</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getCurrentShare()">getCurrentShare</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the currentShare property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getCurrentStatus()">getCurrentStatus</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the currentStatus property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getCurrentStatusTimestamp()">getCurrentStatusTimestamp</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the currentStatusTimestamp property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/DateOfBirth.html">DateOfBirth</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getDateOfBirth()">getDateOfBirth</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the dateOfBirth property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getDistance()">getDistance</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the distance property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Educations.html">Educations</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getEducations()">getEducations</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the educations property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getFirstName()">getFirstName</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the firstName property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getHeadline()">getHeadline</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the headline property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getHonors()">getHonors</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the honors property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getId()">getId</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the id property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccounts.html">ImAccounts</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getImAccounts()">getImAccounts</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the imAccounts property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getIndustry()">getIndustry</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the industry property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getInterests()">getInterests</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the interests property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Languages.html">Languages</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getLanguages()">getLanguages</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the languages property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getLastName()">getLastName</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the lastName property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Location.html">Location</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getLocation()">getLocation</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the location property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getMainAddress()">getMainAddress</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the mainAddress property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberGroups.html">MemberGroups</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getMemberGroups()">getMemberGroups</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the memberGroups property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberUrlResources.html">MemberUrlResources</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getMemberUrlResources()">getMemberUrlResources</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the memberUrlResources property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getNumConnections()">getNumConnections</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the numConnections property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getNumRecommenders()">getNumRecommenders</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the numRecommenders property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Patents.html">Patents</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getPatents()">getPatents</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the patents property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getPath()">getPath</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the path property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/PersonActivities.html">PersonActivities</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getPersonActivities()">getPersonActivities</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the personActivities property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneNumbers.html">PhoneNumbers</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getPhoneNumbers()">getPhoneNumbers</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the phoneNumbers property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getPictureUrl()">getPictureUrl</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the pictureUrl property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Positions.html">Positions</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getPositions()">getPositions</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the positions property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getPublicProfileUrl()">getPublicProfileUrl</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the publicProfileUrl property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Publications.html">Publications</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getPublications()">getPublications</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the publications property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsGiven.html">RecommendationsGiven</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getRecommendationsGiven()">getRecommendationsGiven</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the recommendationsGiven property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsReceived.html">RecommendationsReceived</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getRecommendationsReceived()">getRecommendationsReceived</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the recommendationsReceived property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/RelationToViewer.html">RelationToViewer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getRelationToViewer()">getRelationToViewer</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the relationToViewer property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteStandardProfileRequest.html">SiteStandardProfileRequest</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getSiteStandardProfileRequest()">getSiteStandardProfileRequest</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the siteStandardProfileRequest property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/Skills.html">Skills</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getSkills()">getSkills</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the skills property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getSpecialties()">getSpecialties</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the specialties property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getSummary()">getSummary</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the summary property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreeCurrentPositions.html">ThreeCurrentPositions</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getThreeCurrentPositions()">getThreeCurrentPositions</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the threeCurrentPositions property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreePastPositions.html">ThreePastPositions</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getThreePastPositions()">getThreePastPositions</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the threePastPositions property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/com/google/code/linkedinapi/schema/TwitterAccounts.html">TwitterAccounts</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#getTwitterAccounts()">getTwitterAccounts</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the twitterAccounts property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#isNumConnectionsCapped()">isNumConnectionsCapped</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the value of the numConnectionsCapped property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setApiStandardProfileRequest(com.google.code.linkedinapi.schema.ApiStandardProfileRequest)">setApiStandardProfileRequest</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/ApiStandardProfileRequest.html">ApiStandardProfileRequest</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the apiStandardProfileRequest property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setAssociations(java.lang.String)">setAssociations</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the associations property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setCertifications(com.google.code.linkedinapi.schema.Certifications)">setCertifications</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Certifications.html">Certifications</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the certifications property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setConnections(com.google.code.linkedinapi.schema.Connections)">setConnections</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the connections property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setCurrentShare(com.google.code.linkedinapi.schema.CurrentShare)">setCurrentShare</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/CurrentShare.html">CurrentShare</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the currentShare property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setCurrentStatus(java.lang.String)">setCurrentStatus</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the currentStatus property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setCurrentStatusTimestamp(java.lang.Long)">setCurrentStatusTimestamp</a></span>(Long value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the currentStatusTimestamp property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setDateOfBirth(com.google.code.linkedinapi.schema.DateOfBirth)">setDateOfBirth</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/DateOfBirth.html">DateOfBirth</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the dateOfBirth property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setDistance(java.lang.Long)">setDistance</a></span>(Long value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the distance property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setEducations(com.google.code.linkedinapi.schema.Educations)">setEducations</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Educations.html">Educations</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the educations property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setFirstName(java.lang.String)">setFirstName</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the firstName property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setHeadline(java.lang.String)">setHeadline</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the headline property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setHonors(java.lang.String)">setHonors</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the honors property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setId(java.lang.String)">setId</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the id property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setImAccounts(com.google.code.linkedinapi.schema.ImAccounts)">setImAccounts</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccounts.html">ImAccounts</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the imAccounts property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setIndustry(java.lang.String)">setIndustry</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the industry property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setInterests(java.lang.String)">setInterests</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the interests property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setLanguages(com.google.code.linkedinapi.schema.Languages)">setLanguages</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Languages.html">Languages</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the languages property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setLastName(java.lang.String)">setLastName</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the lastName property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setLocation(com.google.code.linkedinapi.schema.Location)">setLocation</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Location.html">Location</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the location property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setMainAddress(java.lang.String)">setMainAddress</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the mainAddress property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setMemberGroups(com.google.code.linkedinapi.schema.MemberGroups)">setMemberGroups</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberGroups.html">MemberGroups</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the memberGroups property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setMemberUrlResources(com.google.code.linkedinapi.schema.MemberUrlResources)">setMemberUrlResources</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberUrlResources.html">MemberUrlResources</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the memberUrlResources property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setNumConnections(java.lang.Long)">setNumConnections</a></span>(Long value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the numConnections property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setNumConnectionsCapped(java.lang.Boolean)">setNumConnectionsCapped</a></span>(Boolean value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the numConnectionsCapped property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setNumRecommenders(java.lang.Long)">setNumRecommenders</a></span>(Long value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the numRecommenders property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setPatents(com.google.code.linkedinapi.schema.Patents)">setPatents</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Patents.html">Patents</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the patents property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setPath(java.lang.String)">setPath</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the path property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setPersonActivities(com.google.code.linkedinapi.schema.PersonActivities)">setPersonActivities</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/PersonActivities.html">PersonActivities</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the personActivities property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setPhoneNumbers(com.google.code.linkedinapi.schema.PhoneNumbers)">setPhoneNumbers</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneNumbers.html">PhoneNumbers</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the phoneNumbers property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setPictureUrl(java.lang.String)">setPictureUrl</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the pictureUrl property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setPositions(com.google.code.linkedinapi.schema.Positions)">setPositions</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Positions.html">Positions</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the positions property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setPublicProfileUrl(java.lang.String)">setPublicProfileUrl</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the publicProfileUrl property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setPublications(com.google.code.linkedinapi.schema.Publications)">setPublications</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Publications.html">Publications</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the publications property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setRecommendationsGiven(com.google.code.linkedinapi.schema.RecommendationsGiven)">setRecommendationsGiven</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsGiven.html">RecommendationsGiven</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the recommendationsGiven property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setRecommendationsReceived(com.google.code.linkedinapi.schema.RecommendationsReceived)">setRecommendationsReceived</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsReceived.html">RecommendationsReceived</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the recommendationsReceived property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setRelationToViewer(com.google.code.linkedinapi.schema.RelationToViewer)">setRelationToViewer</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/RelationToViewer.html">RelationToViewer</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the relationToViewer property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setSiteStandardProfileRequest(com.google.code.linkedinapi.schema.SiteStandardProfileRequest)">setSiteStandardProfileRequest</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteStandardProfileRequest.html">SiteStandardProfileRequest</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the siteStandardProfileRequest property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setSkills(com.google.code.linkedinapi.schema.Skills)">setSkills</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Skills.html">Skills</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the skills property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setSpecialties(java.lang.String)">setSpecialties</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the specialties property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setSummary(java.lang.String)">setSummary</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the summary property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setThreeCurrentPositions(com.google.code.linkedinapi.schema.ThreeCurrentPositions)">setThreeCurrentPositions</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreeCurrentPositions.html">ThreeCurrentPositions</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the threeCurrentPositions property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setThreePastPositions(com.google.code.linkedinapi.schema.ThreePastPositions)">setThreePastPositions</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreePastPositions.html">ThreePastPositions</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the threePastPositions property.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../com/google/code/linkedinapi/schema/Person.html#setTwitterAccounts(com.google.code.linkedinapi.schema.TwitterAccounts)">setTwitterAccounts</a></span>(<a href="../../../../../../java/com/google/code/linkedinapi/schema/TwitterAccounts.html">TwitterAccounts</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value of the twitterAccounts property.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="getApiStandardProfileRequest()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/ApiStandardProfileRequest.html">ApiStandardProfileRequest</a>
+      </span>
+      <span class="sympad">getApiStandardProfileRequest</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the apiStandardProfileRequest property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/ApiStandardProfileRequest.html">ApiStandardProfileRequest</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getAssociations()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getAssociations</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the associations property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCertifications()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Certifications.html">Certifications</a>
+      </span>
+      <span class="sympad">getCertifications</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the certifications property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Certifications.html">Certifications</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getConnections()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a>
+      </span>
+      <span class="sympad">getConnections</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the connections property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCurrentShare()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/CurrentShare.html">CurrentShare</a>
+      </span>
+      <span class="sympad">getCurrentShare</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the currentShare property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/CurrentShare.html">CurrentShare</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCurrentStatus()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getCurrentStatus</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the currentStatus property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCurrentStatusTimestamp()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        Long
+      </span>
+      <span class="sympad">getCurrentStatusTimestamp</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the currentStatusTimestamp property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDateOfBirth()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/DateOfBirth.html">DateOfBirth</a>
+      </span>
+      <span class="sympad">getDateOfBirth</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the dateOfBirth property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/DateOfBirth.html">DateOfBirth</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDistance()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        Long
+      </span>
+      <span class="sympad">getDistance</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the distance property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getEducations()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Educations.html">Educations</a>
+      </span>
+      <span class="sympad">getEducations</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the educations property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Educations.html">Educations</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getFirstName()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getFirstName</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the firstName property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getHeadline()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getHeadline</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the headline property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getHonors()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getHonors</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the honors property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getId()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getId</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the id property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getImAccounts()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccounts.html">ImAccounts</a>
+      </span>
+      <span class="sympad">getImAccounts</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the imAccounts property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccounts.html">ImAccounts</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getIndustry()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getIndustry</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the industry property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getInterests()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getInterests</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the interests property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLanguages()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Languages.html">Languages</a>
+      </span>
+      <span class="sympad">getLanguages</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the languages property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Languages.html">Languages</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLastName()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getLastName</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the lastName property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLocation()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Location.html">Location</a>
+      </span>
+      <span class="sympad">getLocation</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the location property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Location.html">Location</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getMainAddress()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getMainAddress</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the mainAddress property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getMemberGroups()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberGroups.html">MemberGroups</a>
+      </span>
+      <span class="sympad">getMemberGroups</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the memberGroups property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberGroups.html">MemberGroups</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getMemberUrlResources()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberUrlResources.html">MemberUrlResources</a>
+      </span>
+      <span class="sympad">getMemberUrlResources</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the memberUrlResources property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberUrlResources.html">MemberUrlResources</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getNumConnections()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        Long
+      </span>
+      <span class="sympad">getNumConnections</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the numConnections property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getNumRecommenders()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        Long
+      </span>
+      <span class="sympad">getNumRecommenders</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the numRecommenders property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPatents()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Patents.html">Patents</a>
+      </span>
+      <span class="sympad">getPatents</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the patents property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Patents.html">Patents</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPath()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getPath</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the path property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPersonActivities()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/PersonActivities.html">PersonActivities</a>
+      </span>
+      <span class="sympad">getPersonActivities</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the personActivities property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/PersonActivities.html">PersonActivities</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPhoneNumbers()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneNumbers.html">PhoneNumbers</a>
+      </span>
+      <span class="sympad">getPhoneNumbers</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the phoneNumbers property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneNumbers.html">PhoneNumbers</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPictureUrl()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getPictureUrl</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the pictureUrl property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPositions()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Positions.html">Positions</a>
+      </span>
+      <span class="sympad">getPositions</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the positions property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Positions.html">Positions</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPublicProfileUrl()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getPublicProfileUrl</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the publicProfileUrl property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPublications()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Publications.html">Publications</a>
+      </span>
+      <span class="sympad">getPublications</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the publications property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Publications.html">Publications</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getRecommendationsGiven()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsGiven.html">RecommendationsGiven</a>
+      </span>
+      <span class="sympad">getRecommendationsGiven</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the recommendationsGiven property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsGiven.html">RecommendationsGiven</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getRecommendationsReceived()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsReceived.html">RecommendationsReceived</a>
+      </span>
+      <span class="sympad">getRecommendationsReceived</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the recommendationsReceived property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsReceived.html">RecommendationsReceived</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getRelationToViewer()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/RelationToViewer.html">RelationToViewer</a>
+      </span>
+      <span class="sympad">getRelationToViewer</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the relationToViewer property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/RelationToViewer.html">RelationToViewer</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSiteStandardProfileRequest()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteStandardProfileRequest.html">SiteStandardProfileRequest</a>
+      </span>
+      <span class="sympad">getSiteStandardProfileRequest</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the siteStandardProfileRequest property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteStandardProfileRequest.html">SiteStandardProfileRequest</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSkills()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/Skills.html">Skills</a>
+      </span>
+      <span class="sympad">getSkills</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the skills property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Skills.html">Skills</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSpecialties()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getSpecialties</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specialties property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSummary()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getSummary</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the summary property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         String
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getThreeCurrentPositions()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreeCurrentPositions.html">ThreeCurrentPositions</a>
+      </span>
+      <span class="sympad">getThreeCurrentPositions</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the threeCurrentPositions property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreeCurrentPositions.html">ThreeCurrentPositions</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getThreePastPositions()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreePastPositions.html">ThreePastPositions</a>
+      </span>
+      <span class="sympad">getThreePastPositions</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the threePastPositions property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreePastPositions.html">ThreePastPositions</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getTwitterAccounts()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/com/google/code/linkedinapi/schema/TwitterAccounts.html">TwitterAccounts</a>
+      </span>
+      <span class="sympad">getTwitterAccounts</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the twitterAccounts property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/TwitterAccounts.html">TwitterAccounts</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isNumConnectionsCapped()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        Boolean
+      </span>
+      <span class="sympad">isNumConnectionsCapped</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the numConnectionsCapped property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>possible object is
+         Boolean
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setApiStandardProfileRequest(com.google.code.linkedinapi.schema.ApiStandardProfileRequest)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setApiStandardProfileRequest</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/ApiStandardProfileRequest.html">ApiStandardProfileRequest</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the apiStandardProfileRequest property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/ApiStandardProfileRequest.html">ApiStandardProfileRequest</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setAssociations(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setAssociations</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the associations property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setCertifications(com.google.code.linkedinapi.schema.Certifications)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setCertifications</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Certifications.html">Certifications</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the certifications property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Certifications.html">Certifications</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setConnections(com.google.code.linkedinapi.schema.Connections)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setConnections</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the connections property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setCurrentShare(com.google.code.linkedinapi.schema.CurrentShare)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setCurrentShare</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/CurrentShare.html">CurrentShare</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the currentShare property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/CurrentShare.html">CurrentShare</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setCurrentStatus(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setCurrentStatus</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the currentStatus property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setCurrentStatusTimestamp(java.lang.Long)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setCurrentStatusTimestamp</span>
+      <span class="normal">(Long value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the currentStatusTimestamp property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDateOfBirth(com.google.code.linkedinapi.schema.DateOfBirth)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setDateOfBirth</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/DateOfBirth.html">DateOfBirth</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the dateOfBirth property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/DateOfBirth.html">DateOfBirth</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDistance(java.lang.Long)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setDistance</span>
+      <span class="normal">(Long value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the distance property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setEducations(com.google.code.linkedinapi.schema.Educations)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setEducations</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Educations.html">Educations</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the educations property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Educations.html">Educations</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setFirstName(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setFirstName</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the firstName property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setHeadline(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setHeadline</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the headline property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setHonors(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setHonors</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the honors property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setId(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setId</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the id property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setImAccounts(com.google.code.linkedinapi.schema.ImAccounts)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setImAccounts</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccounts.html">ImAccounts</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the imAccounts property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/ImAccounts.html">ImAccounts</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setIndustry(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setIndustry</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the industry property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setInterests(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setInterests</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the interests property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLanguages(com.google.code.linkedinapi.schema.Languages)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setLanguages</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Languages.html">Languages</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the languages property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Languages.html">Languages</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLastName(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setLastName</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the lastName property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLocation(com.google.code.linkedinapi.schema.Location)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setLocation</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Location.html">Location</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the location property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Location.html">Location</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setMainAddress(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setMainAddress</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the mainAddress property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setMemberGroups(com.google.code.linkedinapi.schema.MemberGroups)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setMemberGroups</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberGroups.html">MemberGroups</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the memberGroups property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberGroups.html">MemberGroups</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setMemberUrlResources(com.google.code.linkedinapi.schema.MemberUrlResources)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setMemberUrlResources</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberUrlResources.html">MemberUrlResources</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the memberUrlResources property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/MemberUrlResources.html">MemberUrlResources</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setNumConnections(java.lang.Long)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setNumConnections</span>
+      <span class="normal">(Long value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the numConnections property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setNumConnectionsCapped(java.lang.Boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setNumConnectionsCapped</span>
+      <span class="normal">(Boolean value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the numConnectionsCapped property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              Boolean
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setNumRecommenders(java.lang.Long)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setNumRecommenders</span>
+      <span class="normal">(Long value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the numRecommenders property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPatents(com.google.code.linkedinapi.schema.Patents)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setPatents</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Patents.html">Patents</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the patents property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Patents.html">Patents</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPath(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setPath</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the path property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPersonActivities(com.google.code.linkedinapi.schema.PersonActivities)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setPersonActivities</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/PersonActivities.html">PersonActivities</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the personActivities property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/PersonActivities.html">PersonActivities</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPhoneNumbers(com.google.code.linkedinapi.schema.PhoneNumbers)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setPhoneNumbers</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneNumbers.html">PhoneNumbers</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the phoneNumbers property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/PhoneNumbers.html">PhoneNumbers</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPictureUrl(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setPictureUrl</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the pictureUrl property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPositions(com.google.code.linkedinapi.schema.Positions)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setPositions</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Positions.html">Positions</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the positions property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Positions.html">Positions</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPublicProfileUrl(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setPublicProfileUrl</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the publicProfileUrl property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPublications(com.google.code.linkedinapi.schema.Publications)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setPublications</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Publications.html">Publications</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the publications property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Publications.html">Publications</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setRecommendationsGiven(com.google.code.linkedinapi.schema.RecommendationsGiven)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setRecommendationsGiven</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsGiven.html">RecommendationsGiven</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the recommendationsGiven property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsGiven.html">RecommendationsGiven</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setRecommendationsReceived(com.google.code.linkedinapi.schema.RecommendationsReceived)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setRecommendationsReceived</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsReceived.html">RecommendationsReceived</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the recommendationsReceived property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/RecommendationsReceived.html">RecommendationsReceived</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setRelationToViewer(com.google.code.linkedinapi.schema.RelationToViewer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setRelationToViewer</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/RelationToViewer.html">RelationToViewer</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the relationToViewer property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/RelationToViewer.html">RelationToViewer</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSiteStandardProfileRequest(com.google.code.linkedinapi.schema.SiteStandardProfileRequest)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setSiteStandardProfileRequest</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteStandardProfileRequest.html">SiteStandardProfileRequest</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the siteStandardProfileRequest property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/SiteStandardProfileRequest.html">SiteStandardProfileRequest</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSkills(com.google.code.linkedinapi.schema.Skills)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setSkills</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/Skills.html">Skills</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the skills property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/Skills.html">Skills</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSpecialties(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setSpecialties</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the specialties property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSummary(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setSummary</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the summary property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              String
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setThreeCurrentPositions(com.google.code.linkedinapi.schema.ThreeCurrentPositions)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setThreeCurrentPositions</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreeCurrentPositions.html">ThreeCurrentPositions</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the threeCurrentPositions property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreeCurrentPositions.html">ThreeCurrentPositions</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setThreePastPositions(com.google.code.linkedinapi.schema.ThreePastPositions)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setThreePastPositions</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreePastPositions.html">ThreePastPositions</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the threePastPositions property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/ThreePastPositions.html">ThreePastPositions</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setTwitterAccounts(com.google.code.linkedinapi.schema.TwitterAccounts)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setTwitterAccounts</span>
+      <span class="normal">(<a href="../../../../../../java/com/google/code/linkedinapi/schema/TwitterAccounts.html">TwitterAccounts</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the twitterAccounts property.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>allowed object is
+              <code><a href="../../../../../../java/com/google/code/linkedinapi/schema/TwitterAccounts.html">TwitterAccounts</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

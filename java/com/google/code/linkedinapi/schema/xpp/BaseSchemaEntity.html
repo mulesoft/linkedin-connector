@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule LinkedIn Cloud Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
+<title>
+
+  BaseSchemaEntity
+
+
+| Mule LinkedIn Cloud Connector
+
+</title>
+<link href="../../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../../", "../../../../../../../assets/");
+</script>
+<script src="../../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule LinkedIn Cloud Connector</span>
+    
+    <ul id="header-tabs" class="">
+    	<li id="guide"><a href="../../../../../../../guide/index.html">
+	    	<span class="en">User Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../../../../../../../java/index.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../../../../../../../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../../java/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/package-summary.html">com.google.code.linkedinapi.client</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/constant/package-summary.html">com.google.code.linkedinapi.client.constant</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/package-summary.html">com.google.code.linkedinapi.client.enumeration</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/config/package-summary.html">com.google.code.linkedinapi.client.enumeration.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/impl/package-summary.html">com.google.code.linkedinapi.client.impl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/oauth/package-summary.html">com.google.code.linkedinapi.client.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/schema/package-summary.html">com.google.code.linkedinapi.schema</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/schema/config/package-summary.html">com.google.code.linkedinapi.schema.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/schema/impl/package-summary.html">com.google.code.linkedinapi.schema.impl</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/package-summary.html">com.google.code.linkedinapi.schema.xpp</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ActionImpl.html">ActionImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ActivityImpl.html">ActivityImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AnswerImpl.html">AnswerImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AnswersImpl.html">AnswersImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ApiStandardProfileRequestImpl.html">ApiStandardProfileRequestImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ApplicationImpl.html">ApplicationImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AttributionImpl.html">AttributionImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorImpl.html">AuthorImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorityImpl.html">AuthorityImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorizationImpl.html">AuthorizationImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorsImpl.html">AuthorsImpl</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/BaseSchemaEntity.html">BaseSchemaEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/BucketImpl.html">BucketImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/BucketsImpl.html">BucketsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CertificationImpl.html">CertificationImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CertificationsImpl.html">CertificationsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CompanyImpl.html">CompanyImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CompanyJobUpdateImpl.html">CompanyJobUpdateImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CompanyPersonUpdateImpl.html">CompanyPersonUpdateImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CompanyProfileUpdateImpl.html">CompanyProfileUpdateImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ConnectionsImpl.html">ConnectionsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ContentImpl.html">ContentImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CountryImpl.html">CountryImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CurrentShareImpl.html">CurrentShareImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/DateImpl.html">DateImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/DateOfBirthImpl.html">DateOfBirthImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/EditorImpl.html">EditorImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/EducationImpl.html">EducationImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/EducationsImpl.html">EducationsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/EndDateImpl.html">EndDateImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ErrorImpl.html">ErrorImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/FacetImpl.html">FacetImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/FacetsImpl.html">FacetsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/HeadersImpl.html">HeadersImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/HttpHeaderImpl.html">HttpHeaderImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ImAccountImpl.html">ImAccountImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ImAccountsImpl.html">ImAccountsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/InventorImpl.html">InventorImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/InventorsImpl.html">InventorsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/InvitationRequestImpl.html">InvitationRequestImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ItemContentImpl.html">ItemContentImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/JobImpl.html">JobImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/JobPosterImpl.html">JobPosterImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LanguageImpl.html">LanguageImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LanguagesImpl.html">LanguagesImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LikeImpl.html">LikeImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LikesImpl.html">LikesImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LocationImpl.html">LocationImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MailboxItemImpl.html">MailboxItemImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MemberGroupImpl.html">MemberGroupImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MemberGroupsImpl.html">MemberGroupsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MemberUrlImpl.html">MemberUrlImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MemberUrlResourcesImpl.html">MemberUrlResourcesImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/NameTypeImpl.html">NameTypeImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/NetworkImpl.html">NetworkImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/NetworkStatsImpl.html">NetworkStatsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/NewPositionImpl.html">NewPositionImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/OfficeImpl.html">OfficeImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/OldPositionImpl.html">OldPositionImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/OriginalUpdateImpl.html">OriginalUpdateImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PatentImpl.html">PatentImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PatentsImpl.html">PatentsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PeopleImpl.html">PeopleImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PeopleSearchImpl.html">PeopleSearchImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PersonActivitiesImpl.html">PersonActivitiesImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PersonImpl.html">PersonImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PhoneNumberImpl.html">PhoneNumberImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PhoneNumbersImpl.html">PhoneNumbersImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PositionImpl.html">PositionImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PositionsImpl.html">PositionsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ProficiencyImpl.html">ProficiencyImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ProfileFieldImpl.html">ProfileFieldImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PropertyImpl.html">PropertyImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PublicationAuthorImpl.html">PublicationAuthorImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PublicationImpl.html">PublicationImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PublicationsImpl.html">PublicationsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PublisherImpl.html">PublisherImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/QuestionCategoriesImpl.html">QuestionCategoriesImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/QuestionCategoryImpl.html">QuestionCategoryImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/QuestionImpl.html">QuestionImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecipientImpl.html">RecipientImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecipientsImpl.html">RecipientsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendationImpl.html">RecommendationImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendationsGivenImpl.html">RecommendationsGivenImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendationsReceivedImpl.html">RecommendationsReceivedImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendationTypeImpl.html">RecommendationTypeImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendeeImpl.html">RecommendeeImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommenderImpl.html">RecommenderImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RelatedConnectionsImpl.html">RelatedConnectionsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RelationToViewerImpl.html">RelationToViewerImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ServiceProviderImpl.html">ServiceProviderImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ShareImpl.html">ShareImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SiteGroupRequestImpl.html">SiteGroupRequestImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SiteJobRequestImpl.html">SiteJobRequestImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SiteStandardProfileRequestImpl.html">SiteStandardProfileRequestImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SkillImpl.html">SkillImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SkillsImpl.html">SkillsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SourceImpl.html">SourceImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/StartDateImpl.html">StartDateImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/StatusImpl.html">StatusImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ThreeCurrentPositionsImpl.html">ThreeCurrentPositionsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ThreePastPositionsImpl.html">ThreePastPositionsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/TwitterAccountImpl.html">TwitterAccountImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/TwitterAccountsImpl.html">TwitterAccountsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateActionImpl.html">UpdateActionImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateCommentImpl.html">UpdateCommentImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateCommentsImpl.html">UpdateCommentsImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateContentImpl.html">UpdateContentImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateImpl.html">UpdateImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdatesImpl.html">UpdatesImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/VisibilityImpl.html">VisibilityImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/XppElementFactory.html">XppElementFactory</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/XppUtils.html">XppUtils</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/YearsImpl.html">YearsImpl</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+  <a href="#constants">Constants</a>
+  
+
+
+
+  &#124; <a href="#lfields">Fields</a>
+  
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    abstract
+    class
+<h1>BaseSchemaEntity</h1>
+
+
+
+  
+    extends Object<br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        Serializable 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">com.google.code.linkedinapi.schema.xpp.BaseSchemaEntity</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
+          ><img id="subclasses-direct-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
+
+  <div id="subclasses-direct">
+      <div id="subclasses-direct-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ActionImpl.html">ActionImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ActivityImpl.html">ActivityImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AnswerImpl.html">AnswerImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AnswersImpl.html">AnswersImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ApiStandardProfileRequestImpl.html">ApiStandardProfileRequestImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ApplicationImpl.html">ApplicationImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AttributionImpl.html">AttributionImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorImpl.html">AuthorImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorityImpl.html">AuthorityImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorizationImpl.html">AuthorizationImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorsImpl.html">AuthorsImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/BucketImpl.html">BucketImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/BucketsImpl.html">BucketsImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CertificationImpl.html">CertificationImpl</a>,
+              
+              
+            
+              
+                <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CertificationsImpl.html">CertificationsImpl</a>,
+              
+              and
+                <a href="#" onclick="return toggleInherited(document.getElementById('subclasses-direct', null))">96 others.</a>
+              
+            
+          
+      </div>
+      <div id="subclasses-direct-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ActionImpl.html">ActionImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ActivityImpl.html">ActivityImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AnswerImpl.html">AnswerImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AnswersImpl.html">AnswersImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ApiStandardProfileRequestImpl.html">ApiStandardProfileRequestImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ApplicationImpl.html">ApplicationImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AttributionImpl.html">AttributionImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorImpl.html">AuthorImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorityImpl.html">AuthorityImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorizationImpl.html">AuthorizationImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/AuthorsImpl.html">AuthorsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/BucketImpl.html">BucketImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/BucketsImpl.html">BucketsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CertificationImpl.html">CertificationImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CertificationsImpl.html">CertificationsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CompanyImpl.html">CompanyImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CompanyJobUpdateImpl.html">CompanyJobUpdateImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CompanyPersonUpdateImpl.html">CompanyPersonUpdateImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CompanyProfileUpdateImpl.html">CompanyProfileUpdateImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ConnectionsImpl.html">ConnectionsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ContentImpl.html">ContentImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CountryImpl.html">CountryImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/CurrentShareImpl.html">CurrentShareImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/DateImpl.html">DateImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/DateOfBirthImpl.html">DateOfBirthImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/EditorImpl.html">EditorImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/EducationImpl.html">EducationImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/EducationsImpl.html">EducationsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/EndDateImpl.html">EndDateImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ErrorImpl.html">ErrorImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/FacetImpl.html">FacetImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/FacetsImpl.html">FacetsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/HeadersImpl.html">HeadersImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/HttpHeaderImpl.html">HttpHeaderImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ImAccountImpl.html">ImAccountImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ImAccountsImpl.html">ImAccountsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/InventorImpl.html">InventorImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/InventorsImpl.html">InventorsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/InvitationRequestImpl.html">InvitationRequestImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ItemContentImpl.html">ItemContentImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/JobImpl.html">JobImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/JobPosterImpl.html">JobPosterImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LanguageImpl.html">LanguageImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LanguagesImpl.html">LanguagesImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LikeImpl.html">LikeImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LikesImpl.html">LikesImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/LocationImpl.html">LocationImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MailboxItemImpl.html">MailboxItemImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MemberGroupImpl.html">MemberGroupImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MemberGroupsImpl.html">MemberGroupsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MemberUrlImpl.html">MemberUrlImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/MemberUrlResourcesImpl.html">MemberUrlResourcesImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/NameTypeImpl.html">NameTypeImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/NetworkImpl.html">NetworkImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/NetworkStatsImpl.html">NetworkStatsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/NewPositionImpl.html">NewPositionImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/OfficeImpl.html">OfficeImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/OldPositionImpl.html">OldPositionImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/OriginalUpdateImpl.html">OriginalUpdateImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PatentImpl.html">PatentImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PatentsImpl.html">PatentsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PeopleImpl.html">PeopleImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PeopleSearchImpl.html">PeopleSearchImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PersonActivitiesImpl.html">PersonActivitiesImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PersonImpl.html">PersonImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PhoneNumberImpl.html">PhoneNumberImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PhoneNumbersImpl.html">PhoneNumbersImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PositionImpl.html">PositionImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PositionsImpl.html">PositionsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ProficiencyImpl.html">ProficiencyImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ProfileFieldImpl.html">ProfileFieldImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PropertyImpl.html">PropertyImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PublicationAuthorImpl.html">PublicationAuthorImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PublicationImpl.html">PublicationImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PublicationsImpl.html">PublicationsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/PublisherImpl.html">PublisherImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/QuestionCategoriesImpl.html">QuestionCategoriesImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/QuestionCategoryImpl.html">QuestionCategoryImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/QuestionImpl.html">QuestionImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecipientImpl.html">RecipientImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecipientsImpl.html">RecipientsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendationImpl.html">RecommendationImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendationTypeImpl.html">RecommendationTypeImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendationsGivenImpl.html">RecommendationsGivenImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendationsReceivedImpl.html">RecommendationsReceivedImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommendeeImpl.html">RecommendeeImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RecommenderImpl.html">RecommenderImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RelatedConnectionsImpl.html">RelatedConnectionsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/RelationToViewerImpl.html">RelationToViewerImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ServiceProviderImpl.html">ServiceProviderImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ShareImpl.html">ShareImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SiteGroupRequestImpl.html">SiteGroupRequestImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SiteJobRequestImpl.html">SiteJobRequestImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SiteStandardProfileRequestImpl.html">SiteStandardProfileRequestImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SkillImpl.html">SkillImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SkillsImpl.html">SkillsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/SourceImpl.html">SourceImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/StartDateImpl.html">StartDateImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/StatusImpl.html">StatusImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ThreeCurrentPositionsImpl.html">ThreeCurrentPositionsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/ThreePastPositionsImpl.html">ThreePastPositionsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/TwitterAccountImpl.html">TwitterAccountImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/TwitterAccountsImpl.html">TwitterAccountsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateActionImpl.html">UpdateActionImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateCommentImpl.html">UpdateCommentImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateCommentsImpl.html">UpdateCommentsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateContentImpl.html">UpdateContentImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdateImpl.html">UpdateImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/UpdatesImpl.html">UpdatesImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/VisibilityImpl.html">VisibilityImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/YearsImpl.html">YearsImpl</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>The Class BaseSchemaEntity.</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">long</td>
+        <td class="jd-linkcol"><a href="../../../../../../../com/google/code/linkedinapi/schema/xpp/BaseSchemaEntity.html#serialVersionUID">serialVersionUID</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          final
+          Logger</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../com/google/code/linkedinapi/schema/xpp/BaseSchemaEntity.html#LOG">LOG</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/schema/xpp/BaseSchemaEntity.html#BaseSchemaEntity()">BaseSchemaEntity</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/schema/xpp/BaseSchemaEntity.html#init(org.xmlpull.v1.XmlPullParser)">init</a></span>(XmlPullParser parser)</nobr>
+        
+        <div class="jd-descrdiv">Inits the.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/schema/xpp/BaseSchemaEntity.html#toXml(org.xmlpull.v1.XmlSerializer)">toXml</a></span>(XmlSerializer serializer)</nobr>
+        
+        <div class="jd-descrdiv">To xml.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="serialVersionUID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+        static 
+        final 
+        long
+      </span>
+        serialVersionUID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                4249791194912997698
+                (0x3afa4a934e5f4142)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="LOG"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+        final 
+        Logger
+      </span>
+        LOG
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="BaseSchemaEntity()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">BaseSchemaEntity</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="init(org.xmlpull.v1.XmlPullParser)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">init</span>
+      <span class="normal">(XmlPullParser parser)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Inits the.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parser</td>
+          <td>the element</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IOException</td>
+            <td>TODO</td>
+        </tr>  
+        <tr>
+            <th>XmlPullParserException</td>
+            <td>TODO
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="toXml(org.xmlpull.v1.XmlSerializer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">toXml</span>
+      <span class="normal">(XmlSerializer serializer)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>To xml.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>serializer</td>
+          <td>the document</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IOException</td>
+            <td>TODO
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

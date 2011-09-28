@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule LinkedIn Cloud Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
+<title>
+
+  org.mule.module.linkedin.config
+
+
+| Mule LinkedIn Cloud Connector
+
+</title>
+<link href="../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../", "../../../../../../assets/");
+</script>
+<script src="../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule LinkedIn Cloud Connector</span>
+    
+    <ul id="header-tabs" class="java">
+    	<li id="guide"><a href="../../../../../../guide/index.html">
+	    	<span class="en">User Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../../../../../../java/index.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../../../../../../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../java/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/package-summary.html">com.google.code.linkedinapi.client</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/constant/package-summary.html">com.google.code.linkedinapi.client.constant</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/enumeration/package-summary.html">com.google.code.linkedinapi.client.enumeration</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/enumeration/config/package-summary.html">com.google.code.linkedinapi.client.enumeration.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/impl/package-summary.html">com.google.code.linkedinapi.client.impl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/oauth/package-summary.html">com.google.code.linkedinapi.client.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/package-summary.html">com.google.code.linkedinapi.schema</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/config/package-summary.html">com.google.code.linkedinapi.schema.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/impl/package-summary.html">com.google.code.linkedinapi.schema.impl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/xpp/package-summary.html">com.google.code.linkedinapi.schema.xpp</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ConnectionModificationTypeEnumTransformer.html">ConnectionModificationTypeEnumTransformer</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DeleteCurrentStatusMessageProcessor.html">DeleteCurrentStatusMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByIdMessageProcessor.html">GetConnectionsByIdMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByUrlMessageProcessor.html">GetConnectionsByUrlMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsForCurrentUserMessageProcessor.html">GetConnectionsForCurrentUserMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdateCommentsMessageProcessor.html">GetNetworkUpdateCommentsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdateLikesMessageProcessor.html">GetNetworkUpdateLikesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdatesMessageProcessor.html">GetNetworkUpdatesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileByIdMessageProcessor.html">GetProfileByIdMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileByUrlMessageProcessor.html">GetProfileByUrlMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileForCurrentUserMessageProcessor.html">GetProfileForCurrentUserMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetUserUpdatesByIdMessageProcessor.html">GetUserUpdatesByIdMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetUserUpdatesMessageProcessor.html">GetUserUpdatesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LikePostMessageProcessor.html">LikePostMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorCapabilitiesAdapter.html">LinkedInConnectorCapabilitiesAdapter</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorHttpCallbackAdapter.html">LinkedInConnectorHttpCallbackAdapter</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorLifecycleAdapter.html">LinkedInConnectorLifecycleAdapter</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html">LinkedInConnectorOAuth1Adapter</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostCommentMessageProcessor.html">PostCommentMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostNetworkUpdateMessageProcessor.html">PostNetworkUpdateMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostShareMessageProcessor.html">PostShareMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ProfileTypeEnumTransformer.html">ProfileTypeEnumTransformer</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ReShareMessageProcessor.html">ReShareMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleMessageProcessor.html">SearchPeopleMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetFieldsMessageProcessor.html">SearchPeopleWithFacetFieldsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetsMessageProcessor.html">SearchPeopleWithFacetsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchSortOrderEnumTransformer.html">SearchSortOrderEnumTransformer</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SendInviteByEmailMessageProcessor.html">SendInviteByEmailMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SendMessageMessageProcessor.html">SendMessageMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/StringToDateTransformer.html">StringToDateTransformer</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UnlikePostMessageProcessor.html">UnlikePostMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UpdateCurrentStatusMessageProcessor.html">UpdateCurrentStatusMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/VisibilityTypeEnumTransformer.html">VisibilityTypeEnumTransformer</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div>
+
+<div id="jd-header">
+  package
+  <h1>org.mule.module.linkedin.config</h1>
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+
+
+
+
+
+
+  
+
+
+  
+    <h2>Classes</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/ConnectionModificationTypeEnumTransformer.html">ConnectionModificationTypeEnumTransformer</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/DeleteCurrentStatusMessageProcessor.html">DeleteCurrentStatusMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteCurrentStatusMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#deleteCurrentStatus(java.lang.String, java.lang.String)">deleteCurrentStatus(java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByIdMessageProcessor.html">GetConnectionsByIdMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetConnectionsByIdMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getConnectionsById(java.lang.String, java.lang.String, java.lang.String, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>, java.lang.Integer, java.lang.Integer, java.util.Date, com.google.code.linkedinapi.client.enumeration.ConnectionModificationType)">getConnectionsById(java.lang.String, java.lang.String, java.lang.String, java.util.List, java.lang.Integer, java.lang.Integer, java.util.Date, com.google.code.linkedinapi.client.enumeration.ConnectionModificationType)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByUrlMessageProcessor.html">GetConnectionsByUrlMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetConnectionsByUrlMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getConnectionsByUrl(java.lang.String, java.lang.String, java.lang.String, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>, java.lang.Integer, java.lang.Integer, java.util.Date, com.google.code.linkedinapi.client.enumeration.ConnectionModificationType)">getConnectionsByUrl(java.lang.String, java.lang.String, java.lang.String, java.util.List, java.lang.Integer, java.lang.Integer, java.util.Date, com.google.code.linkedinapi.client.enumeration.ConnectionModificationType)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsForCurrentUserMessageProcessor.html">GetConnectionsForCurrentUserMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetConnectionsForCurrentUserMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getConnectionsForCurrentUser(java.lang.String, java.lang.String, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>, java.lang.Integer, java.lang.Integer, java.util.Date, com.google.code.linkedinapi.client.enumeration.ConnectionModificationType)">getConnectionsForCurrentUser(java.lang.String, java.lang.String, java.util.List, java.lang.Integer, java.lang.Integer, java.util.Date, com.google.code.linkedinapi.client.enumeration.ConnectionModificationType)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdateCommentsMessageProcessor.html">GetNetworkUpdateCommentsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetNetworkUpdateCommentsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getNetworkUpdateComments(java.lang.String, java.lang.String, java.lang.String)">getNetworkUpdateComments(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdateLikesMessageProcessor.html">GetNetworkUpdateLikesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetNetworkUpdateLikesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getNetworkUpdateLikes(java.lang.String, java.lang.String, java.lang.String)">getNetworkUpdateLikes(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdatesMessageProcessor.html">GetNetworkUpdatesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetNetworkUpdatesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getNetworkUpdates(java.lang.String, java.lang.String, java.util.List<com.google.code.linkedinapi.client.enumeration.NetworkUpdateType>, java.lang.Integer, java.lang.Integer, java.util.Date, java.util.Date, java.lang.Boolean)">getNetworkUpdates(java.lang.String, java.lang.String, java.util.List, java.lang.Integer, java.lang.Integer, java.util.Date, java.util.Date, java.lang.Boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileByIdMessageProcessor.html">GetProfileByIdMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetProfileByIdMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getProfileById(java.lang.String, java.lang.String, java.lang.String, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>)">getProfileById(java.lang.String, java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileByUrlMessageProcessor.html">GetProfileByUrlMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetProfileByUrlMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getProfileByUrl(java.lang.String, java.lang.String, java.lang.String, com.google.code.linkedinapi.client.enumeration.ProfileType, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>)">getProfileByUrl(java.lang.String, java.lang.String, java.lang.String, com.google.code.linkedinapi.client.enumeration.ProfileType, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileForCurrentUserMessageProcessor.html">GetProfileForCurrentUserMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetProfileForCurrentUserMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getProfileForCurrentUser(java.lang.String, java.lang.String, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>)">getProfileForCurrentUser(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetUserUpdatesByIdMessageProcessor.html">GetUserUpdatesByIdMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetUserUpdatesByIdMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getUserUpdatesById(java.lang.String, java.lang.String, java.lang.String, java.util.List<com.google.code.linkedinapi.client.enumeration.NetworkUpdateType>, java.lang.Integer, java.lang.Integer, java.util.Date, java.util.Date)">getUserUpdatesById(java.lang.String, java.lang.String, java.lang.String, java.util.List, java.lang.Integer, java.lang.Integer, java.util.Date, java.util.Date)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/GetUserUpdatesMessageProcessor.html">GetUserUpdatesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetUserUpdatesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#getUserUpdates(java.lang.String, java.lang.String, java.util.List<com.google.code.linkedinapi.client.enumeration.NetworkUpdateType>, java.lang.Integer, java.lang.Integer, java.util.Date, java.util.Date)">getUserUpdates(java.lang.String, java.lang.String, java.util.List, java.lang.Integer, java.lang.Integer, java.util.Date, java.util.Date)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/LikePostMessageProcessor.html">LikePostMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LikePostMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#likePost(java.lang.String, java.lang.String, java.lang.String)">likePost(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorCapabilitiesAdapter.html">LinkedInConnectorCapabilitiesAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>LinkedInConnectorCapabilitiesAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code> that implements org.mule.api.Capabilities interface.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorHttpCallbackAdapter.html">LinkedInConnectorHttpCallbackAdapter</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorLifecycleAdapter.html">LinkedInConnectorLifecycleAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>LinkedInConnectorLifecycleAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html">LinkedInConnectorOAuth1Adapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>LinkedInConnectorOAuth1Adapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code> that adds OAuth capabilites to the pojo.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/PostCommentMessageProcessor.html">PostCommentMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">PostCommentMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#postComment(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">postComment(java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/PostNetworkUpdateMessageProcessor.html">PostNetworkUpdateMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">PostNetworkUpdateMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#postNetworkUpdate(java.lang.String, java.lang.String, java.lang.String)">postNetworkUpdate(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/PostShareMessageProcessor.html">PostShareMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">PostShareMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#postShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.google.code.linkedinapi.schema.VisibilityType, java.lang.Boolean)">postShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.google.code.linkedinapi.schema.VisibilityType, java.lang.Boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/ProfileTypeEnumTransformer.html">ProfileTypeEnumTransformer</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/ReShareMessageProcessor.html">ReShareMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">ReShareMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#reShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.google.code.linkedinapi.schema.VisibilityType)">reShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.google.code.linkedinapi.schema.VisibilityType)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleMessageProcessor.html">SearchPeopleMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SearchPeopleMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#searchPeople(java.lang.String, java.lang.String, java.util.Map<com.google.code.linkedinapi.client.enumeration.SearchParameter, java.lang.String>, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>, java.lang.Integer, java.lang.Integer, com.google.code.linkedinapi.client.enumeration.SearchSortOrder)">searchPeople(java.lang.String, java.lang.String, java.util.Map, java.util.List, java.lang.Integer, java.lang.Integer, com.google.code.linkedinapi.client.enumeration.SearchSortOrder)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetFieldsMessageProcessor.html">SearchPeopleWithFacetFieldsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SearchPeopleWithFacetFieldsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#searchPeopleWithFacetFields(java.lang.String, java.lang.String, java.util.Map<com.google.code.linkedinapi.client.enumeration.SearchParameter, java.lang.String>, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>, java.util.List<com.google.code.linkedinapi.client.enumeration.FacetField>, java.lang.Integer, java.lang.Integer, com.google.code.linkedinapi.client.enumeration.SearchSortOrder, java.util.Map<com.google.code.linkedinapi.schema.FacetType, java.lang.String>)">searchPeopleWithFacetFields(java.lang.String, java.lang.String, java.util.Map, java.util.List, java.util.List, java.lang.Integer, java.lang.Integer, com.google.code.linkedinapi.client.enumeration.SearchSortOrder, java.util.Map)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetsMessageProcessor.html">SearchPeopleWithFacetsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SearchPeopleWithFacetsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#searchPeopleWithFacets(java.lang.String, java.lang.String, java.util.Map<com.google.code.linkedinapi.client.enumeration.SearchParameter, java.lang.String>, java.util.List<com.google.code.linkedinapi.client.enumeration.ProfileField>, java.lang.Integer, java.lang.Integer, com.google.code.linkedinapi.client.enumeration.SearchSortOrder, java.util.Map<com.google.code.linkedinapi.schema.FacetType, java.lang.String>)">searchPeopleWithFacets(java.lang.String, java.lang.String, java.util.Map, java.util.List, java.lang.Integer, java.lang.Integer, com.google.code.linkedinapi.client.enumeration.SearchSortOrder, java.util.Map)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchSortOrderEnumTransformer.html">SearchSortOrderEnumTransformer</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/SendInviteByEmailMessageProcessor.html">SendInviteByEmailMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SendInviteByEmailMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#sendInviteByEmail(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">sendInviteByEmail(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/SendMessageMessageProcessor.html">SendMessageMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SendMessageMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#sendMessage(java.lang.String, java.lang.String, java.util.List<java.lang.String>, java.lang.String, java.lang.String)">sendMessage(java.lang.String, java.lang.String, java.util.List, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/StringToDateTransformer.html">StringToDateTransformer</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/UnlikePostMessageProcessor.html">UnlikePostMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">UnlikePostMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#unlikePost(java.lang.String, java.lang.String, java.lang.String)">unlikePost(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/UpdateCurrentStatusMessageProcessor.html">UpdateCurrentStatusMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">UpdateCurrentStatusMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html#updateCurrentStatus(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean)">updateCurrentStatus(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/linkedin/config/VisibilityTypeEnumTransformer.html">VisibilityTypeEnumTransformer</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div><!-- doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

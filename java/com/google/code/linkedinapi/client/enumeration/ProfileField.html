@@ -1,0 +1,6507 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule LinkedIn Cloud Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
+<title>
+
+  ProfileField
+
+
+| Mule LinkedIn Cloud Connector
+
+</title>
+<link href="../../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../../", "../../../../../../../assets/");
+</script>
+<script src="../../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule LinkedIn Cloud Connector</span>
+    
+    <ul id="header-tabs" class="">
+    	<li id="guide"><a href="../../../../../../../guide/index.html">
+	    	<span class="en">User Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../../../../../../../java/index.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../../../../../../../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../../java/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/package-summary.html">com.google.code.linkedinapi.client</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/constant/package-summary.html">com.google.code.linkedinapi.client.constant</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/package-summary.html">com.google.code.linkedinapi.client.enumeration</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/config/package-summary.html">com.google.code.linkedinapi.client.enumeration.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/impl/package-summary.html">com.google.code.linkedinapi.client.impl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/client/oauth/package-summary.html">com.google.code.linkedinapi.client.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/schema/package-summary.html">com.google.code.linkedinapi.schema</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/schema/config/package-summary.html">com.google.code.linkedinapi.schema.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/schema/impl/package-summary.html">com.google.code.linkedinapi.schema.impl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/google/code/linkedinapi/schema/xpp/package-summary.html">com.google.code.linkedinapi.schema.xpp</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/CompositeEnum.html">CompositeEnum</a>&lt;Parent&nbsp;extends&nbsp;<a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/CompositeEnum.html">CompositeEnum</a>&lt;Parent&gt;&gt;</li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/FieldEnum.html">FieldEnum</a></li>
+      </ul>
+    </li>
+              
+              
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ConnectionModificationType.html">ConnectionModificationType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/EducationsField.html">EducationsField</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/FacetField.html">FacetField</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/HttpMethod.html">HttpMethod</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/NetworkUpdateType.html">NetworkUpdateType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/PositionsField.html">PositionsField</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.Scope.html">ProfileField.Scope</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileType.html">ProfileType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/SearchParameter.html">SearchParameter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/SearchSortOrder.html">SearchSortOrder</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+   
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+  <a href="#nestedclasses">Nested Classes</a>
+  
+
+
+
+
+  &#124; <a href="#enumconstants">Enums</a>
+  
+
+
+
+
+  &#124; <a href="#lfields">Fields</a>
+  
+
+
+  &#124; <a href="#inhfields">Inherited Fields</a>
+  
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+    final 
+    
+    enum
+<h1>ProfileField</h1>
+
+
+
+  
+  
+  
+
+  
+    extends Enum&lt;E&nbsp;extends&nbsp;Enum&lt;E&gt;&gt;<br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/CompositeEnum.html">CompositeEnum</a>&lt;Parent&nbsp;extends&nbsp;<a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/CompositeEnum.html">CompositeEnum</a>&lt;Parent&gt;&gt; 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Enum&lt;E&nbsp;extends&nbsp;java.lang.Enum&lt;E&gt;&gt;</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">com.google.code.linkedinapi.client.enumeration.ProfileField</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol"><nobr>
+        
+        
+        
+        
+        enum</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.Scope.html">ProfileField.Scope</a></td>
+      <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">API_STANDARD_PROFILE_REQUEST&nbsp;</td>
+        <td class="jd-descrcol" width="100%">An URL representing the resource you would request for programmatic access to the member's profile
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">API_STANDARD_PROFILE_REQUEST_HEADERS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of fields that can be re-used as HTTP headers to request an out of network profile programmatically
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">API_STANDARD_PROFILE_REQUEST_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">ASSOCIATIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A short-form text area enumerating the Associations a member has
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CERTIFICATIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of certifications earned by this member
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CERTIFICATIONS_AUTHORITY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CERTIFICATIONS_AUTHORITY_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CERTIFICATIONS_END_DATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CERTIFICATIONS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CERTIFICATIONS_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CERTIFICATIONS_NUMBER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CERTIFICATIONS_START_DATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CONNECTIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">an empty collection, indicating the # of connections the member has with a total attribute.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CURRENT_SHARE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the member's current share, if set
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CURRENT_STATUS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the member's current status, if set
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">CURRENT_STATUS_TIMESTAMP&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the timestamp, in milliseconds, when the member's status was last set
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">DATE_OF_BIRTH&nbsp;</td>
+        <td class="jd-descrcol" width="100%">member's birth date
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">DISTANCE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the degree distance of the fetched profile from the member who fetched the profile
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of education institutions a member has attended, the total indicated by a total attribute
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS_ACTIVITIES&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS_DEGREE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS_END_DATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS_FIELD_OF_STUDY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS_NOTES&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS_SCHOOL_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">EDUCATIONS_START_DATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">FIRST_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the member's first name
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">HEADLINE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the member's headline (often "Job Title at Company")
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">HONORS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A short-form text area describing what Honors the member may have
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the member token for this member
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">IM_ACCOUNTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">a collection of instant messenger accounts
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">INDUSTRY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the industry the LinkedIn member has indicated their profile belongs to
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">INTERESTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LANGUAGES&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of languages and the level of the member's proficiency for each
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LANGUAGES_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LANGUAGES_LANGUAGE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LANGUAGES_LANGUAGE_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LANGUAGES_PROFICIENCY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LANGUAGES_PROFICIENCY_LEVEL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LANGUAGES_PROFICIENCY_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LAST_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the member's last name
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LOCATION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Generic name of the location of the LinkedIn member, (ex: "San Francisco Bay Area")
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LOCATION_COUNTRY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">LOCATION_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Generic name of the location of the LinkedIn member, (ex: "San Francisco Bay Area")
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">MAIN_ADDRESS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">address
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">MEMBER_URL_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">The label given to the URL by the member
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">MEMBER_URL_RESOURCES&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of URLs the member has chosen to share on their LinkedIn profile
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">MEMBER_URL_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">The fully-qualified URL being shared
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">NUM_CONNECTIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">NUM_CONNECTIONS_CAPPED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">NUM_RECOMMENDERS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of patents or patent applications held by this member
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_DATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_INVENTORS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_INVENTORS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_INVENTORS_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_INVENTORS_PERSON&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_NUMBER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_OFFICE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_OFFICE_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_STATUS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_STATUS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_STATUS_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_SUMMARY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_TITLE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PATENTS_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PHONE_NUMBERS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">a collection of phone numbers
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PICTURE_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A URL to the profile picture, if the member has associated one with their profile and it is visible to the requestor
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of positions a member has had, the total indicated by a total attribute
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_COMPANY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_COMPANY_INDUSTRY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_COMPANY_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_COMPANY_SIZE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_COMPANY_TICKER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_COMPANY_TYPE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_END_DATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_IS_CURRENT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_START_DATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_SUMMARY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">POSITIONS_TITLE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PROPOSAL_COMMENTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A short-form text area describing how the member approaches proposals
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of publications authored by this member
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_AUTHORS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_AUTHORS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_AUTHORS_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_AUTHORS_PERSON&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_DATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_PUBLISHER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_PUBLISHER_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_SUMMARY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_TITLE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLICATIONS_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">PUBLIC_PROFILE_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A URL to the member's public profile, if enabled.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RECOMMENDATIONS_RECEIVED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RECOMMENDATIONS_RECEIVED_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RECOMMENDATIONS_RECEIVED_RECOMMENDATION_TYPE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RECOMMENDATIONS_RECEIVED_RECOMMENDER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RELATION_TO_VIEWER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the degree distance of the fetched profile from the member who fetched the profile
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RELATION_TO_VIEWER_CONNECTIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">a total attribute will denote the number of connections that link the fetching member to the fetched.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RELATION_TO_VIEWER_DISTANCE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the degree distance of the fetched profile from the member who fetched the profile
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RELATION_TO_VIEWER_RELATED_CONNECTIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RELATION_TO_VIEWER_RELATED_CONNECTIONS_FIRST_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RELATION_TO_VIEWER_RELATED_CONNECTIONS_LAST_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">RELATION_TO_VIEWER_RELATED_CONNECTIONS_PUBLIC_PROFILE_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SITE_STANDARD_PROFILE_REQUEST&nbsp;</td>
+        <td class="jd-descrcol" width="100%">the URL to the member's authenticated profile on LinkedIn (requires a login to be viewed, unlike public profiles)
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SITE_STANDARD_PROFILE_REQUEST_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of skills held by this member
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_PROFICIENCY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_PROFICIENCY_LEVEL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_PROFICIENCY_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_SKILL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_SKILL_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_YEARS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_YEARS_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SKILLS_YEARS_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SPECIALTIES&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A short-form text area where the member enumerates their specialties.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">SUMMARY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A long-form text area where the member describes their professional profile
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">THREE_CURRENT_POSITIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of positions a member currently holds, limited to three and indicated by a total attribute
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">THREE_PAST_POSITIONS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">A collection of positions a member formerly held, limited to the three most recent and indicated by a total attribute
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&nbsp;</td>
+        <td class="jd-linkcol">TWITTER_ACCOUNTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">a collection of twitter accounts
+&nbsp;</td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          boolean</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#availableForConnections">availableForConnections</a></td>
+          <td class="jd-descrcol" width="100%">Field description
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#fieldName">fieldName</a></td>
+          <td class="jd-descrcol" width="100%">Field description
+</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#parent">parent</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          static
+          final
+          Map&lt;String,&nbsp;<a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#stringToEnum">stringToEnum</a></td>
+          <td class="jd-descrcol" width="100%">Field Description.</td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="inhfields" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Fields</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-java.lang.Enum-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+java.lang.Enum
+<div id="inherited-fields-java.lang.Enum">
+  <div id="inherited-fields-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          String</nobr></td>
+          <td class="jd-linkcol">name</td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          int</nobr></td>
+          <td class="jd-linkcol">ordinal</td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#fieldName()">fieldName</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/FieldEnum.html">FieldEnum</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#fromString(java.lang.String)">fromString</a></span>(String symbol)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#isAvailableForConnections()">isAvailableForConnections</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#parent()">parent</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Parent.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Method description</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#valueOf(java.lang.String)">valueOf</a></span>(String name)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            static
+            
+            <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField[]</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#values()">values</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            Set&lt;<a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/ProfileField.html#valuesForConnections()">valuesForConnections</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Enum-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Enum
+
+<div id="inherited-methods-java.lang.Enum">
+  <div id="inherited-methods-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">compareTo</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">compareTo</span>(E arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;E&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getDeclaringClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">name</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">ordinal</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            &lt;T&nbsp;extends&nbsp;Enum&lt;T&gt;&gt;
+            T</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">valueOf</span>(Class&lt;T&gt; arg0, String arg1)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.google.code.linkedinapi.client.enumeration.CompositeEnum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-com.google.code.linkedinapi.client.enumeration.CompositeEnum-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/CompositeEnum.html">com.google.code.linkedinapi.client.enumeration.CompositeEnum</a>
+
+<div id="inherited-methods-com.google.code.linkedinapi.client.enumeration.CompositeEnum">
+  <div id="inherited-methods-com.google.code.linkedinapi.client.enumeration.CompositeEnum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-com.google.code.linkedinapi.client.enumeration.CompositeEnum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Parent</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/CompositeEnum.html#parent()">parent</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Parent.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.google.code.linkedinapi.client.enumeration.FieldEnum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-com.google.code.linkedinapi.client.enumeration.FieldEnum-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/FieldEnum.html">com.google.code.linkedinapi.client.enumeration.FieldEnum</a>
+
+<div id="inherited-methods-com.google.code.linkedinapi.client.enumeration.FieldEnum">
+  <div id="inherited-methods-com.google.code.linkedinapi.client.enumeration.FieldEnum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-com.google.code.linkedinapi.client.enumeration.FieldEnum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../com/google/code/linkedinapi/client/enumeration/FieldEnum.html#fieldName()">fieldName</a></span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Comparable-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  java.lang.Comparable
+
+<div id="inherited-methods-java.lang.Comparable">
+  <div id="inherited-methods-java.lang.Comparable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">compareTo</span>(T arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Enum Values</h2>
+
+
+
+
+<A NAME="API_STANDARD_PROFILE_REQUEST"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        API_STANDARD_PROFILE_REQUEST
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>An URL representing the resource you would request for programmatic access to the member's profile
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="API_STANDARD_PROFILE_REQUEST_HEADERS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        API_STANDARD_PROFILE_REQUEST_HEADERS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of fields that can be re-used as HTTP headers to request an out of network profile programmatically
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="API_STANDARD_PROFILE_REQUEST_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        API_STANDARD_PROFILE_REQUEST_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ASSOCIATIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        ASSOCIATIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A short-form text area enumerating the Associations a member has
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CERTIFICATIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CERTIFICATIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of certifications earned by this member
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CERTIFICATIONS_AUTHORITY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CERTIFICATIONS_AUTHORITY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CERTIFICATIONS_AUTHORITY_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CERTIFICATIONS_AUTHORITY_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CERTIFICATIONS_END_DATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CERTIFICATIONS_END_DATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CERTIFICATIONS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CERTIFICATIONS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CERTIFICATIONS_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CERTIFICATIONS_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CERTIFICATIONS_NUMBER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CERTIFICATIONS_NUMBER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CERTIFICATIONS_START_DATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CERTIFICATIONS_START_DATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CONNECTIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CONNECTIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>an empty collection, indicating the # of connections the member has with a total attribute.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CURRENT_SHARE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CURRENT_SHARE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the member's current share, if set
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CURRENT_STATUS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CURRENT_STATUS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the member's current status, if set
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CURRENT_STATUS_TIMESTAMP"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        CURRENT_STATUS_TIMESTAMP
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the timestamp, in milliseconds, when the member's status was last set
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DATE_OF_BIRTH"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        DATE_OF_BIRTH
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>member's birth date
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DISTANCE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        DISTANCE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the degree distance of the fetched profile from the member who fetched the profile
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of education institutions a member has attended, the total indicated by a total attribute
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS_ACTIVITIES"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS_ACTIVITIES
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS_DEGREE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS_DEGREE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS_END_DATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS_END_DATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS_FIELD_OF_STUDY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS_FIELD_OF_STUDY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS_NOTES"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS_NOTES
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS_SCHOOL_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS_SCHOOL_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EDUCATIONS_START_DATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        EDUCATIONS_START_DATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="FIRST_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        FIRST_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the member's first name
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="HEADLINE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        HEADLINE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the member's headline (often "Job Title at Company")
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="HONORS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        HONORS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A short-form text area describing what Honors the member may have
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the member token for this member
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="IM_ACCOUNTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        IM_ACCOUNTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>a collection of instant messenger accounts
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INDUSTRY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        INDUSTRY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the industry the LinkedIn member has indicated their profile belongs to
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INTERESTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        INTERESTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANGUAGES"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LANGUAGES
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of languages and the level of the member's proficiency for each
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANGUAGES_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LANGUAGES_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANGUAGES_LANGUAGE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LANGUAGES_LANGUAGE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANGUAGES_LANGUAGE_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LANGUAGES_LANGUAGE_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANGUAGES_PROFICIENCY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LANGUAGES_PROFICIENCY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANGUAGES_PROFICIENCY_LEVEL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LANGUAGES_PROFICIENCY_LEVEL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANGUAGES_PROFICIENCY_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LANGUAGES_PROFICIENCY_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LAST_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LAST_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the member's last name
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LOCATION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LOCATION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Generic name of the location of the LinkedIn member, (ex: "San Francisco Bay Area")
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LOCATION_COUNTRY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LOCATION_COUNTRY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LOCATION_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        LOCATION_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Generic name of the location of the LinkedIn member, (ex: "San Francisco Bay Area")
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAIN_ADDRESS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        MAIN_ADDRESS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>address
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEMBER_URL_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        MEMBER_URL_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The label given to the URL by the member
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEMBER_URL_RESOURCES"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        MEMBER_URL_RESOURCES
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of URLs the member has chosen to share on their LinkedIn profile
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEMBER_URL_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        MEMBER_URL_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The fully-qualified URL being shared
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NUM_CONNECTIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        NUM_CONNECTIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NUM_CONNECTIONS_CAPPED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        NUM_CONNECTIONS_CAPPED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NUM_RECOMMENDERS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        NUM_RECOMMENDERS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of patents or patent applications held by this member
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_DATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_DATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_INVENTORS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_INVENTORS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_INVENTORS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_INVENTORS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_INVENTORS_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_INVENTORS_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_INVENTORS_PERSON"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_INVENTORS_PERSON
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_NUMBER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_NUMBER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_OFFICE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_OFFICE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_OFFICE_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_OFFICE_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_STATUS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_STATUS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_STATUS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_STATUS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_STATUS_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_STATUS_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_SUMMARY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_SUMMARY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_TITLE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_TITLE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PATENTS_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PATENTS_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PHONE_NUMBERS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PHONE_NUMBERS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>a collection of phone numbers
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PICTURE_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PICTURE_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A URL to the profile picture, if the member has associated one with their profile and it is visible to the requestor
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of positions a member has had, the total indicated by a total attribute
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_COMPANY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_COMPANY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_COMPANY_INDUSTRY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_COMPANY_INDUSTRY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_COMPANY_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_COMPANY_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_COMPANY_SIZE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_COMPANY_SIZE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_COMPANY_TICKER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_COMPANY_TICKER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_COMPANY_TYPE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_COMPANY_TYPE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_END_DATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_END_DATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_IS_CURRENT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_IS_CURRENT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_START_DATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_START_DATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_SUMMARY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_SUMMARY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="POSITIONS_TITLE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        POSITIONS_TITLE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PROPOSAL_COMMENTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PROPOSAL_COMMENTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A short-form text area describing how the member approaches proposals
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of publications authored by this member
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_AUTHORS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_AUTHORS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_AUTHORS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_AUTHORS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_AUTHORS_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_AUTHORS_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_AUTHORS_PERSON"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_AUTHORS_PERSON
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_DATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_DATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_PUBLISHER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_PUBLISHER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_PUBLISHER_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_PUBLISHER_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_SUMMARY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_SUMMARY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_TITLE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_TITLE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLICATIONS_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLICATIONS_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PUBLIC_PROFILE_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        PUBLIC_PROFILE_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A URL to the member's public profile, if enabled.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RECOMMENDATIONS_RECEIVED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RECOMMENDATIONS_RECEIVED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RECOMMENDATIONS_RECEIVED_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RECOMMENDATIONS_RECEIVED_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RECOMMENDATIONS_RECEIVED_RECOMMENDATION_TYPE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RECOMMENDATIONS_RECEIVED_RECOMMENDATION_TYPE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RECOMMENDATIONS_RECEIVED_RECOMMENDER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RECOMMENDATIONS_RECEIVED_RECOMMENDER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RELATION_TO_VIEWER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RELATION_TO_VIEWER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the degree distance of the fetched profile from the member who fetched the profile
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RELATION_TO_VIEWER_CONNECTIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RELATION_TO_VIEWER_CONNECTIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>a total attribute will denote the number of connections that link the fetching member to the fetched. Contains brief connection/person objects indicating the connecting first degree members.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RELATION_TO_VIEWER_DISTANCE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RELATION_TO_VIEWER_DISTANCE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the degree distance of the fetched profile from the member who fetched the profile
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RELATION_TO_VIEWER_RELATED_CONNECTIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RELATION_TO_VIEWER_RELATED_CONNECTIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RELATION_TO_VIEWER_RELATED_CONNECTIONS_FIRST_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RELATION_TO_VIEWER_RELATED_CONNECTIONS_FIRST_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RELATION_TO_VIEWER_RELATED_CONNECTIONS_LAST_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RELATION_TO_VIEWER_RELATED_CONNECTIONS_LAST_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RELATION_TO_VIEWER_RELATED_CONNECTIONS_PUBLIC_PROFILE_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        RELATION_TO_VIEWER_RELATED_CONNECTIONS_PUBLIC_PROFILE_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SITE_STANDARD_PROFILE_REQUEST"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SITE_STANDARD_PROFILE_REQUEST
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>the URL to the member's authenticated profile on LinkedIn (requires a login to be viewed, unlike public profiles)
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SITE_STANDARD_PROFILE_REQUEST_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SITE_STANDARD_PROFILE_REQUEST_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of skills held by this member
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_PROFICIENCY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_PROFICIENCY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_PROFICIENCY_LEVEL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_PROFICIENCY_LEVEL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_PROFICIENCY_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_PROFICIENCY_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_SKILL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_SKILL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_SKILL_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_SKILL_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_YEARS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_YEARS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_YEARS_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_YEARS_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SKILLS_YEARS_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SKILLS_YEARS_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SPECIALTIES"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SPECIALTIES
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A short-form text area where the member enumerates their specialties.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SUMMARY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        SUMMARY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A long-form text area where the member describes their professional profile
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="THREE_CURRENT_POSITIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        THREE_CURRENT_POSITIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of positions a member currently holds, limited to three and indicated by a total attribute
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="THREE_PAST_POSITIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        THREE_PAST_POSITIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A collection of positions a member formerly held, limited to the three most recent and indicated by a total attribute
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="TWITTER_ACCOUNTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        TWITTER_ACCOUNTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>a collection of twitter accounts
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="availableForConnections"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+        final 
+        boolean
+      </span>
+        availableForConnections
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Field description
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="fieldName"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+        final 
+        String
+      </span>
+        fieldName
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Field description
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="parent"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+        final 
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+        parent
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="stringToEnum"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+        static 
+        final 
+        Map&lt;String,&nbsp;<a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&gt;
+      </span>
+        stringToEnum
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Field Description.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="fieldName()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">fieldName</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="fromString(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/FieldEnum.html">FieldEnum</a>
+      </span>
+      <span class="sympad">fromString</span>
+      <span class="normal">(String symbol)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>symbol</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Returns ProfileField for string, or null if string is invalid
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isAvailableForConnections()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isAvailableForConnections</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="parent()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+      <span class="sympad">parent</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Parent.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the parent
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="toString()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">toString</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Method description</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="valueOf(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>
+      </span>
+      <span class="sympad">valueOf</span>
+      <span class="normal">(String name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="values()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+         
+         
+        <a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField[]</a>
+      </span>
+      <span class="sympad">values</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="valuesForConnections()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        Set&lt;<a href="../../../../../../../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a>&gt;
+      </span>
+      <span class="sympad">valuesForConnections</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Returns ProfileFields available for connections.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

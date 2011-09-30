@@ -11,6 +11,8 @@ import com.google.code.linkedinapi.client.enumeration.SearchParameter;
 import com.google.code.linkedinapi.client.enumeration.SearchSortOrder;
 import com.google.code.linkedinapi.schema.FacetType;
 import com.google.code.linkedinapi.schema.VisibilityType;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mule.api.MuleContext;
@@ -28,6 +30,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.MapAssert.entry;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
 public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
@@ -50,6 +55,16 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
     private Map<SearchParameter, String> searchParameters;
     @Mock
     private LinkedInApiClient mockClient;
+    @Captor
+    private ArgumentCaptor<List<Parameter<FacetType, String>>> facetsCaptor;
+    @Captor
+    private ArgumentCaptor<Set<ProfileField>> profileFieldsCaptor;
+    @Captor
+    private ArgumentCaptor<Set<NetworkUpdateType>> networkUpdateTypesCaptor;
+    @Captor
+    private ArgumentCaptor<Map<SearchParameter, String>> searchParametersCaptor;
+    @Captor
+    private ArgumentCaptor<Set<FacetField>> facetFieldsCaptor;
 
     @Override
     protected String getConfigResources() {
@@ -98,12 +113,14 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
 
     public void testGetProfileForCurrentUser() throws Exception {
         runFlow("GetProfileForCurrentUser");
-        verify(mockClient).getProfileForCurrentUser(profileFields);
+        verify(mockClient).getProfileForCurrentUser(profileFieldsCaptor.capture());
+        assertThat(profileFieldsCaptor.getValue()).containsOnly(profileFields.toArray());
     }
 
     public void testGetProfileById() throws Exception {
         runFlow("GetProfileById");
-        verify(mockClient).getProfileById(ID, profileFields);
+        verify(mockClient).getProfileById(eq(ID), profileFieldsCaptor.capture());
+        assertThat(profileFieldsCaptor.getValue()).containsOnly(profileFields.toArray());
     }
 
     public void testGetProfileByUrl() throws Exception {
@@ -113,17 +130,20 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
 
     public void testGetNetworkUpdates() throws Exception {
         runFlow("GetNetworkUpdates");
-        verify(mockClient).getNetworkUpdates(networkUpdateTypes, START, COUNT, START_DATE, END_DATE, SHOW_HIDDEN_MEMBERS);
+        verify(mockClient).getNetworkUpdates(networkUpdateTypesCaptor.capture(), eq(START), eq(COUNT), eq(START_DATE), eq(END_DATE), eq(SHOW_HIDDEN_MEMBERS));
+        assertThat(networkUpdateTypesCaptor.getValue()).containsOnly(networkUpdateTypes.toArray());
     }
 
     public void testGetUserUpdates() throws Exception {
         runFlow("GetUserUpdates");
-        verify(mockClient).getUserUpdates(networkUpdateTypes, START, COUNT, START_DATE, END_DATE);
+        verify(mockClient).getUserUpdates(networkUpdateTypesCaptor.capture(), eq(START), eq(COUNT), eq(START_DATE), eq(END_DATE));
+        assertThat(networkUpdateTypesCaptor.getValue()).containsOnly(networkUpdateTypes.toArray());
     }
 
     public void testGetUserUpdatesById() throws Exception {
         runFlow("GetUserUpdatesById");
-        verify(mockClient).getUserUpdates(ID, networkUpdateTypes, START, COUNT, START_DATE, END_DATE);
+        verify(mockClient).getUserUpdates(eq(ID), networkUpdateTypesCaptor.capture(), eq(START), eq(COUNT), eq(START_DATE), eq(END_DATE));
+        assertThat(networkUpdateTypesCaptor.getValue()).containsOnly(networkUpdateTypes.toArray());
     }
 
     public void testGetNetworkUpdateComments() throws Exception {
@@ -138,32 +158,44 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
 
     public void testGetConnectionsForCurrentUser() throws Exception {
         runFlow("GetConnectionsForCurrentUser");
-        verify(mockClient).getConnectionsForCurrentUser(profileFields, START, COUNT, MODIFICATION_DATE, ConnectionModificationType.NEW);
+        verify(mockClient).getConnectionsForCurrentUser(profileFieldsCaptor.capture(), eq(START), eq(COUNT), eq(MODIFICATION_DATE), eq(ConnectionModificationType.NEW));
+        assertThat(profileFieldsCaptor.getValue()).containsOnly(profileFields.toArray());
     }
 
     public void testGetConnectionsById() throws Exception {
         runFlow("GetConnectionsById");
-        verify(mockClient).getConnectionsById(ID, profileFields, START, COUNT, MODIFICATION_DATE, ConnectionModificationType.NEW);
+        verify(mockClient).getConnectionsById(eq(ID), profileFieldsCaptor.capture(), eq(START), eq(COUNT), eq(MODIFICATION_DATE), eq(ConnectionModificationType.NEW));
+        assertThat(profileFieldsCaptor.getValue()).containsOnly(profileFields.toArray());
     }
 
     public void testGetConnectionsByUrl() throws Exception {
         runFlow("GetConnectionsByUrl");
-        verify(mockClient).getConnectionsByUrl("some-url", profileFields, START, COUNT, MODIFICATION_DATE, ConnectionModificationType.NEW);
+        verify(mockClient).getConnectionsByUrl(eq("some-url"), profileFieldsCaptor.capture(), eq(START), eq(COUNT), eq(MODIFICATION_DATE), eq(ConnectionModificationType.NEW));
+        assertThat(profileFieldsCaptor.getValue()).containsOnly(profileFields.toArray());
     }
 
     public void testSearchPeople() throws Exception {
         runFlow("SearchPeople");
-        verify(mockClient).searchPeople(searchParameters, profileFields, START, COUNT, SearchSortOrder.RECOMMENDERS);
+        verify(mockClient).searchPeople(searchParametersCaptor.capture(), profileFieldsCaptor.capture(), eq(START), eq(COUNT), eq(SearchSortOrder.RECOMMENDERS));
+        verifySearchParameters();
+        assertThat(profileFieldsCaptor.getValue()).containsOnly(profileFields.toArray());
     }
 
     public void testSearchPeopleWithFacets() throws Exception {
         runFlow("SearchPeopleWithFacets");
-        verify(mockClient).searchPeople(searchParameters, profileFields, START, COUNT, SearchSortOrder.RECOMMENDERS, facets);
+        verify(mockClient).searchPeople(searchParametersCaptor.capture(), profileFieldsCaptor.capture(), eq(START), eq(COUNT), eq(SearchSortOrder.RECOMMENDERS), facetsCaptor.capture());
+        verifySearchParameters();
+        assertThat(profileFieldsCaptor.getValue()).containsOnly(profileFields.toArray());
+        assertThat(facetsCaptor.getValue()).containsOnly(facets.toArray());
     }
 
     public void testSearchPeopleWithFacetFields() throws Exception {
         runFlow("SearchPeopleWithFacetFields");
-        verify(mockClient).searchPeople(searchParameters, profileFields, facetFields, START, COUNT, SearchSortOrder.RECOMMENDERS, facets);
+        verify(mockClient).searchPeople(searchParametersCaptor.capture(), profileFieldsCaptor.capture(), facetFieldsCaptor.capture(), eq(START), eq(COUNT), eq(SearchSortOrder.RECOMMENDERS), facetsCaptor.capture());
+        verifySearchParameters();
+        assertThat(facetFieldsCaptor.getValue()).containsOnly(facetFields.toArray());
+        assertThat(profileFieldsCaptor.getValue()).containsOnly(profileFields.toArray());
+        assertThat(facetsCaptor.getValue()).containsOnly(facets.toArray());
     }
 
     public void testPostNetworkUpdate() throws Exception {
@@ -216,9 +248,15 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
         verify(mockClient).reShare("some-share-id", "some-comment", VisibilityType.ALL_MEMBERS);
     }
 
-
     private void runFlow(String flowName) throws Exception {
         Flow flowConstruct = (Flow) muleContext.getRegistry().lookupFlowConstruct(flowName);
         flowConstruct.process(getTestEvent(""));
+    }
+
+    private void verifySearchParameters() {
+        assertEquals(searchParameters.size(), searchParametersCaptor.getValue().size());
+        for (Map.Entry<SearchParameter, String> entry : searchParameters.entrySet()) {
+            assertThat(searchParametersCaptor.getValue()).includes(entry(entry.getKey(), entry.getValue()));
+        }
     }
 }

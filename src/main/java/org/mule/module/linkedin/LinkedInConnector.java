@@ -71,7 +71,9 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getProfileForCurrentUser}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getProfileForCurrentUser}
      *
-     * @param profileFields the profile fields to retrieve
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param profileFields     the profile fields to retrieve
      * @return the profile for current user
      */
     @Processor
@@ -92,8 +94,10 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getProfileById}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getProfileById}
      *
-     * @param id            the id to search
-     * @param profileFields the profile fields to retrieve
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param id                the id to search
+     * @param profileFields     the profile fields to retrieve
      * @return the profile by id
      */
     @Processor
@@ -115,9 +119,11 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getProfileByUrl}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getProfileByUrl}
      *
-     * @param url           the url to search
-     * @param profileType   the profile type to search
-     * @param profileFields the profile fields to retrieve
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param url               the url to search
+     * @param profileType       the profile type to search
+     * @param profileFields     the profile fields to retrieve
      * @return the profile by url
      */
     @Processor
@@ -140,6 +146,8 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getNetworkUpdates}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getNetworkUpdates}
      *
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
      * @param updateTypes       the update types to retrieve
      * @param start             the start, if set count needs to be specified
      * @param count             the count, if set start needs to be specified
@@ -188,11 +196,13 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getUserUpdates}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getUserUpdates}
      *
-     * @param updateTypes the update types to retrieve
-     * @param start       the start, if set count needs to be specified
-     * @param count       the count, if set start needs to be specified
-     * @param startDate   the start date, if set end date needs to be specified
-     * @param endDate     the end date, if set start date needs to be specified
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param updateTypes       the update types to retrieve
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param startDate         the start date, if set end date needs to be specified
+     * @param endDate           the end date, if set start date needs to be specified
      * @return the network updates
      */
     @Processor
@@ -231,12 +241,14 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getUserUpdatesById}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getUserUpdatesById}
      *
-     * @param id          the id to search
-     * @param updateTypes the update types to retrieve
-     * @param start       the start, if set count needs to be specified
-     * @param count       the count, if set start needs to be specified
-     * @param startDate   the start date, if set end date needs to be specified
-     * @param endDate     the end date, if set end date needs to be specified
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param id                the id to search
+     * @param updateTypes       the update types to retrieve
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param startDate         the start date, if set end date needs to be specified
+     * @param endDate           the end date, if set end date needs to be specified
      * @return the network updates
      */
     @Processor
@@ -276,7 +288,9 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getNetworkUpdateComments}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getNetworkUpdateComments}
      *
-     * @param networkUpdateId the network update id to search
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param networkUpdateId   the network update id to search
      * @return the network update comments
      */
     @Processor
@@ -293,7 +307,9 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getNetworkUpdateLikes}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getNetworkUpdateLikes}
      *
-     * @param networkUpdateId the network update id to search
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param networkUpdateId   the network update id to search
      * @return the network update likes
      */
     @Processor
@@ -310,11 +326,13 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getConnectionsForCurrentUser}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getConnectionsForCurrentUser}
      *
-     * @param profileFields    the profile fields to retrieve
-     * @param start            the start, if set count needs to be specified
-     * @param count            the count, if set start needs to be specified
-     * @param modificationDate the modification date, if set modification type needs to be specified
-     * @param modificationType the modification type, if set modification date needs to be specified
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param profileFields     the profile fields to retrieve
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param modificationDate  the modification date, if set modification type needs to be specified
+     * @param modificationType  the modification type, if set modification date needs to be specified
      * @return the connections for current user
      */
     @Processor
@@ -356,12 +374,14 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getConnectionsById}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getConnectionsById}
      *
-     * @param id               the id to search
-     * @param profileFields    the profile fields to retrieve
-     * @param start            the start, if set count needs to be specified
-     * @param count            the count, if set start needs to be specified
-     * @param modificationDate the modification date, if set modification type needs to be specified
-     * @param modificationType the modification type, if set modification date needs to be specified
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param id                the id to search
+     * @param profileFields     the profile fields to retrieve
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param modificationDate  the modification date, if set modification type needs to be specified
+     * @param modificationType  the modification type, if set modification date needs to be specified
      * @return the connections by id
      */
     @Processor
@@ -404,12 +424,14 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:getConnectionsByUrl}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:getConnectionsByUrl}
      *
-     * @param url              the url to search
-     * @param profileFields    the profile fields to retrieve
-     * @param start            the start, if set count needs to be specified
-     * @param count            the count, if set start needs to be specified
-     * @param modificationDate the modification date, if set modification type needs to be specified
-     * @param modificationType the modification type, if set modification date needs to be specified
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param url               the url to search
+     * @param profileFields     the profile fields to retrieve
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param modificationDate  the modification date, if set modification type needs to be specified
+     * @param modificationType  the modification type, if set modification date needs to be specified
      * @return the connections by url
      */
     @Processor
@@ -452,11 +474,13 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:searchPeople}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:searchPeople}
      *
-     * @param searchParameters the search parameters to use
-     * @param profileFields    the profile fields to retriee
-     * @param start            the start, if set count needs to be specified
-     * @param count            the count, if set start needs to be specified
-     * @param sortOrder        the sort order to use, defaults to RELEVANCE
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param searchParameters  the search parameters to use
+     * @param profileFields     the profile fields to retriee
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param sortOrder         the sort order to use, defaults to RELEVANCE
      * @return the people
      */
     @Processor
@@ -489,12 +513,14 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:searchPeopleWithFacets}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:searchPeopleWithFacets}
      *
-     * @param searchParameters the search parameters
-     * @param profileFields    the profile fields to retrieve
-     * @param start            the start, if set count needs to be specified
-     * @param count            the count, if set start needs to be specified
-     * @param sortOrder        the sort order to use, defaults to RELEVANCE
-     * @param facets           the facet type and a comma separated string with all the values
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param searchParameters  the search parameters
+     * @param profileFields     the profile fields to retrieve
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param sortOrder         the sort order to use, defaults to RELEVANCE
+     * @param facets            the facet type and a comma separated string with all the values
      * @return the people
      */
 
@@ -526,13 +552,15 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:searchPeopleWithFacetFields}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:searchPeopleWithFacetFields}
      *
-     * @param searchParameters the search parameters
-     * @param profileFields    the profile fields to retrieve
-     * @param facetFields      the facet fields to use
-     * @param start            the start, if set count needs to be specified
-     * @param count            the count, if set start needs to be specified
-     * @param sortOrder        the sort order, defaults to RELEVANCE
-     * @param facets           the facets to use
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param searchParameters  the search parameters
+     * @param profileFields     the profile fields to retrieve
+     * @param facetFields       the facet fields to use
+     * @param start             the start, if set count needs to be specified
+     * @param count             the count, if set start needs to be specified
+     * @param sortOrder         the sort order, defaults to RELEVANCE
+     * @param facets            the facets to use
      * @return the people
      */
 
@@ -565,7 +593,9 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:postNetworkUpdate}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:postNetworkUpdate}
      *
-     * @param updateText the update text
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param updateText        the update text
      */
     @Processor
     public void postNetworkUpdate(@OAuthAccessToken String accessToken,
@@ -581,8 +611,10 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:postComment}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:postComment}
      *
-     * @param networkUpdateId the network update id
-     * @param commentText     the comment text
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param networkUpdateId   the network update id
+     * @param commentText       the comment text
      */
     @Processor
     public void postComment(@OAuthAccessToken String accessToken,
@@ -599,7 +631,9 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:likePost}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:likePost}
      *
-     * @param networkUpdateId the network update id
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param networkUpdateId   the network update id
      */
     @Processor
     public void likePost(@OAuthAccessToken String accessToken,
@@ -615,7 +649,9 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:unlikePost}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:unlikePost}
      *
-     * @param networkUpdateId the network update id
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param networkUpdateId   the network update id
      */
     @Processor
     public void unlikePost(@OAuthAccessToken String accessToken,
@@ -631,8 +667,10 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:updateCurrentStatus}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:updateCurrentStatus}
      *
-     * @param status        the status
-     * @param postToTwitter whether to post the update to Twitter
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param status            the status
+     * @param postToTwitter     whether to post the update to Twitter
      */
     @Processor
     public void updateCurrentStatus(@OAuthAccessToken String accessToken,
@@ -648,6 +686,9 @@ public class LinkedInConnector {
      * <p/>
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:deleteCurrentStatus}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:deleteCurrentStatus}
+     *
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
      */
     @Processor
     public void deleteCurrentStatus(@OAuthAccessToken String accessToken,
@@ -662,9 +703,11 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:sendMessage}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:sendMessage}
      *
-     * @param recepientIds the recepient ids
-     * @param subject      the subject
-     * @param message      the message
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param recepientIds      the recepient ids
+     * @param subject           the subject
+     * @param message           the message
      */
     @Processor
     public void sendMessage(@OAuthAccessToken String accessToken,
@@ -682,11 +725,13 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:sendInviteByEmail}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:sendInviteByEmail}
      *
-     * @param email     the email
-     * @param firstName the first name
-     * @param lastName  the last name
-     * @param subject   the subject
-     * @param message   the message
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param email             the email
+     * @param firstName         the first name
+     * @param lastName          the last name
+     * @param subject           the subject
+     * @param message           the message
      */
     @Processor
     public void sendInviteByEmail(@OAuthAccessToken String accessToken,
@@ -706,12 +751,14 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:postShare}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:postShare}
      *
-     * @param commentText   the comment text
-     * @param title         the title
-     * @param url           the url
-     * @param imageUrl      the image url
-     * @param visibility    the visibility
-     * @param postToTwitter whether to post to twitter
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param commentText       the comment text
+     * @param title             the title
+     * @param url               the url
+     * @param imageUrl          the image url
+     * @param visibility        the visibility
+     * @param postToTwitter     whether to post to twitter
      */
     @Processor
     public void postShare(@OAuthAccessToken String accessToken,
@@ -732,9 +779,11 @@ public class LinkedInConnector {
      * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:reShare}
      * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:reShare}
      *
-     * @param shareId     the share id
-     * @param commentText the comment text
-     * @param visibility  the visibility
+     * @param accessToken       the access token to used as described by the OAuth 1.0a specification.
+     * @param accessTokenSecret the access token secret to used as described by the OAuth 1.0a specification.
+     * @param shareId           the share id
+     * @param commentText       the comment text
+     * @param visibility        the visibility
      */
     @Processor
 

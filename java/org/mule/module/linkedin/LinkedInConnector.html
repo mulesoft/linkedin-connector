@@ -1492,18 +1492,18 @@ From class
  <h5 class="jd-tagtitle">Java Sample</h5><pre>String accessToken = ...
 String accessTokenSecret = ...
 LinkedInConnector linkedin = new LinkedInConnector();
-Object response = linkedin.op(accessToken, accessTokenSecret);</pre>
-</p></div>
+Object response = linkedin.op(accessToken, accessTokenSecret);</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.
+</td>
         </tr>
       </table>
   </div>
@@ -1618,11 +1618,11 @@ Object response = linkedin.getConnectionsById(accessToken, accessTokenSecret, id
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>id</td>
@@ -1704,11 +1704,11 @@ Object response = linkedin.getConnectionsByUrl(accessToken, accessTokenSecret, u
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>url</td>
@@ -1789,11 +1789,11 @@ Object response = linkedin.getConnectionsForCurrentUser(accessToken, accessToken
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>profileFields</td>
@@ -1866,11 +1866,11 @@ Object response = linkedin.getNetworkUpdateComments(accessToken, accessTokenSecr
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>networkUpdateId</td>
@@ -1927,11 +1927,11 @@ Object response = linkedin.getNetworkUpdateLikes(accessToken, accessTokenSecret,
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>networkUpdateId</td>
@@ -1993,11 +1993,11 @@ Object response = linkedin.getNetworkUpdates(accessToken, accessTokenSecret, upd
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>updateTypes</td>
@@ -2075,11 +2075,11 @@ Person response = linkedin.getProfileById(accessToken, accessTokenSecret, id, pr
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>id</td>
@@ -2142,11 +2142,11 @@ Person response = linkedin.getProfileByUrl(accessToken, accessTokenSecret, url, 
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>url</td>
@@ -2211,11 +2211,11 @@ Person response = linkedin.getProfileForCurrentUser(accessToken, accessTokenSecr
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>profileFields</td>
@@ -2276,11 +2276,11 @@ Object response = linkedin.getUserUpdates(accessToken, accessTokenSecret, update
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>updateTypes</td>
@@ -2358,11 +2358,11 @@ Object response = linkedin.getUserUpdatesById(accessToken, accessTokenSecret, id
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>id</td>
@@ -2439,11 +2439,11 @@ Object response = linkedin.likePost(accessToken, accessTokenSecret, networkUpdat
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>networkUpdateId</td>
@@ -2497,11 +2497,11 @@ Object response = linkedin.postComment(accessToken, accessTokenSecret, networkUp
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>networkUpdateId</td>
@@ -2558,11 +2558,11 @@ Object response = linkedin.postNetworkUpdate(accessToken, accessTokenSecret, upd
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>updateText</td>
@@ -2620,11 +2620,11 @@ Object response = linkedin.postShare(accessToken, accessTokenSecret, commentText
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>commentText</td>
@@ -2699,11 +2699,11 @@ Object response = linkedin.reShare(accessToken, accessTokenSecret, shareId, comm
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>shareId</td>
@@ -2768,11 +2768,11 @@ Object response = linkedin.searchPeople(accessToken, accessTokenSecret, searchPa
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>searchParameters</td>
@@ -2851,11 +2851,11 @@ Object response = linkedin.searchPeopleWithFacetFields(accessToken, accessTokenS
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>searchParameters</td>
@@ -2941,11 +2941,11 @@ Object response = linkedin.searchPeopleWithFacets(accessToken, accessTokenSecret
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>searchParameters</td>
@@ -3026,11 +3026,11 @@ Object response = linkedin.sendInviteByEmail(accessToken, accessTokenSecret, ema
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>email</td>
@@ -3101,11 +3101,11 @@ Object response = linkedin.sendMessage(accessToken, accessTokenSecret, recepient
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>recepientIds</td>
@@ -3246,11 +3246,11 @@ Object response = linkedin.unlikePost(accessToken, accessTokenSecret, networkUpd
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>networkUpdateId</td>
@@ -3304,11 +3304,11 @@ Object response = linkedin.updateCurrentStatus(accessToken, accessTokenSecret, s
       <table class="jd-tagtable">
         <tr>
           <th>accessToken</td>
-          <td></td>
+          <td>the access token to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>accessTokenSecret</td>
-          <td></td>
+          <td>the access token secret to used as described by the OAuth 1.0a specification.</td>
         </tr>
         <tr>
           <th>status</td>

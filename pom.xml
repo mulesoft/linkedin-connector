@@ -2,6 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	  <parent>
+		  <groupId>org.mule.tools.devkit</groupId>
+		  <artifactId>mule-devkit-parent</artifactId>
+		  <version>LATEST</version>
+	  </parent>
+	
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.mule.modules</groupId>
@@ -9,164 +16,12 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>mule-module</packaging>
 
-    <name>Mule LinkedIn Cloud Connector</name>
+    <name>Mule LinkedIn Connector</name>
     <description>Mule LinkedIn Cloud Connector</description>
     <url>http://www.muleforge.org/projects/mule-module-linkedin</url>
 
-    <developers>
-        <developer>
-            <name>Federico Recio</name>
-            <email>federico.recio@mulesoft.com</email>
-        </developer>
-    </developers>
-
-    <properties>
-        <mule.version>3.2.0</mule.version>
-        <jdk.version>1.6</jdk.version>
-        <mule.devkit.version>3.0-SNAPSHOT</mule.devkit.version>
-        <mule.dsl.version>0.7</mule.dsl.version>
-    </properties>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.mule.tools.devkit</groupId>
-                    <artifactId>mule-devkit-maven-plugin</artifactId>
-                    <version>${mule.devkit.version}</version>
-                    <extensions>true</extensions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <executions>
-                    <execution>
-                        <id>default-compile</id>
-                        <configuration>
-                            <compilerArgument>-proc:none</compilerArgument>
-                            <source>${jdk.version}</source>
-                            <target>${jdk.version}</target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>default-testCompile</id>
-                        <configuration>
-                            <compilerArgument>-proc:none</compilerArgument>
-                            <source>${jdk.version}</source>
-                            <target>${jdk.version}</target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.mule.tools.devkit</groupId>
-                <artifactId>mule-devkit-maven-plugin</artifactId>
-                <version>${mule.devkit.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <docletArtifact>
-                        <groupId>org.mule.tools.devkit</groupId>
-                        <artifactId>mule-devkit-doclet</artifactId>
-                        <version>${mule.devkit.version}</version>
-                    </docletArtifact>
-                    <doclet>org.mule.devkit.doclet.Doclava</doclet>
-                    <bootclasspath>${sun.boot.class.path}</bootclasspath>
-                    <additionalparam><!--
-                        -federate JDK http://download.oracle.com/javase/6/docs/api/index.html?
-                        -federationxml JDK http://doclava.googlecode.com/svn/static/api/openjdk-6.xml -->
-                        -hdf project.artifactId "${project.artifactId}"
-                        -hdf project.groupId "${project.groupId}"
-                        -hdf project.version "${project.version}"
-                        -hdf project.name "${project.name}"
-						-hdf project.repo.name "${project.distributionManagement.repository.name}"
-						-hdf project.repo.id "${project.distributionManagement.repository.id}"
-						-hdf project.repo.url "${project.distributionManagement.repository.url}"
-						-hdf project.snapshotRepo.name "${project.distributionManagement.snapshotRepository.name}"
-						-hdf project.snapshotRepo.id "${project.distributionManagement.snapshotRepository.id}"
-						-hdf project.snapshotRepo.url "${project.distributionManagement.snapshotRepository.url}"
-                        -d ${project.build.directory}/apidocs
-                        -htmldir ${basedir}/doc
-                    </additionalparam>
-                    <useStandardDocletOptions>false</useStandardDocletOptions>
-                    <additionalJOption>-J-Xmx1024m</additionalJOption>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
 
-        <!--  Mule & Devkit -->
-        <dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-module-spring-config</artifactId>
-            <version>${mule.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.tools.devkit</groupId>
-            <artifactId>mule-devkit-annotations</artifactId>
-            <version>${mule.devkit.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.dsl</groupId>
-            <artifactId>dsl-api</artifactId>
-            <version>${mule.dsl.version}</version>
-        </dependency>
-
-        <!-- documentation -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.0.0.GA</version>
-        </dependency>
-
-        <!-- for testing -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.8.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.tests</groupId>
-            <artifactId>mule-tests-functional</artifactId>
-            <version>${mule.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.8.4</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.easytesting</groupId>
             <artifactId>fest-assert</artifactId>
@@ -201,63 +56,6 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>mulesoft-releases</id>
-            <name>MuleForge Releases Repository</name>
-            <url>http://repository.mulesoft.org/releases/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>mulesoft-snapshots</id>
-            <name>MuleForge Snapshots Repository</name>
-            <url>http://repository.mulesoft.org/snapshots/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>codehaus-mule-repo</id>
-            <name>Codehaus Repository</name>
-            <url>http://dist.codehaus.org/mule/dependencies/maven2</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>dev.java.net</id>
-            <name>Java.net Repository for Maven</name>
-            <url>http://download.java.net/maven/2/</url>
-        </repository>
-        <repository>
-            <id>codehaus-repo</id>
-            <name>MuleForge Release Repository</name>
-            <url>http://repository.codehaus.org/</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>muleforge-plugin-releases</id>
-            <name>Muleforge Release Repository</name>
-            <url>http://repository.mulesoft.org/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>muleforge-plugin-snapshots</id>
-            <name>Muleforge Snapshot Repository</name>
-            <url>http://repository.mulesoft.org/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
     <scm>
         <connection>scm:git:git://github.com:mulesoft/linkedin-connector.git</connection>
         <developerConnection>
@@ -265,19 +63,5 @@
         </developerConnection>
         <url>http://github.com/mulesoft/linkedin-connector</url>
     </scm>
-
-    <distributionManagement>
-        <repository>
-            <id>mulesoft-releases</id>
-            <name>MuleSoft Snapshot Repository</name>
-            <url>http://repository.mulesoft.org/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>mulesoft-snapshots</id>
-            <name>MuleSoft Repository</name>
-            <url>http://repository.mulesoft.org/snapshots/</url>
-            <uniqueVersion>false</uniqueVersion>
-        </snapshotRepository>
-    </distributionManagement>
 </project>
 

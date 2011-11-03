@@ -11,7 +11,7 @@
 
     <groupId>org.mule.modules</groupId>
     <artifactId>mule-module-linkedin</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>mule-module</packaging>
 
     <name>Mule LinkedIn Connector</name>

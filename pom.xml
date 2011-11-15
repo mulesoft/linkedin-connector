@@ -20,6 +20,10 @@
     <description>Mule LinkedIn Cloud Connector</description>
     <url>http://www.muleforge.org/projects/mule-module-linkedin</url>
 
+    <properties>
+        <sonar.exclusions>com/google/code/linkedinapi/**</sonar.exclusions>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -64,4 +68,3 @@
         <url>http://github.com/mulesoft/linkedin-connector</url>
     </scm>
 </project>
-

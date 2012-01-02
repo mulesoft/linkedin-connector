@@ -112,15 +112,19 @@
       <span id="masthead-title">Mule LinkedIn Connector</span>
     
     <ul id="header-tabs" class="">
+    
     	<li id="guide"><a href="../../../../../../guide/install.html">
 	    	<span class="en">Install Guide</span>
     	</a></li>
+    
     	<li id="java"><a href="../../../../../../java/packages.html">
-	    	<span class="en">Java API</span>
+	    	<span class="en">Java API Reference</span>
     	</a></li>
+    
     	<li id="mule"><a href="../../../../../../mule/modules.html">
-	    	<span class="en">Mule API</span>
+	    	<span class="en">Mule API Reference</span>
     	</a></li>
+    
     </ul>
     </div>
     <div id="headerRight">
@@ -209,7 +213,10 @@
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/AuthorizeMessageProcessor.html">AuthorizeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ConnectionModificationTypeEnumTransformer.html">ConnectionModificationTypeEnumTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DefaultRestoreAccessTokenCallback.html">DefaultRestoreAccessTokenCallback</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DefaultSaveAccessTokenCallback.html">DefaultSaveAccessTokenCallback</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DeleteCurrentStatusMessageProcessor.html">DeleteCurrentStatusMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByIdMessageProcessor.html">GetConnectionsByIdMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByUrlMessageProcessor.html">GetConnectionsByUrlMessageProcessor</a></li>
@@ -232,6 +239,8 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostShareMessageProcessor.html">PostShareMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ProfileTypeEnumTransformer.html">ProfileTypeEnumTransformer</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ReShareMessageProcessor.html">ReShareMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/RestoreAccessTokenCallbackFactoryBean.html">RestoreAccessTokenCallbackFactoryBean</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SaveAccessTokenCallbackFactoryBean.html">SaveAccessTokenCallbackFactoryBean</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleMessageProcessor.html">SearchPeopleMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetFieldsMessageProcessor.html">SearchPeopleWithFacetFieldsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetsMessageProcessor.html">SearchPeopleWithFacetsMessageProcessor</a></li>
@@ -342,13 +351,6 @@
    
   
   
-  
-  
-
-  
-   
-  
-  
    
   
   
@@ -377,6 +379,20 @@
   
   
    
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
   
   
   
@@ -468,8 +484,6 @@ Summary:
   
       implements 
       
-        OAuth1Adapter 
-      
         MuleContextAware 
       
         Initialisable 
@@ -477,6 +491,8 @@ Summary:
         Startable 
       
         Stoppable 
+      
+        OAuth1Adapter 
       
   
   
@@ -633,8 +649,6 @@ Summary:
 
 
 
-
-
 <tr class="api apilevel-" >
 <td colspan="12">
 
@@ -758,6 +772,10 @@ org.mule.api.lifecycle.Stoppable
 </td></tr>
 
 
+
+
+
+
 </table>
 
 
@@ -815,6 +833,17 @@ org.mule.api.lifecycle.Stoppable
       <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
+          static
+          
+          Logger</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html#logger">logger</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
           
           
           MuleContext</nobr></td>
@@ -823,7 +852,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -834,7 +863,29 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          RestoreAccessTokenCallback</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html#oauthRestoreAccessToken">oauthRestoreAccessToken</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
       <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          SaveAccessTokenCallback</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html#oauthSaveAccessToken">oauthSaveAccessToken</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -845,7 +896,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -856,7 +907,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -867,7 +918,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -1048,6 +1099,8 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+
+
 </table>
 
 
@@ -1167,6 +1220,46 @@ org.mule.api.lifecycle.Stoppable
             
             
             
+            RestoreAccessTokenCallback</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html#getOauthRestoreAccessToken()">getOauthRestoreAccessToken</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves oauthRestoreAccessToken
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            SaveAccessTokenCallback</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html#getOauthSaveAccessToken()">getOauthSaveAccessToken</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves oauthSaveAccessToken
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1265,6 +1358,42 @@ org.mule.api.lifecycle.Stoppable
         <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext value)</nobr>
         
         <div class="jd-descrdiv">Sets muleContext</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html#setOauthRestoreAccessToken(org.mule.api.oauth.RestoreAccessTokenCallback)">setOauthRestoreAccessToken</a></span>(RestoreAccessTokenCallback value)</nobr>
+        
+        <div class="jd-descrdiv">Sets oauthRestoreAccessToken</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html#setOauthSaveAccessToken(org.mule.api.oauth.SaveAccessTokenCallback)">setOauthSaveAccessToken</a></span>(SaveAccessTokenCallback value)</nobr>
+        
+        <div class="jd-descrdiv">Sets oauthSaveAccessToken</div>
   
   </td></tr>
 
@@ -2432,160 +2561,6 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.adapter.OAuth1Adapter" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.adapter.OAuth1Adapter-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  org.mule.api.adapter.OAuth1Adapter
-
-<div id="inherited-methods-org.mule.api.adapter.OAuth1Adapter">
-  <div id="inherited-methods-org.mule.api.adapter.OAuth1Adapter-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.api.adapter.OAuth1Adapter-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getAccessToken</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getAccessTokenSecret</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getAuthorizationUrl</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getOauthVerifier</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getRedirectUrl</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">setAccessToken</span>(String arg0)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">setAccessTokenSecret</span>(String arg0)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">setOauthVerifier</span>(String arg0)</nobr>
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.context.MuleContextAware" class="jd-expando-trigger closed"
           ><img id="inherited-methods-org.mule.api.context.MuleContextAware-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
@@ -2793,6 +2768,266 @@ From interface
 </td></tr>
 
 
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.oauth.OAuth1Adapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.oauth.OAuth1Adapter-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.oauth.OAuth1Adapter
+
+<div id="inherited-methods-org.mule.api.oauth.OAuth1Adapter">
+  <div id="inherited-methods-org.mule.api.oauth.OAuth1Adapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.oauth.OAuth1Adapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getAccessTokenSecret</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setAccessTokenSecret</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.oauth.OAuthAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.oauth.OAuthAdapter-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.oauth.OAuthAdapter
+
+<div id="inherited-methods-org.mule.api.oauth.OAuthAdapter">
+  <div id="inherited-methods-org.mule.api.oauth.OAuthAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.oauth.OAuthAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">fetchAccessToken</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getAccessToken</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getAuthorizationUrl</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            RestoreAccessTokenCallback</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getOauthRestoreAccessToken</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            SaveAccessTokenCallback</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getOauthSaveAccessToken</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getOauthVerifier</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getRedirectUrl</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setAccessToken</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setOauthRestoreAccessToken</span>(RestoreAccessTokenCallback arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setOauthSaveAccessToken</span>(SaveAccessTokenCallback arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setOauthVerifier</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -2945,6 +3180,36 @@ From interface
 
 
 
+<A NAME="logger"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+        static 
+         
+        Logger
+      </span>
+        logger
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="muleContext"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2986,6 +3251,66 @@ From interface
         HttpCallback
       </span>
         oauthCallback
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="oauthRestoreAccessToken"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        RestoreAccessTokenCallback
+      </span>
+        oauthRestoreAccessToken
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="oauthSaveAccessToken"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        SaveAccessTokenCallback
+      </span>
+        oauthSaveAccessToken
     </h4>
       <div class="api-level">
         
@@ -3206,6 +3531,15 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>UnableToAcquireAccessTokenException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -3303,6 +3637,81 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>UnableToAcquireRequestTokenException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getOauthRestoreAccessToken()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        RestoreAccessTokenCallback
+      </span>
+      <span class="sympad">getOauthRestoreAccessToken</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves oauthRestoreAccessToken
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getOauthSaveAccessToken()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        SaveAccessTokenCallback
+      </span>
+      <span class="sympad">getOauthSaveAccessToken</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves oauthSaveAccessToken
+ 
+</p></div>
 
     </div>
 </div>
@@ -3513,6 +3922,88 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets muleContext</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOauthRestoreAccessToken(org.mule.api.oauth.RestoreAccessTokenCallback)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOauthRestoreAccessToken</span>
+      <span class="normal">(RestoreAccessTokenCallback value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets oauthRestoreAccessToken</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOauthSaveAccessToken(org.mule.api.oauth.SaveAccessTokenCallback)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOauthSaveAccessToken</span>
+      <span class="normal">(SaveAccessTokenCallback value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets oauthSaveAccessToken</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

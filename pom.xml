@@ -56,6 +56,15 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>http://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
     <scm>
         <connection>scm:git:git://github.com:mulesoft/linkedin-connector.git</connection>
         <developerConnection>

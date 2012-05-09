@@ -28,6 +28,7 @@ import org.mockito.MockitoAnnotations;
 import org.mule.api.MuleContext;
 import org.mule.construct.Flow;
 import org.mule.module.linkedin.LinkedInClientFactory;
+import org.mule.module.linkedin.adapters.LinkedInConnectorOAuth1Adapter;
 import org.mule.tck.FunctionalTestCase;
 import org.mule.transport.http.HttpConnector;
 

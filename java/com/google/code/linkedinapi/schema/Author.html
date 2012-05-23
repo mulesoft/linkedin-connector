@@ -63,6 +63,8 @@
 
 
 
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -84,6 +86,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -102,6 +105,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule LinkedIn Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -187,6 +211,8 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/client/enumeration/config/package-summary.html">com.google.code.linkedinapi.client.enumeration.config</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/package-summary.html">com.google.code.linkedinapi.client.enumeration.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/client/impl/package-summary.html">com.google.code.linkedinapi.client.impl</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/client/oauth/package-summary.html">com.google.code.linkedinapi.client.oauth</a></li>
@@ -197,13 +223,21 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/schema/impl/package-summary.html">com.google.code.linkedinapi.schema.impl</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/transformers/package-summary.html">com.google.code.linkedinapi.schema.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/schema/xpp/package-summary.html">com.google.code.linkedinapi.schema.xpp</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/adapters/package-summary.html">org.mule.module.linkedin.adapters</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/processors/package-summary.html">org.mule.module.linkedin.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/transformers/package-summary.html">org.mule.module.linkedin.transformers</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->

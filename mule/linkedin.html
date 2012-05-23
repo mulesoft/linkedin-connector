@@ -64,6 +64,8 @@
 
 
 
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -85,6 +87,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -101,6 +104,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule LinkedIn Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -196,7 +220,6 @@ Summary:
 <div id="jd-header">
     org.mule.modules
 <h1>mule-module-linkedin</h1>
-    1.1-SNAPSHOT
 
 </div><!-- end header -->
 
@@ -205,15 +228,17 @@ Summary:
 <div id="jd-content" class="api apilevel-">
 
 
+<br/>
+
 <div class="jd-tagdata">
       <table class="jd-tagtable">
         <tbody><tr>
           <th>Namespace</th><td>http://www.mulesoft.org/schema/mule/linkedin</td>
         </tr><tr>
-          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/linkedin/1.0/mule-linkedin.xsd</td>
+          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/linkedin/current/mule-linkedin.xsd&nbsp;&nbsp;(<a href="linkedin-schema.html">View Schema</a>)</td>
         </tr>
 <tr>
-          <th>Version</th><td>1.0</td>
+          <th>Schema Version</th><td>1.0</td>
         </tr>
 <tr>
           <th>Minimum Mule Version</th><td>3.2</td>
@@ -272,7 +297,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#delete-current-status">&lt;linkedin:delete-current-status&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Delete current status.<br/></div>
+        <div class="jd-descrdiv">Delete current status.</div>
         
   </td></tr>
 
@@ -282,7 +307,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-connections-by-id">&lt;linkedin:get-connections-by-id&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the connections by id.<br/></div>
+        <div class="jd-descrdiv">Gets the connections by id.</div>
         
   </td></tr>
 
@@ -292,7 +317,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-connections-by-url">&lt;linkedin:get-connections-by-url&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the connections by url.<br/></div>
+        <div class="jd-descrdiv">Gets the connections by url.</div>
         
   </td></tr>
 
@@ -302,7 +327,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-connections-for-current-user">&lt;linkedin:get-connections-for-current-user&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the connections for current user.<br/></div>
+        <div class="jd-descrdiv">Gets the connections for current user.</div>
         
   </td></tr>
 
@@ -312,7 +337,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-network-update-comments">&lt;linkedin:get-network-update-comments&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the network update comments.<br/></div>
+        <div class="jd-descrdiv">Gets the network update comments.</div>
         
   </td></tr>
 
@@ -322,7 +347,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-network-update-likes">&lt;linkedin:get-network-update-likes&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the network update likes.<br/></div>
+        <div class="jd-descrdiv">Gets the network update likes.</div>
         
   </td></tr>
 
@@ -332,7 +357,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-network-updates">&lt;linkedin:get-network-updates&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the network updates.<br/></div>
+        <div class="jd-descrdiv">Gets the network updates.</div>
         
   </td></tr>
 
@@ -342,7 +367,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-profile-by-id">&lt;linkedin:get-profile-by-id&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the profile by id.<br/></div>
+        <div class="jd-descrdiv">Gets the profile by id.</div>
         
   </td></tr>
 
@@ -352,7 +377,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-profile-by-url">&lt;linkedin:get-profile-by-url&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the profile by url.<br/></div>
+        <div class="jd-descrdiv">Gets the profile by url.</div>
         
   </td></tr>
 
@@ -362,7 +387,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-profile-for-current-user">&lt;linkedin:get-profile-for-current-user&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the profile for current user.<br/></div>
+        <div class="jd-descrdiv">Gets the profile for current user.</div>
         
   </td></tr>
 
@@ -372,7 +397,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-user-updates">&lt;linkedin:get-user-updates&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the network updates.<br/></div>
+        <div class="jd-descrdiv">Gets the network updates.</div>
         
   </td></tr>
 
@@ -382,7 +407,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#get-user-updates-by-id">&lt;linkedin:get-user-updates-by-id&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Gets the network updates.<br/></div>
+        <div class="jd-descrdiv">Gets the network updates.</div>
         
   </td></tr>
 
@@ -392,7 +417,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#like-post">&lt;linkedin:like-post&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Like post.<br/></div>
+        <div class="jd-descrdiv">Like post.</div>
         
   </td></tr>
 
@@ -402,7 +427,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#post-comment">&lt;linkedin:post-comment&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Post comment.<br/></div>
+        <div class="jd-descrdiv">Post comment.</div>
         
   </td></tr>
 
@@ -412,7 +437,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#post-network-update">&lt;linkedin:post-network-update&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Post network update.<br/></div>
+        <div class="jd-descrdiv">Post network update.</div>
         
   </td></tr>
 
@@ -422,7 +447,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#post-share">&lt;linkedin:post-share&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Post share.<br/></div>
+        <div class="jd-descrdiv">Post share.</div>
         
   </td></tr>
 
@@ -432,7 +457,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#re-share">&lt;linkedin:re-share&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Re-share.<br/></div>
+        <div class="jd-descrdiv">Re-share.</div>
         
   </td></tr>
 
@@ -442,7 +467,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#search-people">&lt;linkedin:search-people&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Search people.<br/></div>
+        <div class="jd-descrdiv">Search people.</div>
         
   </td></tr>
 
@@ -452,7 +477,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#search-people-with-facet-fields">&lt;linkedin:search-people-with-facet-fields&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Search people.<br/></div>
+        <div class="jd-descrdiv">Search people.</div>
         
   </td></tr>
 
@@ -462,7 +487,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#search-people-with-facets">&lt;linkedin:search-people-with-facets&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Search people.<br/></div>
+        <div class="jd-descrdiv">Search people.</div>
         
   </td></tr>
 
@@ -472,7 +497,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#send-invite-by-email">&lt;linkedin:send-invite-by-email&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Send invite.<br/></div>
+        <div class="jd-descrdiv">Send invite.</div>
         
   </td></tr>
 
@@ -482,7 +507,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#send-message">&lt;linkedin:send-message&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Send message.<br/></div>
+        <div class="jd-descrdiv">Send message.</div>
         
   </td></tr>
 
@@ -492,7 +517,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#unlike-post">&lt;linkedin:unlike-post&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Unlike post.<br/></div>
+        <div class="jd-descrdiv">Unlike post.</div>
         
   </td></tr>
 
@@ -502,7 +527,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/linkedin.html#update-current-status">&lt;linkedin:update-current-status&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Update current status.<br/></div>
+        <div class="jd-descrdiv">Update current status.</div>
         
   </td></tr>
 
@@ -520,7 +545,6 @@ Summary:
 </div><!-- jd-descr (summary) -->
 
 
-
 <!-- ========= CONFIGURATION DETAIL ======== -->
 <A NAME="config"></A>
 <h2>Configuration</h2>
@@ -534,14 +558,15 @@ similar to the following:</p>
                http://www.mulesoft.org/schema/mule/core
                http://www.mulesoft.org/schema/mule/core/current/mule.xsd
                http://www.mulesoft.org/schema/mule/linkedin
-               http://www.mulesoft.org/schema/mule/linkedin/1.0/mule-linkedin.xsd"&gt;
+               http://www.mulesoft.org/schema/mule/linkedin/current/mule-linkedin.xsd"&gt;
 
       &lt;!-- here goes your flows and configuration elements --&gt;
 
 &lt;/mule&gt;
 </pre>
+
 <p>This module is configured using the <i>config</i> element. This element must be placed outside of your flows and at
-the root of your Mule application. You can create as many configurations as you deem necesary as long as each carries
+the root of your Mule application. You can create as many configurations as you deem necessary as long as each carries
 its own name.</p>
 <p>Each message processor, message source or transformer carries a <i>config-ref</i> attribute that allows the invoker to
 specify which configuration to use.</p>
@@ -575,6 +600,7 @@ specify which configuration to use.</p>
       
     
 </table>
+
 
 
 
@@ -640,26 +666,26 @@ to be the OAuth access token and OAuth access token secret.</p>
 <p>The following is an example of how to log the access token and access token secret.<p>
 <pre>
     &lt;linkedin:config&gt;
-        &lt;linkedin:save-oauth-access-token&gt;
+        &lt;linkedin:oauth-save-access-token&gt;
             &lt;logger level="INFO" message="Received access token #[header:INBOUND:OAuthAccessToken] and #[header:INBOUND:OAuthAccessTokenSecret]"/&gt;
-        &lt;/linkedin:save-oauth-access-token&gt;
+        &lt;/linkedin:oauth-save-access-token&gt;
     &lt;/linkedin:config&gt;
 </pre>
-<p>The <i>save-oauth-access-token</i> is a message processor chain and you can add inside of it as many message processors as you want. The chain will
+<p>The <i>oauth-save-access-token</i> is a message processor chain and you can add inside of it as many message processors as you want. The chain will
 be called with special inbound properties in the message which the information that needs saved.</p>
 <p>Restoring the information is equally simple:</p>
 <pre>
     &lt;linkedin:config&gt;
-        &lt;linkedin:restore-oauth-access-token&gt;
+        &lt;linkedin:oauth-restore-access-token&gt;
             &lt;message-properties-transformer&gt;
                 &lt;add-message-property key="OAuthAccessToken" value="123"/&gt;
                 &lt;add-message-property key="OAuthAccessTokenSecret" value="567"/&gt;
             &lt;/message-properties-transformer&gt;
-        &lt;/linkedin:restore-oauth-access-token&gt;
+        &lt;/linkedin:oauth-restore-access-token&gt;
     &lt;/linkedin:config&gt;
 </pre>
 <p>The example above does not do anything useful expect hardcode the access token and the token secret to 123 and 567 respectively. Just like
-<i>save-oauth-access-token</i>, <i>restore-oauth-access-token</i> is another message processor chain. Once the chain is done executing
+<i>oauth-save-access-token</i>, <i>oauth-restore-access-token</i> is another message processor chain. Once the chain is done executing
 we will extract the OAuth access token property and OAuth access token secret property values.</p>
 <p>The following shows a full example on how to save and restore using Mule ObjectStore Module to store the information inside an object store.<p>
 <pre>
@@ -673,21 +699,21 @@ we will extract the OAuth access token property and OAuth access token secret pr
                http://www.mulesoft.org/schema/mule/objectstore
                http://www.mulesoft.org/schema/mule/objectstore/1.0/mule-objectstore.xsd
                http://www.mulesoft.org/schema/mule/linkedin
-               http://www.mulesoft.org/schema/mule/linkedin/1.0/mule-linkedin.xsd"&gt;
+               http://www.mulesoft.org/schema/mule/linkedin/current/mule-linkedin.xsd"&gt;
 
     &lt;linkedin:config&gt;
-        &lt;linkedin:save-oauth-access-token&gt;
-            &lt;objectstore:store key="OAuthAccessToken" value="#[header:INBOUND:OAuthAccessToken]"/&gt;
-            &lt;objectstore:store key="OAuthAccessTokenSecret" value="#[header:INBOUND:OAuthAccessTokenSecret]"/&gt;
-        &lt;/linkedin:save-oauth-access-token&gt;
-        &lt;linkedin:restore-oauth-access-token&gt;
+        &lt;linkedin:oauth-save-access-token&gt;
+            &lt;objectstore:store key="OAuthAccessToken" value-ref="#[header:INBOUND:OAuthAccessToken]"/&gt;
+            &lt;objectstore:store key="OAuthAccessTokenSecret" value-ref="#[header:INBOUND:OAuthAccessTokenSecret]"/&gt;
+        &lt;/linkedin:oauth-save-access-token&gt;
+        &lt;linkedin:oauth-restore-access-token&gt;
             &lt;enricher target="#[header:OAuthAccessToken]"&gt;
                 &lt;objectstore:retrieve key="OAuthAccessToken"/&gt;
             &lt;/enricher&gt;
             &lt;enricher target="#[header:OAuthAccessTokenSecret]"&gt;
                 &lt;objectstore:retrieve key="OAuthAccessTokenSecret"/&gt;
             &lt;/enricher&gt;
-        &lt;/linkedin:restore-oauth-access-token&gt;
+        &lt;/linkedin:oauth-restore-access-token&gt;
     &lt;/linkedin:config&gt;
 
 &lt;/mule&gt;
@@ -895,7 +921,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
             
             
           
@@ -1041,7 +1067,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
             
             
           
@@ -1175,7 +1201,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
             
             
           
@@ -1491,7 +1517,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:updateTypes&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The update types to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:update-types&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The update types to retrieve</span></th></tr>
             
             
           
@@ -1599,7 +1625,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
             
             
           
@@ -1703,7 +1729,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
             
             
           
@@ -1790,7 +1816,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
             
             
           
@@ -1916,7 +1942,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:updateTypes&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The update types to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:update-types&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The update types to retrieve</span></th></tr>
             
             
           
@@ -2062,7 +2088,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:updateTypes&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The update types to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:update-types&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The update types to retrieve</span></th></tr>
             
             
           
@@ -2446,7 +2472,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>postToTwitter</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Whether to post to twitter
 </td>
                 </tr>
@@ -2677,7 +2703,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">RELEVANCE</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The sort order to use, defaults to RELEVANCE</td>
                 </tr>
                 
@@ -2697,12 +2723,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:searchParameters&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The search parameters to use</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:search-parameters&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The search parameters to use</span></th></tr>
             
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retriee</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retriee</span></th></tr>
             
             
           
@@ -2820,7 +2846,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">RELEVANCE</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The sort order, defaults to RELEVANCE</td>
                 </tr>
                 
@@ -2842,17 +2868,17 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:searchParameters&gt;</nobr></br><span style="font-weight: normal;">The search parameters</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:search-parameters&gt;</nobr></br><span style="font-weight: normal;">The search parameters</span></th></tr>
             
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;">The profile fields to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;">The profile fields to retrieve</span></th></tr>
             
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:facetFields&gt;</nobr></br><span style="font-weight: normal;">The facet fields to use</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:facet-fields&gt;</nobr></br><span style="font-weight: normal;">The facet fields to use</span></th></tr>
             
             
           
@@ -2969,7 +2995,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">RELEVANCE</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The sort order to use, defaults to RELEVANCE</td>
                 </tr>
                 
@@ -2991,12 +3017,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:searchParameters&gt;</nobr></br><span style="font-weight: normal;">The search parameters</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:search-parameters&gt;</nobr></br><span style="font-weight: normal;">The search parameters</span></th></tr>
             
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:profileFields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:profile-fields&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The profile fields to retrieve</span></th></tr>
             
             
           
@@ -3243,7 +3269,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
             
           
             
-            <tr><th colspan="12"><nobr>&lt;linkedin:recepientIds&gt;</nobr></br><span style="font-weight: normal;">The recepient ids</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;linkedin:recepient-ids&gt;</nobr></br><span style="font-weight: normal;">The recepient ids</span></th></tr>
             
             
           
@@ -3402,7 +3428,7 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>postToTwitter</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Whether to post the update to Twitter
 </td>
                 </tr>

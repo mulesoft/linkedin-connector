@@ -63,6 +63,8 @@
 
 
 
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -84,6 +86,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -102,6 +105,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule LinkedIn Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -187,6 +211,8 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/client/enumeration/config/package-summary.html">com.google.code.linkedinapi.client.enumeration.config</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/package-summary.html">com.google.code.linkedinapi.client.enumeration.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/client/impl/package-summary.html">com.google.code.linkedinapi.client.impl</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/client/oauth/package-summary.html">com.google.code.linkedinapi.client.oauth</a></li>
@@ -197,13 +223,21 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/schema/impl/package-summary.html">com.google.code.linkedinapi.schema.impl</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/com/google/code/linkedinapi/schema/transformers/package-summary.html">com.google.code.linkedinapi.schema.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/com/google/code/linkedinapi/schema/xpp/package-summary.html">com.google.code.linkedinapi.schema.xpp</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/adapters/package-summary.html">org.mule.module.linkedin.adapters</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/processors/package-summary.html">org.mule.module.linkedin.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/transformers/package-summary.html">org.mule.module.linkedin.transformers</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -213,42 +247,71 @@
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/AuthorizeDefinitionParser.html">AuthorizeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/AuthorizeMessageProcessor.html">AuthorizeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ConnectionModificationTypeEnumTransformer.html">ConnectionModificationTypeEnumTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DefaultHttpCallback.html">DefaultHttpCallback</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DefaultHttpCallback.FlowRefMessageProcessor.html">DefaultHttpCallback.FlowRefMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DefaultRestoreAccessTokenCallback.html">DefaultRestoreAccessTokenCallback</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DefaultSaveAccessTokenCallback.html">DefaultSaveAccessTokenCallback</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DeleteCurrentStatusDefinitionParser.html">DeleteCurrentStatusDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/DeleteCurrentStatusMessageProcessor.html">DeleteCurrentStatusMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByIdDefinitionParser.html">GetConnectionsByIdDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByIdMessageProcessor.html">GetConnectionsByIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByUrlDefinitionParser.html">GetConnectionsByUrlDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsByUrlMessageProcessor.html">GetConnectionsByUrlMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsForCurrentUserDefinitionParser.html">GetConnectionsForCurrentUserDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetConnectionsForCurrentUserMessageProcessor.html">GetConnectionsForCurrentUserMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdateCommentsDefinitionParser.html">GetNetworkUpdateCommentsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdateCommentsMessageProcessor.html">GetNetworkUpdateCommentsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdateLikesDefinitionParser.html">GetNetworkUpdateLikesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdateLikesMessageProcessor.html">GetNetworkUpdateLikesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdatesDefinitionParser.html">GetNetworkUpdatesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetNetworkUpdatesMessageProcessor.html">GetNetworkUpdatesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileByIdDefinitionParser.html">GetProfileByIdDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileByIdMessageProcessor.html">GetProfileByIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileByUrlDefinitionParser.html">GetProfileByUrlDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileByUrlMessageProcessor.html">GetProfileByUrlMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileForCurrentUserDefinitionParser.html">GetProfileForCurrentUserDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetProfileForCurrentUserMessageProcessor.html">GetProfileForCurrentUserMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetUserUpdatesByIdDefinitionParser.html">GetUserUpdatesByIdDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetUserUpdatesByIdMessageProcessor.html">GetUserUpdatesByIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetUserUpdatesDefinitionParser.html">GetUserUpdatesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/GetUserUpdatesMessageProcessor.html">GetUserUpdatesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LikePostDefinitionParser.html">LikePostDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LikePostMessageProcessor.html">LikePostMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorCapabilitiesAdapter.html">LinkedInConnectorCapabilitiesAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorConfigDefinitionParser.html">LinkedInConnectorConfigDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorHttpCallbackAdapter.html">LinkedInConnectorHttpCallbackAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorLifecycleAdapter.html">LinkedInConnectorLifecycleAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorNamespaceHandler.html">LinkedInConnectorNamespaceHandler</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html">LinkedInConnectorOAuth1Adapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostCommentDefinitionParser.html">PostCommentDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostCommentMessageProcessor.html">PostCommentMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostNetworkUpdateDefinitionParser.html">PostNetworkUpdateDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostNetworkUpdateMessageProcessor.html">PostNetworkUpdateMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostShareDefinitionParser.html">PostShareDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostShareMessageProcessor.html">PostShareMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ProfileTypeEnumTransformer.html">ProfileTypeEnumTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ReShareDefinitionParser.html">ReShareDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/ReShareMessageProcessor.html">ReShareMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/RestoreAccessTokenCallbackFactoryBean.html">RestoreAccessTokenCallbackFactoryBean</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SaveAccessTokenCallbackFactoryBean.html">SaveAccessTokenCallbackFactoryBean</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleDefinitionParser.html">SearchPeopleDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleMessageProcessor.html">SearchPeopleMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetFieldsDefinitionParser.html">SearchPeopleWithFacetFieldsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetFieldsMessageProcessor.html">SearchPeopleWithFacetFieldsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetsDefinitionParser.html">SearchPeopleWithFacetsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchPeopleWithFacetsMessageProcessor.html">SearchPeopleWithFacetsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SearchSortOrderEnumTransformer.html">SearchSortOrderEnumTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SendInviteByEmailDefinitionParser.html">SendInviteByEmailDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SendInviteByEmailMessageProcessor.html">SendInviteByEmailMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SendMessageDefinitionParser.html">SendMessageDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SendMessageMessageProcessor.html">SendMessageMessageProcessor</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/StringToDateTransformer.html">StringToDateTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UnlikePostDefinitionParser.html">UnlikePostDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UnlikePostMessageProcessor.html">UnlikePostMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UpdateCurrentStatusDefinitionParser.html">UpdateCurrentStatusDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UpdateCurrentStatusMessageProcessor.html">UpdateCurrentStatusMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/VisibilityTypeEnumTransformer.html">VisibilityTypeEnumTransformer</a></li>
       </ul>
@@ -370,6 +433,11 @@
   
   
    
+  
+  
+  
+
+  
   
   
   
@@ -672,16 +740,16 @@ org.mule.api.lifecycle.Initialisable
 <tr class="api apilevel-" >
 <td colspan="12">
 
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.api.transformer.DiscoverableTransformer" class="jd-expando-trigger closed"
-          ><img id="inherited-constants-org.mule.api.transformer.DiscoverableTransformer-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.api.transformer.Converter" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-org.mule.api.transformer.Converter-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>From interface
-org.mule.api.transformer.DiscoverableTransformer
-<div id="inherited-constants-org.mule.api.transformer.DiscoverableTransformer">
-  <div id="inherited-constants-org.mule.api.transformer.DiscoverableTransformer-list"
+org.mule.api.transformer.Converter
+<div id="inherited-constants-org.mule.api.transformer.Converter">
+  <div id="inherited-constants-org.mule.api.transformer.Converter-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-constants-org.mule.api.transformer.DiscoverableTransformer-summary" style="display: none;">
+  <div id="inherited-constants-org.mule.api.transformer.Converter-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -711,6 +779,8 @@ org.mule.api.transformer.DiscoverableTransformer
   </div>
 </div>
 </td></tr>
+
+
 
 
 
@@ -952,6 +1022,8 @@ org.mule.transformer.AbstractTransformer
 
 
 
+
+
 </table>
 
 
@@ -1108,22 +1180,6 @@ From class
             
             
             
-            Object</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">checkReturnClass</span>(Object arg0)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1133,7 +1189,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -1149,7 +1205,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1165,7 +1221,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1181,7 +1237,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1197,7 +1253,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1213,7 +1269,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1229,7 +1285,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1245,7 +1301,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1261,7 +1317,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1277,7 +1333,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1293,7 +1349,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1309,7 +1365,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1325,7 +1381,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1341,7 +1397,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1357,7 +1413,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1373,7 +1429,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1389,7 +1445,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1405,7 +1461,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1421,7 +1477,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1437,7 +1493,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1453,7 +1509,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1469,7 +1525,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1485,7 +1541,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1501,7 +1557,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1517,7 +1573,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1533,7 +1589,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1549,7 +1605,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             synchronized
@@ -1565,7 +1621,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1581,7 +1637,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1597,7 +1653,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1613,7 +1669,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1629,7 +1685,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1645,7 +1701,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1661,7 +1717,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1677,7 +1733,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1693,7 +1749,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1709,7 +1765,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1725,7 +1781,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1741,7 +1797,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1757,7 +1813,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2309,19 +2365,19 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.transformer.DiscoverableTransformer" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.transformer.DiscoverableTransformer-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.transformer.Converter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.transformer.Converter-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  org.mule.api.transformer.DiscoverableTransformer
+  org.mule.api.transformer.Converter
 
-<div id="inherited-methods-org.mule.api.transformer.DiscoverableTransformer">
-  <div id="inherited-methods-org.mule.api.transformer.DiscoverableTransformer-list"
+<div id="inherited-methods-org.mule.api.transformer.Converter">
+  <div id="inherited-methods-org.mule.api.transformer.Converter-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.api.transformer.DiscoverableTransformer-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.api.transformer.Converter-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -2362,6 +2418,8 @@ From interface
   </div>
 </div>
 </td></tr>
+
+
 
 
 

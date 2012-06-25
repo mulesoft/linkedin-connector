@@ -31,6 +31,7 @@ import com.google.code.linkedinapi.schema.VisibilityType;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
+import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.oauth.OAuth;
 import org.mule.api.annotations.oauth.OAuthAccessToken;
 import org.mule.api.annotations.oauth.OAuthAccessTokenSecret;
@@ -496,8 +497,8 @@ public class LinkedInConnector {
     @Processor
     public People searchPeople(@OAuthAccessToken String accessToken,
                                @OAuthAccessTokenSecret String accessTokenSecret,
-                               @Optional Map<SearchParameter, String> searchParameters,
-                               @Optional List<ProfileField> profileFields,
+                               @Optional @Placement(order = 1) Map<SearchParameter, String> searchParameters,
+                               @Optional @Placement(order = 2) List<ProfileField> profileFields,
                                @Optional Integer start,
                                @Optional Integer count,
                                @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder) {
@@ -537,8 +538,8 @@ public class LinkedInConnector {
     @Processor
     public People searchPeopleWithFacets(@OAuthAccessToken String accessToken,
                                          @OAuthAccessTokenSecret String accessTokenSecret,
-                                         Map<SearchParameter, String> searchParameters,
-                                         @Optional List<ProfileField> profileFields,
+                                         @Placement(order = 1) Map<SearchParameter, String> searchParameters,
+                                         @Optional @Placement(order = 2) List<ProfileField> profileFields,
                                          @Optional Integer start,
                                          @Optional Integer count,
                                          @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder,
@@ -577,8 +578,8 @@ public class LinkedInConnector {
     @Processor
     public PeopleSearch searchPeopleWithFacetFields(@OAuthAccessToken String accessToken,
                                                     @OAuthAccessTokenSecret String accessTokenSecret,
-                                                    Map<SearchParameter, String> searchParameters,
-                                                    List<ProfileField> profileFields,
+                                                    @Placement(order = 1) Map<SearchParameter, String> searchParameters,
+                                                    @Placement(order = 2) List<ProfileField> profileFields,
                                                     List<FacetField> facetFields,
                                                     @Optional Integer start,
                                                     @Optional Integer count,

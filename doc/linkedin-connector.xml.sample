@@ -1,27 +1,27 @@
-<!-- BEGIN_INCLUDE(linkedin:getProfileForCurrentUser) -->
+<!-- BEGIN_INCLUDE(linkedin:get-profile-for-current-user) -->
         <linkedin:get-profile-for-current-user>
             <linkedin:profile-fields>
                 <linkedin:profile-field>LAST_NAME</linkedin:profile-field>
                 <linkedin:profile-field>HONORS</linkedin:profile-field>
             </linkedin:profile-fields>
         </linkedin:get-profile-for-current-user>
-<!-- END_INCLUDE(linkedin:getProfileForCurrentUser) -->
+<!-- END_INCLUDE(linkedin:get-profile-for-current-user) -->
 
 
-<!-- BEGIN_INCLUDE(linkedin:getProfileById) -->
+<!-- BEGIN_INCLUDE(linkedin:get-profile-by-id) -->
         <linkedin:get-profile-by-id id="some-id">
             <linkedin:profile-fields>
                 <linkedin:profile-field>LAST_NAME</linkedin:profile-field>
                 <linkedin:profile-field>HONORS</linkedin:profile-field>
             </linkedin:profile-fields>
         </linkedin:get-profile-by-id>
-<!-- END_INCLUDE(linkedin:getProfileById) -->
+<!-- END_INCLUDE(linkedin:get-profile-by-id) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getProfileByUrl) -->
+<!-- BEGIN_INCLUDE(linkedin:get-profile-by-url) -->
         <linkedin:get-profile-by-url url="some-url" profileType="STANDARD"/>
-<!-- END_INCLUDE(linkedin:getProfileByUrl) -->
+<!-- END_INCLUDE(linkedin:get-profile-by-url) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getNetworkUpdates) -->
+<!-- BEGIN_INCLUDE(linkedin:get-network-updates) -->
         <linkedin:get-network-updates start="10"
                                       count="20"
                                       showHiddenMembers="true"
@@ -32,9 +32,9 @@
                 <linkedin:update-type>RECOMMENDATION_UPDATE</linkedin:update-type>
             </linkedin:update-types>
         </linkedin:get-network-updates>
-<!-- END_INCLUDE(linkedin:getNetworkUpdates) -->
+<!-- END_INCLUDE(linkedin:get-network-updates) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getUserUpdates) -->
+<!-- BEGIN_INCLUDE(linkedin:get-user-updates) -->
         <linkedin:get-user-updates start="10"
                                    count="20"
                                    startDate="2011-08-10T00:00:00-00:00"
@@ -44,9 +44,9 @@
                 <linkedin:update-type>RECOMMENDATION_UPDATE</linkedin:update-type>
             </linkedin:update-types>
         </linkedin:get-user-updates>
-<!-- END_INCLUDE(linkedin:getUserUpdates) -->
+<!-- END_INCLUDE(linkedin:get-user-updates) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getUserUpdatesById) -->
+<!-- BEGIN_INCLUDE(linkedin:get-user-updates-by-id) -->
         <linkedin:get-user-updates-by-id id="some-id"
                                          start="10"
                                          count="20"
@@ -57,17 +57,17 @@
                 <linkedin:update-type>RECOMMENDATION_UPDATE</linkedin:update-type>
             </linkedin:update-types>
         </linkedin:get-user-updates-by-id>
-<!-- END_INCLUDE(linkedin:getUserUpdatesById) -->
+<!-- END_INCLUDE(linkedin:get-user-updates-by-id) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getNetworkUpdateComments) -->
+<!-- BEGIN_INCLUDE(linkedin:get-network-update-comments) -->
         <linkedin:get-network-update-comments networkUpdateId="some-network-update-id"/>
-<!-- END_INCLUDE(linkedin:getNetworkUpdateComments) -->
+<!-- END_INCLUDE(linkedin:get-network-update-comments) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getNetworkUpdateLikes) -->
+<!-- BEGIN_INCLUDE(linkedin:get-network-update-likes) -->
         <linkedin:get-network-update-likes networkUpdateId="some-network-update-id"/>
-<!-- END_INCLUDE(linkedin:getNetworkUpdateLikes) -->
+<!-- END_INCLUDE(linkedin:get-network-update-likes) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getConnectionsForCurrentUser) -->
+<!-- BEGIN_INCLUDE(linkedin:get-connections-for-current-user) -->
         <linkedin:get-connections-for-current-user start="10"
                                                    count="20"
                                                    modificationDate="2011-08-20T00:00:00-00:00"
@@ -77,9 +77,9 @@
                 <linkedin:profile-field>HONORS</linkedin:profile-field>
             </linkedin:profile-fields>
         </linkedin:get-connections-for-current-user>
-<!-- END_INCLUDE(linkedin:getConnectionsForCurrentUser) -->
+<!-- END_INCLUDE(linkedin:get-connections-for-current-user) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getConnectionsById) -->
+<!-- BEGIN_INCLUDE(linkedin:get-connections-by-id) -->
         <linkedin:get-connections-by-id id="some-id"
                                         start="10"
                                         count="20"
@@ -90,9 +90,9 @@
                 <linkedin:profile-field>HONORS</linkedin:profile-field>
             </linkedin:profile-fields>
         </linkedin:get-connections-by-id>
-<!-- END_INCLUDE(linkedin:getConnectionsById) -->
+<!-- END_INCLUDE(linkedin:get-connections-by-id) -->
 
-<!-- BEGIN_INCLUDE(linkedin:getConnectionsByUrl) -->
+<!-- BEGIN_INCLUDE(linkedin:get-connections-by-url) -->
         <linkedin:get-connections-by-url url="some-url"
                                          start="10"
                                          count="20"
@@ -103,9 +103,9 @@
                 <linkedin:profile-field>HONORS</linkedin:profile-field>
             </linkedin:profile-fields>
         </linkedin:get-connections-by-url>
-<!-- END_INCLUDE(linkedin:getConnectionsByUrl) -->
+<!-- END_INCLUDE(linkedin:get-connections-by-url) -->
 
-<!-- BEGIN_INCLUDE(linkedin:searchPeople) -->
+<!-- BEGIN_INCLUDE(linkedin:search-people) -->
         <linkedin:search-people start="10"
                                 count="20"
                                 sortOrder="RECOMMENDERS">
@@ -118,9 +118,9 @@
                 <linkedin:profile-field>HONORS</linkedin:profile-field>
             </linkedin:profile-fields>
         </linkedin:search-people>
-<!-- END_INCLUDE(linkedin:searchPeople) -->
+<!-- END_INCLUDE(linkedin:search-people) -->
 
-<!-- BEGIN_INCLUDE(linkedin:searchPeopleWithFacets) -->
+<!-- BEGIN_INCLUDE(linkedin:search-people-with-facets) -->
         <linkedin:search-people-with-facets start="10"
                                             count="20"
                                             sortOrder="RECOMMENDERS">
@@ -137,9 +137,9 @@
                 <linkedin:facet key="PAST_COMPANY">MuleSource</linkedin:facet>
             </linkedin:facets>
         </linkedin:search-people-with-facets>
-<!-- END_INCLUDE(linkedin:searchPeopleWithFacets) -->
+<!-- END_INCLUDE(linkedin:search-people-with-facets) -->
 
-<!-- BEGIN_INCLUDE(linkedin:searchPeopleWithFacetFields) -->
+<!-- BEGIN_INCLUDE(linkedin:search-people-with-facet-fields) -->
         <linkedin:search-people-with-facet-fields start="10"
                                                   count="20"
                                                   sortOrder="RECOMMENDERS">
@@ -160,60 +160,60 @@
                 <linkedin:facet key="PAST_COMPANY">MuleSource</linkedin:facet>
             </linkedin:facets>
         </linkedin:search-people-with-facet-fields>
-<!-- END_INCLUDE(linkedin:searchPeopleWithFacetFields) -->
+<!-- END_INCLUDE(linkedin:search-people-with-facet-fields) -->
 
-<!-- BEGIN_INCLUDE(linkedin:postNetworkUpdate) -->
+<!-- BEGIN_INCLUDE(linkedin:post-network-update) -->
         <linkedin:post-network-update updateText="some-update-text"/>
-<!-- END_INCLUDE(linkedin:postNetworkUpdate) -->
+<!-- END_INCLUDE(linkedin:post-network-update) -->
 
-<!-- BEGIN_INCLUDE(linkedin:postComment) -->
+<!-- BEGIN_INCLUDE(linkedin:post-comment) -->
         <linkedin:post-comment networkUpdateId="some-network-update-id" commentText="some-comment-text"/>
-<!-- END_INCLUDE(linkedin:postComment) -->
+<!-- END_INCLUDE(linkedin:post-comment) -->
 
-<!-- BEGIN_INCLUDE(linkedin:likePost) -->
+<!-- BEGIN_INCLUDE(linkedin:like-post) -->
         <linkedin:like-post networkUpdateId="some-network-update-id"/>
-<!-- END_INCLUDE(linkedin:likePost) -->
+<!-- END_INCLUDE(linkedin:like-post) -->
 
-<!-- BEGIN_INCLUDE(linkedin:unlikePost) -->
+<!-- BEGIN_INCLUDE(linkedin:unlike-post) -->
         <linkedin:unlike-post networkUpdateId="some-network-update-id"/>
-<!-- END_INCLUDE(linkedin:unlikePost) -->
+<!-- END_INCLUDE(linkedin:unlike-post) -->
 
-<!-- BEGIN_INCLUDE(linkedin:updateCurrentStatus) -->
+<!-- BEGIN_INCLUDE(linkedin:update-current-status) -->
         <linkedin:update-current-status status="new-status" postToTwitter="true"/>
-<!-- END_INCLUDE(linkedin:updateCurrentStatus) -->
+<!-- END_INCLUDE(linkedin:update-current-status) -->
 
-<!-- BEGIN_INCLUDE(linkedin:deleteCurrentStatus) -->
+<!-- BEGIN_INCLUDE(linkedin:delete-current-status) -->
         <linkedin:delete-current-status/>
-<!-- END_INCLUDE(linkedin:deleteCurrentStatus) -->
+<!-- END_INCLUDE(linkedin:delete-current-status) -->
 
-<!-- BEGIN_INCLUDE(linkedin:sendMessage) -->
+<!-- BEGIN_INCLUDE(linkedin:send-message) -->
         <linkedin:send-message subject="some-subject" message="some-message">
             <linkedin:recepient-ids>
                 <linkedin:recepient-id>recipientId1</linkedin:recepient-id>
                 <linkedin:recepient-id>recipientId2</linkedin:recepient-id>
             </linkedin:recepient-ids>
         </linkedin:send-message>
-<!-- END_INCLUDE(linkedin:sendMessage) -->
+<!-- END_INCLUDE(linkedin:send-message) -->
 
-<!-- BEGIN_INCLUDE(linkedin:sendInviteByEmail) -->
+<!-- BEGIN_INCLUDE(linkedin:send-invite-by-email) -->
         <linkedin:send-invite-by-email email="some-email"
                                        firstName="some-name"
                                        lastName="some-last-name"
                                        subject="some-subject"
                                        message="some-message"/>
-<!-- END_INCLUDE(linkedin:sendInviteByEmail) -->
+<!-- END_INCLUDE(linkedin:send-invite-by-email) -->
 
-<!-- BEGIN_INCLUDE(linkedin:postShare) -->
+<!-- BEGIN_INCLUDE(linkedin:post-share) -->
         <linkedin:post-share commentText="some-comment"
                              title="some-title"
                              url="some-url"
                              imageUrl="some-image-url"
                              visibility="ALL_MEMBERS"
                              postToTwitter="true"/>
-<!-- END_INCLUDE(linkedin:postShare) -->
+<!-- END_INCLUDE(linkedin:post-share) -->
 
-<!-- BEGIN_INCLUDE(linkedin:reShare) -->
+<!-- BEGIN_INCLUDE(linkedin:re-share) -->
         <linkedin:re-share shareId="some-share-id"
                            commentText="some-comment"
                            visibility="ALL_MEMBERS"/>
-<!-- END_INCLUDE(linkedin:reShare) -->
+<!-- END_INCLUDE(linkedin:re-share) -->

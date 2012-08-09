@@ -1,73 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	  <parent>
-		  <groupId>org.mule.tools.devkit</groupId>
-		  <artifactId>mule-devkit-parent</artifactId>
-		  <version>3.3.0-EA</version>
-	  </parent>
-	
-    <modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.mule.tools.devkit</groupId>
+		<artifactId>mule-devkit-parent</artifactId>
+		<!-- <version>3.3.0-EA</version> -->
+		<version>3.3.1-SNAPSHOT</version>
+	</parent>
 
-    <groupId>org.mule.modules</groupId>
-    <artifactId>mule-module-linkedin</artifactId>
-    <version>1.1-SNAPSHOT</version>
-    <packaging>mule-module</packaging>
+	<modelVersion>4.0.0</modelVersion>
 
-    <name>Mule LinkedIn Connector</name>
-    <description>Mule LinkedIn Cloud Connector</description>
-    <url>http://www.muleforge.org/projects/mule-module-linkedin</url>
+	<groupId>org.mule.modules</groupId>
+	<artifactId>mule-module-linkedin</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<packaging>mule-module</packaging>
 
-    <dependencies>
+	<name>Mule LinkedIn Connector</name>
+	<description>Mule LinkedIn Cloud Connector</description>
+	<url>http://www.muleforge.org/projects/mule-module-linkedin</url>
 
-        <dependency>
-            <groupId>org.easytesting</groupId>
-            <artifactId>fest-assert</artifactId>
-            <version>1.4</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.transports</groupId>
-            <artifactId>mule-transport-http</artifactId>
-            <version>${mule.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium.client-drivers</groupId>
-            <artifactId>selenium-java-client-driver</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>oauth.signpost</groupId>
-            <artifactId>signpost-core</artifactId>
-            <version>1.2.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.3</version>
-        </dependency>
-        <dependency>
-            <groupId>xmlpull</groupId>
-            <artifactId>xmlpull</artifactId>
-            <version>1.1.3.1</version>
-        </dependency>
-    </dependencies>
+	<dependencies>
 
-    <repositories>
-        <repository>
-            <id>mulesoft-releases</id>
-            <name>MuleSoft Releases Repository</name>
-            <url>http://repository.mulesoft.org/releases/</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
+		<dependency>
+			<groupId>org.easytesting</groupId>
+			<artifactId>fest-assert</artifactId>
+			<version>1.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-http</artifactId>
+			<version>${mule.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium.client-drivers</groupId>
+			<artifactId>selenium-java-client-driver</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<artifactId>signpost-core</artifactId>
+			<groupId>oauth.signpost</groupId>
+			<version>1.2.1.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>xmlpull</groupId>
+			<artifactId>xmlpull</artifactId>
+			<version>1.1.3.1</version>
+		</dependency>
+	</dependencies>
 
-    <scm>
-        <connection>scm:git:git://github.com:mulesoft/linkedin-connector.git</connection>
-        <developerConnection>
+	<repositories>
+		<repository>
+			<id>mulesoft-releases</id>
+			<name>MuleSoft Releases Repository</name>
+			<url>http://repository.mulesoft.org/releases/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>mulesoft-snapshots</id>
+			<name>MuleSoft Snapshots Repository</name>
+			<url>http://repository.mulesoft.org/snapshots/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<scm>
+		<connection>scm:git:git://github.com:mulesoft/linkedin-connector.git</connection>
+		<developerConnection>
             scm:git:git@github.com:mulesoft/linkedin-connector.git
         </developerConnection>
-        <url>http://github.com/mulesoft/linkedin-connector</url>
-    </scm>
+		<url>http://github.com/mulesoft/linkedin-connector</url>
+	</scm>
 </project>

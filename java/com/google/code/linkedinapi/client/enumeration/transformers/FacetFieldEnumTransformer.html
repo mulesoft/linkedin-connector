@@ -231,9 +231,15 @@
     <li class="api apilevel-">
   <a href="../../../../../../../../java/org/mule/module/linkedin/adapters/package-summary.html">org.mule.module.linkedin.adapters</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../../java/org/mule/module/linkedin/agents/package-summary.html">org.mule.module.linkedin.agents</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../../java/org/mule/module/linkedin/oauth/package-summary.html">org.mule.module.linkedin.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../../java/org/mule/module/linkedin/process/package-summary.html">org.mule.module.linkedin.process</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../../java/org/mule/module/linkedin/processors/package-summary.html">org.mule.module.linkedin.processors</a></li>
     <li class="api apilevel-">
@@ -247,10 +253,13 @@
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/ConnectionModificationTypeEnumTransformer.html">ConnectionModificationTypeEnumTransformer</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/FacetFieldEnumTransformer.html">FacetFieldEnumTransformer</a></li>
           <li class="api apilevel-"><a href="../../../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/NetworkUpdateTypeEnumTransformer.html">NetworkUpdateTypeEnumTransformer</a></li>
           <li class="api apilevel-"><a href="../../../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/ProfileFieldEnumTransformer.html">ProfileFieldEnumTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/ProfileTypeEnumTransformer.html">ProfileTypeEnumTransformer</a></li>
           <li class="api apilevel-"><a href="../../../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/SearchParameterEnumTransformer.html">SearchParameterEnumTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../../java/com/google/code/linkedinapi/client/enumeration/transformers/SearchSortOrderEnumTransformer.html">SearchSortOrderEnumTransformer</a></li>
       </ul>
     </li>
               
@@ -470,8 +479,6 @@ Summary:
   
   
       implements 
-      
-        MuleContextAware 
       
         DiscoverableTransformer 
       
@@ -739,19 +746,6 @@ org.mule.api.transformer.Converter
           private
           
           
-          MuleContext</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../../../com/google/code/linkedinapi/client/enumeration/transformers/FacetFieldEnumTransformer.html#muleContext">muleContext</a></td>
-          <td class="jd-descrcol" width="100%">Mule Context
- 
-</td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../../../com/google/code/linkedinapi/client/enumeration/transformers/FacetFieldEnumTransformer.html#weighting">weighting</a></td>
           <td class="jd-descrcol" width="100%"></td>
@@ -1007,24 +1001,6 @@ org.mule.transformer.AbstractTransformer
 
 	 
     <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../../com/google/code/linkedinapi/client/enumeration/transformers/FacetFieldEnumTransformer.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
-        
-        <div class="jd-descrdiv">Set the Mule context</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2688,38 +2664,6 @@ From interface
 
 
 
-<A NAME="muleContext"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        MuleContext
-      </span>
-        muleContext
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Mule Context
- 
-</p></div>
-
-    
-    </div>
-</div>
-
-
-
 <A NAME="weighting"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2831,47 +2775,6 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="setMuleContext(org.mule.api.MuleContext)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setMuleContext</span>
-      <span class="normal">(MuleContext context)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Set the Mule context</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>context</td>
-          <td>Mule context to set
-</td>
-        </tr>
-      </table>
-  </div>
 
     </div>
 </div>

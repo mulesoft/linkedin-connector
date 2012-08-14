@@ -12,8 +12,11 @@ com.google.code.linkedinapi.schema.transformers
 com.google.code.linkedinapi.schema.xpp
 org.mule.module.linkedin
 org.mule.module.linkedin.adapters
+org.mule.module.linkedin.agents
 org.mule.module.linkedin.config
 org.mule.module.linkedin.config.spring
+org.mule.module.linkedin.oauth
+org.mule.module.linkedin.process
 org.mule.module.linkedin.processors
 org.mule.module.linkedin.transformers
 

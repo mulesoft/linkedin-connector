@@ -230,10 +230,16 @@
   <a href="../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/adapters/package-summary.html">org.mule.module.linkedin.adapters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/agents/package-summary.html">org.mule.module.linkedin.agents</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/oauth/package-summary.html">org.mule.module.linkedin.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/process/package-summary.html">org.mule.module.linkedin.process</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/processors/package-summary.html">org.mule.module.linkedin.processors</a></li>
     <li class="api apilevel-">
@@ -286,6 +292,7 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorLifecycleAdapter.html">LinkedInConnectorLifecycleAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorNamespaceHandler.html">LinkedInConnectorNamespaceHandler</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedInConnectorOAuth1Adapter.html">LinkedInConnectorOAuth1Adapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/LinkedinNamespaceHandler.html">LinkedinNamespaceHandler</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostCommentDefinitionParser.html">PostCommentDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostCommentMessageProcessor.html">PostCommentMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/PostNetworkUpdateDefinitionParser.html">PostNetworkUpdateDefinitionParser</a></li>
@@ -309,6 +316,7 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SendMessageDefinitionParser.html">SendMessageDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/SendMessageMessageProcessor.html">SendMessageMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/StringToDateTransformer.html">StringToDateTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UnauthorizeDefinitionParser.html">UnauthorizeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UnlikePostDefinitionParser.html">UnlikePostDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UnlikePostMessageProcessor.html">UnlikePostMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/linkedin/config/UpdateCurrentStatusDefinitionParser.html">UpdateCurrentStatusDefinitionParser</a></li>
@@ -393,6 +401,9 @@ Summary:
   &#124; <a href="#pubmethods">Methods</a>
   
 
+
+  &#124; <a href="#promethods">Protected Methods</a>
+  
 
 
   &#124; <a href="#inhmethods">Inherited Methods</a>
@@ -574,6 +585,511 @@ Summary:
 </table>
 
 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#attachProcessorDefinition(org.springframework.beans.factory.xml.ParserContext, org.springframework.beans.factory.config.BeanDefinition)">attachProcessorDefinition</a></span>(ParserContext parserContext, BeanDefinition definition)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#attachSourceDefinition(org.springframework.beans.factory.xml.ParserContext, org.springframework.beans.factory.config.BeanDefinition)">attachSourceDefinition</a></span>(ParserContext parserContext, BeanDefinition definition)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#generateChildBeanName(org.w3c.dom.Element)">generateChildBeanName</a></span>(Element element)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#getAttributeValue(org.w3c.dom.Element, java.lang.String)">getAttributeValue</a></span>(Element element, String attributeName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#hasAttribute(org.w3c.dom.Element, java.lang.String)">hasAttribute</a></span>(Element element, String attributeName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#isMuleExpression(java.lang.String)">isMuleExpression</a></span>(String value)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseConfigName(org.w3c.dom.Element)">parseConfigName</a></span>(Element element)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseConfigRef(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder)">parseConfigRef</a></span>(Element element, BeanDefinitionBuilder builder)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            ManagedList</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseList(org.w3c.dom.Element, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)">parseList</a></span>(Element element, String childElementName, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseListAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)">parseListAndSetProperty</a></span>(Element element, BeanDefinitionBuilder builder, String fieldName, String parentElementName, String childElementName, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseListWithDefaultAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)">parseListWithDefaultAndSetProperty</a></span>(Element element, BeanDefinitionBuilder builder, String fieldName, String parentElementName, String childElementName, String defaultValue, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            ManagedMap</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseMap(org.w3c.dom.Element, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)">parseMap</a></span>(Element element, String childElementName, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseMapAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)">parseMapAndSetProperty</a></span>(Element element, BeanDefinitionBuilder builder, String fieldName, String parentElementName, String childElementName, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseMapWithDefaultAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)">parseMapWithDefaultAndSetProperty</a></span>(Element element, BeanDefinitionBuilder builder, String fieldName, String parentElementName, String childElementName, String defaultValue, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            BeanDefinition</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseNestedProcessor(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, java.lang.Class)">parseNestedProcessor</a></span>(Element element, ParserContext parserContext, Class factory)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseNestedProcessorAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, java.lang.Class, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String)">parseNestedProcessorAndSetProperty</a></span>(Element element, ParserContext parserContext, Class factory, BeanDefinitionBuilder builder, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseNestedProcessorAndSetProperty(org.w3c.dom.Element, java.lang.String, org.springframework.beans.factory.xml.ParserContext, java.lang.Class, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String)">parseNestedProcessorAndSetProperty</a></span>(Element element, String childElementName, ParserContext parserContext, Class factory, BeanDefinitionBuilder builder, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseNestedProcessorAsList(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, java.lang.Class)">parseNestedProcessorAsList</a></span>(Element element, ParserContext parserContext, Class factory)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseNestedProcessorAsListAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, java.lang.Class, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String)">parseNestedProcessorAsListAndSetProperty</a></span>(Element element, ParserContext parserContext, Class factory, BeanDefinitionBuilder builder, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseNestedProcessorAsListAndSetProperty(org.w3c.dom.Element, java.lang.String, org.springframework.beans.factory.xml.ParserContext, java.lang.Class, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String)">parseNestedProcessorAsListAndSetProperty</a></span>(Element element, String childElementName, ParserContext parserContext, Class factory, BeanDefinitionBuilder builder, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseObjectRef(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String)">parseObjectRef</a></span>(Element element, BeanDefinitionBuilder builder, String elementName, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseObjectRefWithDefault(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String)">parseObjectRefWithDefault</a></span>(Element element, BeanDefinitionBuilder builder, String elementName, String propertyName, String defaultValue)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseProperty(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element, java.lang.String)">parseProperty</a></span>(BeanDefinitionBuilder builder, Element element, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseProperty(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element, java.lang.String, java.lang.String)">parseProperty</a></span>(BeanDefinitionBuilder builder, Element element, String attributeName, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parsePropertyRef(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element, java.lang.String)">parsePropertyRef</a></span>(BeanDefinitionBuilder builder, Element element, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parsePropertyRef(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element, java.lang.String, java.lang.String)">parsePropertyRef</a></span>(BeanDefinitionBuilder builder, Element element, String attributeName, String propertyName)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#parseRetryPolicyTemplate(java.lang.String, org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, org.springframework.beans.factory.support.BeanDefinitionBuilder, org.springframework.beans.factory.config.BeanDefinition)">parseRetryPolicyTemplate</a></span>(String elementName, Element element, ParserContext parserContext, BeanDefinitionBuilder builder, BeanDefinition definition)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#setDestroyMethodIfNeeded(org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.Class)">setDestroyMethodIfNeeded</a></span>(BeanDefinitionBuilder builder, Class clazz)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#setInitMethodIfNeeded(org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.Class)">setInitMethodIfNeeded</a></span>(BeanDefinitionBuilder builder, Class clazz)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#setNoRecurseOnDefinition(org.springframework.beans.factory.config.BeanDefinition)">setNoRecurseOnDefinition</a></span>(BeanDefinition definition)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/config/AuthorizeDefinitionParser.html#setRef(org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String)">setRef</a></span>(BeanDefinitionBuilder builder, String propertyName, String ref)</nobr>
+        
+  </td></tr>
+
+
+
+</table>
 
 
 
@@ -956,6 +1472,1563 @@ From interface
 
 
 <!-- ========= METHOD DETAIL ======== -->
+
+<h2>Protected Methods</h2>
+
+
+
+<A NAME="attachProcessorDefinition(org.springframework.beans.factory.xml.ParserContext, org.springframework.beans.factory.config.BeanDefinition)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">attachProcessorDefinition</span>
+      <span class="normal">(ParserContext parserContext, BeanDefinition definition)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>definition</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="attachSourceDefinition(org.springframework.beans.factory.xml.ParserContext, org.springframework.beans.factory.config.BeanDefinition)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">attachSourceDefinition</span>
+      <span class="normal">(ParserContext parserContext, BeanDefinition definition)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>definition</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="generateChildBeanName(org.w3c.dom.Element)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">generateChildBeanName</span>
+      <span class="normal">(Element element)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getAttributeValue(org.w3c.dom.Element, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getAttributeValue</span>
+      <span class="normal">(Element element, String attributeName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributeName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="hasAttribute(org.w3c.dom.Element, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">hasAttribute</span>
+      <span class="normal">(Element element, String attributeName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributeName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isMuleExpression(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isMuleExpression</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseConfigName(org.w3c.dom.Element)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseConfigName</span>
+      <span class="normal">(Element element)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseConfigRef(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseConfigRef</span>
+      <span class="normal">(Element element, BeanDefinitionBuilder builder)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseList(org.w3c.dom.Element, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        ManagedList
+      </span>
+      <span class="sympad">parseList</span>
+      <span class="normal">(Element element, String childElementName, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>childElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserDelegate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseListAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseListAndSetProperty</span>
+      <span class="normal">(Element element, BeanDefinitionBuilder builder, String fieldName, String parentElementName, String childElementName, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>fieldName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parentElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>childElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserDelegate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseListWithDefaultAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseListWithDefaultAndSetProperty</span>
+      <span class="normal">(Element element, BeanDefinitionBuilder builder, String fieldName, String parentElementName, String childElementName, String defaultValue, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>fieldName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parentElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>childElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>defaultValue</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserDelegate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseMap(org.w3c.dom.Element, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        ManagedMap
+      </span>
+      <span class="sympad">parseMap</span>
+      <span class="normal">(Element element, String childElementName, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>childElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserDelegate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseMapAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseMapAndSetProperty</span>
+      <span class="normal">(Element element, BeanDefinitionBuilder builder, String fieldName, String parentElementName, String childElementName, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>fieldName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parentElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>childElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserDelegate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseMapWithDefaultAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.config.AbstractDefinitionParser.ParseDelegate)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseMapWithDefaultAndSetProperty</span>
+      <span class="normal">(Element element, BeanDefinitionBuilder builder, String fieldName, String parentElementName, String childElementName, String defaultValue, <a href="../../../../../../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">ParseDelegate</a> parserDelegate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>fieldName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parentElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>childElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>defaultValue</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserDelegate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseNestedProcessor(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, java.lang.Class)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        BeanDefinition
+      </span>
+      <span class="sympad">parseNestedProcessor</span>
+      <span class="normal">(Element element, ParserContext parserContext, Class factory)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>factory</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseNestedProcessorAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, java.lang.Class, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseNestedProcessorAndSetProperty</span>
+      <span class="normal">(Element element, ParserContext parserContext, Class factory, BeanDefinitionBuilder builder, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>factory</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseNestedProcessorAndSetProperty(org.w3c.dom.Element, java.lang.String, org.springframework.beans.factory.xml.ParserContext, java.lang.Class, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseNestedProcessorAndSetProperty</span>
+      <span class="normal">(Element element, String childElementName, ParserContext parserContext, Class factory, BeanDefinitionBuilder builder, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>childElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>factory</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseNestedProcessorAsList(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, java.lang.Class)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        List
+      </span>
+      <span class="sympad">parseNestedProcessorAsList</span>
+      <span class="normal">(Element element, ParserContext parserContext, Class factory)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>factory</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseNestedProcessorAsListAndSetProperty(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, java.lang.Class, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseNestedProcessorAsListAndSetProperty</span>
+      <span class="normal">(Element element, ParserContext parserContext, Class factory, BeanDefinitionBuilder builder, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>factory</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseNestedProcessorAsListAndSetProperty(org.w3c.dom.Element, java.lang.String, org.springframework.beans.factory.xml.ParserContext, java.lang.Class, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseNestedProcessorAsListAndSetProperty</span>
+      <span class="normal">(Element element, String childElementName, ParserContext parserContext, Class factory, BeanDefinitionBuilder builder, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>childElementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>factory</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseObjectRef(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">parseObjectRef</span>
+      <span class="normal">(Element element, BeanDefinitionBuilder builder, String elementName, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>elementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseObjectRefWithDefault(org.w3c.dom.Element, org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">parseObjectRefWithDefault</span>
+      <span class="normal">(Element element, BeanDefinitionBuilder builder, String elementName, String propertyName, String defaultValue)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>elementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>defaultValue</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseProperty(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseProperty</span>
+      <span class="normal">(BeanDefinitionBuilder builder, Element element, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseProperty(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseProperty</span>
+      <span class="normal">(BeanDefinitionBuilder builder, Element element, String attributeName, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributeName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parsePropertyRef(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parsePropertyRef</span>
+      <span class="normal">(BeanDefinitionBuilder builder, Element element, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parsePropertyRef(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parsePropertyRef</span>
+      <span class="normal">(BeanDefinitionBuilder builder, Element element, String attributeName, String propertyName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributeName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="parseRetryPolicyTemplate(java.lang.String, org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext, org.springframework.beans.factory.support.BeanDefinitionBuilder, org.springframework.beans.factory.config.BeanDefinition)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">parseRetryPolicyTemplate</span>
+      <span class="normal">(String elementName, Element element, ParserContext parserContext, BeanDefinitionBuilder builder, BeanDefinition definition)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>elementName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>element</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parserContext</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>definition</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDestroyMethodIfNeeded(org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.Class)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDestroyMethodIfNeeded</span>
+      <span class="normal">(BeanDefinitionBuilder builder, Class clazz)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>clazz</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setInitMethodIfNeeded(org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.Class)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setInitMethodIfNeeded</span>
+      <span class="normal">(BeanDefinitionBuilder builder, Class clazz)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>clazz</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setNoRecurseOnDefinition(org.springframework.beans.factory.config.BeanDefinition)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setNoRecurseOnDefinition</span>
+      <span class="normal">(BeanDefinition definition)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>definition</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setRef(org.springframework.beans.factory.support.BeanDefinitionBuilder, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setRef</span>
+      <span class="normal">(BeanDefinitionBuilder builder, String propertyName, String ref)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>builder</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>propertyName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>ref</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 
 
 

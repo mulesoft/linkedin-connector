@@ -231,9 +231,15 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/adapters/package-summary.html">org.mule.module.linkedin.adapters</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/agents/package-summary.html">org.mule.module.linkedin.agents</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/spring/package-summary.html">org.mule.module.linkedin.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/oauth/package-summary.html">org.mule.module.linkedin.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/process/package-summary.html">org.mule.module.linkedin.process</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/processors/package-summary.html">org.mule.module.linkedin.processors</a></li>
     <li class="selected api apilevel-">
@@ -471,8 +477,6 @@ Summary:
   
   
       implements 
-      
-        MuleContextAware 
       
         DiscoverableTransformer 
       
@@ -751,21 +755,8 @@ org.mule.api.transformer.Converter
           private
           
           
-          MuleContext</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/transformers/StringToDateTransformer.html#muleContext">muleContext</a></td>
-          <td class="jd-descrcol" width="100%">Mule Context
- 
-</td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
           int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/transformers/StringToDateTransformer.html#weighting">weighting</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/transformers/StringToDateTransformer.html#priorityWeighting">priorityWeighting</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1014,6 +1005,10 @@ org.mule.transformer.AbstractTransformer
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/transformers/StringToDateTransformer.html#getPriorityWeighting()">getPriorityWeighting</a></span>()</nobr>
         
+        <div class="jd-descrdiv">Retrieves priorityWeighting
+ 
+</div>
+  
   </td></tr>
 
 
@@ -1028,26 +1023,10 @@ org.mule.transformer.AbstractTransformer
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/transformers/StringToDateTransformer.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/transformers/StringToDateTransformer.html#setPriorityWeighting(int)">setPriorityWeighting</a></span>(int value)</nobr>
         
-        <div class="jd-descrdiv">Set the Mule context</div>
+        <div class="jd-descrdiv">Sets priorityWeighting</div>
   
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/transformers/StringToDateTransformer.html#setPriorityWeighting(int)">setPriorityWeighting</a></span>(int weighting)</nobr>
-        
   </td></tr>
 
 
@@ -2730,39 +2709,7 @@ From interface
 
 
 
-<A NAME="muleContext"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        MuleContext
-      </span>
-        muleContext
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Mule Context
- 
-</p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="weighting"></A>
+<A NAME="priorityWeighting"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2772,7 +2719,7 @@ From interface
          
         int
       </span>
-        weighting
+        priorityWeighting
     </h4>
       <div class="api-level">
         
@@ -2872,48 +2819,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="setMuleContext(org.mule.api.MuleContext)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setMuleContext</span>
-      <span class="normal">(MuleContext context)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Set the Mule context</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>context</td>
-          <td>Mule context to set
-</td>
-        </tr>
-      </table>
-  </div>
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves priorityWeighting
+ 
+</p></div>
 
     </div>
 </div>
@@ -2932,7 +2840,7 @@ From interface
         void
       </span>
       <span class="sympad">setPriorityWeighting</span>
-      <span class="normal">(int weighting)</span>
+      <span class="normal">(int value)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2944,13 +2852,14 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets priorityWeighting</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>weighting</td>
-          <td></td>
+          <th>value</td>
+          <td>Value to set
+</td>
         </tr>
       </table>
   </div>

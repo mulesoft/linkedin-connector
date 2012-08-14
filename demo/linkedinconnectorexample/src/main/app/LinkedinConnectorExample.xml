@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:linkedin="http://www.mulesoft.org/schema/mule/linkedin" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="EE-3.3.0" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/linkedin http://www.mulesoft.org/schema/mule/linkedin/1.0/mule-linkedin.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd 
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd ">
+
+    <linkedin:config name="LinkedinConf" apiKey="YOUR_LINKEDIN_API_KEY" apiSecret="YOUR_LINKEDIN_API_SECRET" doc:name="Linkedin">
+        <linkedin:oauth-callback-config domain="localhost" localPort="8081" remotePort="8081" path="oauth_callback"/>
+    </linkedin:config>
+    
+    <flow name="GetCurrentUserProfile" doc:name="GetCurrentUserProfile">
+        <http:inbound-endpoint exchange-pattern="one-way" host="localhost" port="8081" path="getCurrentUserProfile" doc:name="HTTP"/>
+       
+        <linkedin:get-profile-for-current-user config-ref="LinkedinConf" doc:name="Linkedin"/>
+       
+        <logger message="NAME:     #[groovy:payload.getFirstName()]" level="INFO" doc:name="Logger"/>
+        <logger message="LASTNAME: #[groovy:payload.getLastName()]" level="INFO" doc:name="Logger"/>
+        <logger message="INDUSTRY: #[groovy:payload.getIndustry()]" level="INFO" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="AuthorizeFlow" doc:name="AuthorizeFlow">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="authorize" doc:name="HTTP"/>
+        <linkedin:authorize config-ref="LinkedinConf" doc:name="Linkedin"/>
+    </flow>
+</mule>

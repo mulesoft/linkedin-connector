@@ -62,19 +62,18 @@ accessTokenUrl = "https://api.linkedin.com/uas/oauth/accessToken",
 authorizationUrl = "https://api.linkedin.com/uas/oauth/authorize")
 public class LinkedInConnector {
 
-	// CLIENT CREDENTIALS
 	/**
 	 * API Key
 	 */
 	@Configurable
 	@OAuthConsumerKey
-	private String apiKey; // client identifier
+	private String apiKey; // api / client / consumer
 	/**
 	 * API Secret
 	 */
 	@Configurable
 	@OAuthConsumerSecret
-	private String apiSecret; // client secret
+	private String apiSecret; // api / client / consumer
 
 	@OAuthAccessToken
 	private String accessToken;

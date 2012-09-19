@@ -30,7 +30,6 @@ import com.google.code.linkedinapi.schema.UpdateComments;
 import com.google.code.linkedinapi.schema.VisibilityType;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Connector;
-import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.oauth.OAuth;
@@ -38,6 +37,7 @@ import org.mule.api.annotations.oauth.OAuthAccessToken;
 import org.mule.api.annotations.oauth.OAuthAccessTokenSecret;
 import org.mule.api.annotations.oauth.OAuthConsumerKey;
 import org.mule.api.annotations.oauth.OAuthConsumerSecret;
+import org.mule.api.annotations.oauth.OAuthScope;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 
@@ -56,7 +56,7 @@ import java.util.Set;
  * 
  * @author MuleSoft, Inc.
  */
-@Connector(name = "linkedin")
+@Connector(name = "linkedin", friendlyName = "LinkedIn")
 @OAuth(requestTokenUrl = "https://api.linkedin.com/uas/oauth/requestToken", 
 accessTokenUrl = "https://api.linkedin.com/uas/oauth/accessToken", 
 authorizationUrl = "https://api.linkedin.com/uas/oauth/authorize")
@@ -81,6 +81,15 @@ public class LinkedInConnector {
 	@OAuthAccessTokenSecret
 	private String accessTokenSecret;
 	
+	/**
+     * LinkedIn permissions
+     */
+    @Configurable
+    @Optional
+    @Default(value = "r_basicprofile+r_emailaddress")
+    @OAuthScope
+    private String scope;
+
 	private LinkedInApiClient client;
 
 	/**
@@ -945,5 +954,13 @@ public class LinkedInConnector {
 	public void setAccessTokenSecret(String accessTockenSecret) {
 		this.accessTokenSecret = accessTockenSecret;
 	}
+
+    public String getScope() {
+        return scope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope;
+    }
 
 }

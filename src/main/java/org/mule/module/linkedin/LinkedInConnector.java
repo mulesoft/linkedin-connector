@@ -109,7 +109,7 @@ public class LinkedInConnector {
 	 * @return the profile for current user
 	 */
 	@Processor
-	public Person getProfileForCurrentUser(@Optional List<ProfileField> profileFields) {
+	public Person getProfileForCurrentUser(@Placement(group = "Profile Fields") @Optional List<ProfileField> profileFields) {
 		if (profileFields == null) {
 			return getClient(accessToken, accessTokenSecret).getProfileForCurrentUser();
 		} else {
@@ -135,7 +135,8 @@ public class LinkedInConnector {
 	 * @return the profile by id
 	 */
 	@Processor
-	public Person getProfileById(String id, @Optional List<ProfileField> profileFields) {
+	public Person getProfileById(String id, 
+	        @Placement(group = "Profile Fields") @Optional List<ProfileField> profileFields) {
 		if (profileFields == null) {
 			return getClient(accessToken, accessTokenSecret).getProfileById(id);
 		} else {
@@ -164,7 +165,8 @@ public class LinkedInConnector {
 	 * @return the profile by url
 	 */
 	@Processor
-	public Person getProfileByUrl(String url, ProfileType profileType, @Optional List<ProfileField> profileFields) {
+	public Person getProfileByUrl(String url, ProfileType profileType, 
+	        @Placement(group = "Profile Fields") @Optional List<ProfileField> profileFields) {
 		if (profileFields == null) {
 			return getClient(accessToken, accessTokenSecret).getProfileByUrl(url, profileType);
 		} else {
@@ -199,7 +201,8 @@ public class LinkedInConnector {
 	 * @return the network updates
 	 */
 	@Processor
-	public Network getNetworkUpdates(@Optional List<NetworkUpdateType> updateTypes, @Optional Integer start, @Optional Integer count,
+	public Network getNetworkUpdates(@Placement(group = "Update Types") @Optional List<NetworkUpdateType> updateTypes, 
+	        @Optional Integer start, @Optional Integer count,
 			@Optional Date startDate, @Optional Date endDate, @Optional Boolean showHiddenMembers) {
 		if (updateTypes != null && start != null && count != null && startDate != null && endDate != null && showHiddenMembers != null) {
 			return getClient(accessToken, accessTokenSecret).getNetworkUpdates(createSet(updateTypes), start, count, startDate, endDate,
@@ -251,7 +254,8 @@ public class LinkedInConnector {
 	 * @return the network updates
 	 */
 	@Processor
-	public Network getUserUpdates(@Optional List<NetworkUpdateType> updateTypes, @Optional Integer start, @Optional Integer count,
+	public Network getUserUpdates(@Placement(group = "Update Types") @Optional List<NetworkUpdateType> updateTypes, 
+	        @Optional Integer start, @Optional Integer count,
 			@Optional Date startDate, @Optional Date endDate) {
 		if (updateTypes != null && start != null && count != null && startDate != null && endDate != null) {
 			return getClient(accessToken, accessTokenSecret).getUserUpdates(createSet(updateTypes), start, count, startDate, endDate);
@@ -301,8 +305,8 @@ public class LinkedInConnector {
 	 * @return the network updates
 	 */
 	@Processor
-	public Network getUserUpdatesById(String id, @Optional List<NetworkUpdateType> updateTypes, @Optional Integer start,
-			@Optional Integer count, @Optional Date startDate, @Optional Date endDate) {
+	public Network getUserUpdatesById(String id, @Placement(group = "Update Types") @Optional List<NetworkUpdateType> updateTypes, 
+	        @Optional Integer start, @Optional Integer count, @Optional Date startDate, @Optional Date endDate) {
 		if (updateTypes != null && start != null && count != null && startDate != null && endDate != null) {
 			return getClient(accessToken, accessTokenSecret).getUserUpdates(id, createSet(updateTypes), start, count, startDate, endDate);
 		}
@@ -393,8 +397,8 @@ public class LinkedInConnector {
 	 * @return the connections for current user
 	 */
 	@Processor
-	public Connections getConnectionsForCurrentUser(@Optional List<ProfileField> profileFields, @Optional Integer start,
-			@Optional Integer count, @Optional Date modificationDate, @Optional ConnectionModificationType modificationType) {
+	public Connections getConnectionsForCurrentUser(@Placement(group = "ProfileFields") @Optional List<ProfileField> profileFields, 
+	        @Optional Integer start, @Optional Integer count, @Optional Date modificationDate, @Optional ConnectionModificationType modificationType) {
 		if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
 			return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(createSet(profileFields), start, count,
 					modificationDate, modificationType);
@@ -450,8 +454,8 @@ public class LinkedInConnector {
 	 * @return the connections by id
 	 */
 	@Processor
-	public Connections getConnectionsById(String id, @Optional List<ProfileField> profileFields, @Optional Integer start,
-			@Optional Integer count, @Optional Date modificationDate, @Optional ConnectionModificationType modificationType) {
+	public Connections getConnectionsById(String id, @Placement(group = "Profile Fields") @Optional List<ProfileField> profileFields, 
+	        @Optional Integer start, @Optional Integer count, @Optional Date modificationDate, @Optional ConnectionModificationType modificationType) {
 		if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
 			return getClient(accessToken, accessTokenSecret).getConnectionsById(id, createSet(profileFields), start, count,
 					modificationDate, modificationType);
@@ -506,8 +510,8 @@ public class LinkedInConnector {
 	 * @return the connections by url
 	 */
 	@Processor
-	public Connections getConnectionsByUrl(String url, @Optional List<ProfileField> profileFields, @Optional Integer start,
-			@Optional Integer count, @Optional Date modificationDate, @Optional ConnectionModificationType modificationType) {
+	public Connections getConnectionsByUrl(String url, @Placement(group = "Profile Fields") @Optional List<ProfileField> profileFields, 
+	        @Optional Integer start, @Optional Integer count, @Optional Date modificationDate, @Optional ConnectionModificationType modificationType) {
 		if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
 			return getClient(accessToken, accessTokenSecret).getConnectionsByUrl(url, createSet(profileFields), start, count,
 					modificationDate, modificationType);
@@ -559,8 +563,8 @@ public class LinkedInConnector {
 	 * @return the people
 	 */
 	@Processor
-	public People searchPeople(@Optional @Placement(order = 1) Map<SearchParameter, String> searchParameters,
-			@Optional @Placement(order = 2) List<ProfileField> profileFields, @Optional Integer start, @Optional Integer count,
+	public People searchPeople(@Optional @Placement(group = "Search Parameters") Map<SearchParameter, String> searchParameters,
+			@Optional @Placement(group = "Profile Fields") List<ProfileField> profileFields, @Optional Integer start, @Optional Integer count,
 			@Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder) {
 		if (searchParameters != null && profileFields != null && start != null && count != null) {
 			return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), start, count,
@@ -606,9 +610,10 @@ public class LinkedInConnector {
 	 */
 
 	@Processor
-	public People searchPeopleWithFacets(@Placement(order = 1) Map<SearchParameter, String> searchParameters,
-			@Optional @Placement(order = 2) List<ProfileField> profileFields, @Optional Integer start, @Optional Integer count,
-			@Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder, Map<FacetType, String> facets) {
+	public People searchPeopleWithFacets(@Placement(group = "Search Parameters") Map<SearchParameter, String> searchParameters,
+	        @Placement(group = "Profile Fields") @Optional List<ProfileField> profileFields, 
+	        @Optional Integer start, @Optional Integer count, @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder, 
+	        @Placement(group = "Facets") Map<FacetType, String> facets) {
 		if (profileFields != null && start != null && count != null) {
 			return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields), start, count,
 					sortOrder, adapt(facets));
@@ -654,10 +659,10 @@ public class LinkedInConnector {
 	 */
 
 	@Processor
-	public PeopleSearch searchPeopleWithFacetFields(@Placement(order = 1) Map<SearchParameter, String> searchParameters,
-			@Placement(order = 2) List<ProfileField> profileFields, List<FacetField> facetFields, @Optional Integer start,
-			@Optional Integer count, @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder,
-			@Optional Map<FacetType, String> facets) {
+	public PeopleSearch searchPeopleWithFacetFields(@Placement(group = "Search Parameters") Map<SearchParameter, String> searchParameters,
+	        @Placement(group = "Facet Fields") List<ProfileField> profileFields, List<FacetField> facetFields, 
+	        @Optional Integer start, @Optional Integer count, @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder,
+	        @Placement(group = "Facets") @Optional Map<FacetType, String> facets) {
 		if (start != null && count != null && facets != null) {
 			return getClient(accessToken, accessTokenSecret).searchPeople(searchParameters, createSet(profileFields),
 					createSet(facetFields), start, count, sortOrder, adapt(facets));
@@ -813,7 +818,7 @@ public class LinkedInConnector {
 	 *            the message
 	 */
 	@Processor
-	public void sendMessage(List<String> recepientIds, String subject, String message) {
+	public void sendMessage(@Placement(group = "Recipient IDs") List<String> recepientIds, String subject, String message) {
 		getClient(accessToken, accessTokenSecret).sendMessage(recepientIds, subject, message);
 	}
 

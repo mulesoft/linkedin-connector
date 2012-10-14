@@ -397,7 +397,7 @@ public class LinkedInConnector {
 	 * @return the connections for current user
 	 */
 	@Processor
-	public Connections getConnectionsForCurrentUser(@Placement(group = "ProfileFields") @Optional List<ProfileField> profileFields, 
+	public Connections getConnectionsForCurrentUser(@Placement(group = "Profile Fields") @Optional List<ProfileField> profileFields, 
 	        @Optional Integer start, @Optional Integer count, @Optional Date modificationDate, @Optional ConnectionModificationType modificationType) {
 		if (profileFields != null && start != null && count != null && modificationDate != null && modificationType != null) {
 			return getClient(accessToken, accessTokenSecret).getConnectionsForCurrentUser(createSet(profileFields), start, count,
@@ -660,7 +660,7 @@ public class LinkedInConnector {
 
 	@Processor
 	public PeopleSearch searchPeopleWithFacetFields(@Placement(group = "Search Parameters") Map<SearchParameter, String> searchParameters,
-	        @Placement(group = "Facet Fields") List<ProfileField> profileFields, List<FacetField> facetFields, 
+	        @Placement(group = "Profile Fields") List<ProfileField> profileFields, @Placement(group = "Facet Fields") List<FacetField> facetFields, 
 	        @Optional Integer start, @Optional Integer count, @Optional @Default(value = "RELEVANCE") SearchSortOrder sortOrder,
 	        @Placement(group = "Facets") @Optional Map<FacetType, String> facets) {
 		if (start != null && count != null && facets != null) {

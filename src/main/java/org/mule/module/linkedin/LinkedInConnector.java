@@ -28,6 +28,7 @@ import com.google.code.linkedinapi.schema.PeopleSearch;
 import com.google.code.linkedinapi.schema.Person;
 import com.google.code.linkedinapi.schema.UpdateComments;
 import com.google.code.linkedinapi.schema.VisibilityType;
+
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
@@ -40,6 +41,7 @@ import org.mule.api.annotations.oauth.OAuthConsumerSecret;
 import org.mule.api.annotations.oauth.OAuthScope;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
+import org.mule.module.linkedin.schema.LinkedInVisibilityType;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -875,9 +877,10 @@ public class LinkedInConnector {
 	 *            whether to post to twitter
 	 */
 	@Processor
-	public void postShare(String commentText, String title, String url, String imageUrl, VisibilityType visibility,
+	public void postShare(String commentText, String title, String url, String imageUrl, LinkedInVisibilityType visibility,
 			@Optional @Default("false") Boolean postToTwitter) {
-		getClient(accessToken, accessTokenSecret).postShare(commentText, title, url, imageUrl, visibility, postToTwitter);
+		getClient(accessToken, accessTokenSecret).postShare(commentText, title, url, imageUrl, 
+		        VisibilityType.fromValue(visibility.value()), postToTwitter);
 	}
 
 	/**
@@ -900,8 +903,9 @@ public class LinkedInConnector {
 	 *            the visibility
 	 */
 	@Processor
-	public void reShare(String shareId, String commentText, VisibilityType visibility) {
-		getClient(accessToken, accessTokenSecret).reShare(shareId, commentText, visibility);
+	public void reShare(String shareId, String commentText, LinkedInVisibilityType visibility) {
+		getClient(accessToken, accessTokenSecret).reShare(shareId, commentText, 
+		        VisibilityType.fromValue(visibility.value()));
 	}
 
 	public void setApiKey(String apiKey) {

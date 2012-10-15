@@ -234,11 +234,6 @@ public class LinkedInNamespaceHandlerTestCase extends FunctionalTestCase {
         verify(mockClient).updateCurrentStatus("new-status", true);
     }
 
-    public void testDeleteCurrentStatus() throws Exception {
-        runFlow("DeleteCurrentStatus");
-        verify(mockClient).deleteCurrentStatus();
-    }
-
     public void testSendMessage() throws Exception {
         runFlow("SendMessage");
         verify(mockClient).sendMessage(Arrays.asList("recipientId1", "recipientId2"), SUBJECT, MESSAGE);

@@ -211,10 +211,6 @@
         <linkedin:update-current-status status="new-status" postToTwitter="true"/>
     </flow>
 
-    <flow name="DeleteCurrentStatus">
-        <linkedin:delete-current-status/>
-    </flow>
-
     <flow name="SendMessage">
         <linkedin:send-message subject="some-subject" message="some-message">
             <linkedin:recepient-ids>

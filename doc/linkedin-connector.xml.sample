@@ -182,10 +182,6 @@
         <linkedin:update-current-status status="new-status" postToTwitter="true"/>
 <!-- END_INCLUDE(linkedin:update-current-status) -->
 
-<!-- BEGIN_INCLUDE(linkedin:delete-current-status) -->
-        <linkedin:delete-current-status/>
-<!-- END_INCLUDE(linkedin:delete-current-status) -->
-
 <!-- BEGIN_INCLUDE(linkedin:send-message) -->
         <linkedin:send-message subject="some-subject" message="some-message">
             <linkedin:recepient-ids>

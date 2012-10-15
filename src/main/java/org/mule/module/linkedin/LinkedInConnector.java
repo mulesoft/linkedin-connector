@@ -784,23 +784,6 @@ public class LinkedInConnector {
 	}
 
 	/**
-	 * Delete current status. For details see <a href="http://developer.linkedin.com/docs/DOC-1007"
-	 * >http://developer.linkedin.com/docs/DOC-1007</a>
-	 * <p/>
-	 * {@sample.xml ../../../doc/linkedin-connector.xml.sample linkedin:delete-current-status}
-	 * {@sample.java ../../../doc/linkedin-connector.java.sample linkedin:deleteCurrentStatus}
-	 * 
-	 * @param accessToken
-	 *            the access token to used as described by the OAuth 1.0a specification.
-	 * @param accessTokenSecret
-	 *            the access token secret to used as described by the OAuth 1.0a specification.
-	 */
-	@Processor
-	public void deleteCurrentStatus() {
-		getClient(accessToken, accessTokenSecret).deleteCurrentStatus();
-	}
-
-	/**
 	 * Send message. For details see <a href="http://developer.linkedin.com/docs/DOC-1044"
 	 * >http://developer.linkedin.com/docs/DOC-1044</a>
 	 * <p/>

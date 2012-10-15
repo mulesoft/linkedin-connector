@@ -18,5 +18,7 @@ org.mule.module.linkedin.config.spring
 org.mule.module.linkedin.oauth
 org.mule.module.linkedin.process
 org.mule.module.linkedin.processors
+org.mule.module.linkedin.schema
+org.mule.module.linkedin.schema.transformers
 org.mule.module.linkedin.transformers
 

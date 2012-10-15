@@ -243,6 +243,10 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/linkedin/processors/package-summary.html">org.mule.module.linkedin.processors</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/linkedin/schema/package-summary.html">org.mule.module.linkedin.schema</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/linkedin/schema/transformers/package-summary.html">org.mule.module.linkedin.schema.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/linkedin/transformers/package-summary.html">org.mule.module.linkedin.transformers</a></li>
               </ul><br/>
             </div> <!-- end packages -->
@@ -1022,7 +1026,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/linkedin/LinkedInConnector.html#postShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.google.code.linkedinapi.schema.VisibilityType, java.lang.Boolean)">postShare</a></span>(String commentText, String title, String url, String imageUrl, <a href="../../../../../java/com/google/code/linkedinapi/schema/VisibilityType.html">VisibilityType</a> visibility, Boolean postToTwitter)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/linkedin/LinkedInConnector.html#postShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.schema.LinkedInVisibilityType, java.lang.Boolean)">postShare</a></span>(String commentText, String title, String url, String imageUrl, <a href="../../../../../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a> visibility, Boolean postToTwitter)</nobr>
         
         <div class="jd-descrdiv">Post share.</div>
   
@@ -1040,7 +1044,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/linkedin/LinkedInConnector.html#reShare(java.lang.String, java.lang.String, com.google.code.linkedinapi.schema.VisibilityType)">reShare</a></span>(String shareId, String commentText, <a href="../../../../../java/com/google/code/linkedinapi/schema/VisibilityType.html">VisibilityType</a> visibility)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/linkedin/LinkedInConnector.html#reShare(java.lang.String, java.lang.String, org.mule.module.linkedin.schema.LinkedInVisibilityType)">reShare</a></span>(String shareId, String commentText, <a href="../../../../../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a> visibility)</nobr>
         
         <div class="jd-descrdiv">Re-share.</div>
   
@@ -2832,7 +2836,7 @@ Object response = linkedin.postNetworkUpdate(accessToken, accessTokenSecret, upd
 </div>
 
 
-<A NAME="postShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.google.code.linkedinapi.schema.VisibilityType, java.lang.Boolean)"></A>
+<A NAME="postShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.schema.LinkedInVisibilityType, java.lang.Boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2845,7 +2849,7 @@ Object response = linkedin.postNetworkUpdate(accessToken, accessTokenSecret, upd
         void
       </span>
       <span class="sympad">postShare</span>
-      <span class="normal">(String commentText, String title, String url, String imageUrl, <a href="../../../../../java/com/google/code/linkedinapi/schema/VisibilityType.html">VisibilityType</a> visibility, Boolean postToTwitter)</span>
+      <span class="normal">(String commentText, String title, String url, String imageUrl, <a href="../../../../../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a> visibility, Boolean postToTwitter)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2906,7 +2910,7 @@ Object response = linkedin.postShare(accessToken, accessTokenSecret, commentText
 </div>
 
 
-<A NAME="reShare(java.lang.String, java.lang.String, com.google.code.linkedinapi.schema.VisibilityType)"></A>
+<A NAME="reShare(java.lang.String, java.lang.String, org.mule.module.linkedin.schema.LinkedInVisibilityType)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2919,7 +2923,7 @@ Object response = linkedin.postShare(accessToken, accessTokenSecret, commentText
         void
       </span>
       <span class="sympad">reShare</span>
-      <span class="normal">(String shareId, String commentText, <a href="../../../../../java/com/google/code/linkedinapi/schema/VisibilityType.html">VisibilityType</a> visibility)</span>
+      <span class="normal">(String shareId, String commentText, <a href="../../../../../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a> visibility)</span>
     </h4>
       <div class="api-level">
         <div>

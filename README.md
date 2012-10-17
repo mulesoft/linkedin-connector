@@ -1,7 +1,7 @@
 Mule Linkedin Connector
 =========================
 
-The Linkedin Connector provides connectivity to LinkedIn API http://developer.linkedin.com/apis
+The Linkedin Connector provides connectivity to LinkedIn API http://developer.linkedin.com/rest
 
 Installation and Usage
 ----------------------

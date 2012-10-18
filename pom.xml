@@ -20,7 +20,9 @@
 	<url>http://www.muleforge.org/projects/mule-module-linkedin</url>
 
         <properties>
-           <devkit.studio.package.skip>false</devkit.studio.package.skip>
+        	<category>Community</category>
+        	<licensePath>LICENSE.md</licensePath>
+            <devkit.studio.package.skip>false</devkit.studio.package.skip>
         </properties>
 
 	<dependencies>

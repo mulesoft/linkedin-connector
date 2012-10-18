@@ -1,12 +1,10 @@
 com.google.code.linkedinapi.client
 com.google.code.linkedinapi.client.constant
 com.google.code.linkedinapi.client.enumeration
-com.google.code.linkedinapi.client.enumeration.config
 com.google.code.linkedinapi.client.enumeration.transformers
 com.google.code.linkedinapi.client.impl
 com.google.code.linkedinapi.client.oauth
 com.google.code.linkedinapi.schema
-com.google.code.linkedinapi.schema.config
 com.google.code.linkedinapi.schema.impl
 com.google.code.linkedinapi.schema.transformers
 com.google.code.linkedinapi.schema.xpp
@@ -14,7 +12,6 @@ org.mule.module.linkedin
 org.mule.module.linkedin.adapters
 org.mule.module.linkedin.agents
 org.mule.module.linkedin.config
-org.mule.module.linkedin.config.spring
 org.mule.module.linkedin.oauth
 org.mule.module.linkedin.process
 org.mule.module.linkedin.processors

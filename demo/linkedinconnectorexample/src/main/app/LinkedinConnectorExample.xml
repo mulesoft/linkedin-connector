@@ -1,37 +1,256 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:linkedin="http://www.mulesoft.org/schema/mule/linkedin" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="EE-3.3.0" xsi:schemaLocation="
+<mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:linkedin="http://www.mulesoft.org/schema/mule/linkedin" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="EE-3.3.1" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd 
 http://www.mulesoft.org/schema/mule/linkedin http://www.mulesoft.org/schema/mule/linkedin/1.0/mule-linkedin.xsd 
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd 
 http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd 
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd 
-http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd ">
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd ">
 
-    <linkedin:config name="LinkedinConf" apiKey="YOUR_LINKEDIN_API_KEY" apiSecret="YOUR_LINKEDIN_API_SECRET" doc:name="Linkedin">
-        <linkedin:oauth-callback-config domain="localhost" localPort="8081" remotePort="8081" path="oauth_callback"/>
+    <linkedin:config name="LinkedinConf" apiKey="${apiKey}" apiSecret="${apiSecret}" doc:name="LinkedIn" scope="r_fullprofile+r_emailaddress+r_network+rw_nus">
+        <linkedin:oauth-callback-config domain="localhost" localPort="8081" remotePort="8081" path="callback"/>
     </linkedin:config>
     
-    <flow name="GetCurrentUserProfile" doc:name="GetCurrentUserProfile">
-        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="getCurrentUserProfile" doc:name="HTTP"/>
-       
-        <linkedin:get-profile-for-current-user config-ref="LinkedinConf" doc:name="Linkedin"/>
+  	<sub-flow name="messagesFlow" doc:name="messagesFlow">
+
+        <linkedin:update-current-status config-ref="LinkedinConf" doc:name="Update current status" status="${statusContent}"/>
+        <logger message="### update-current-status operation took place." doc:name="Logger" level="INFO"/>
         
-        <logger message="NAME:     #[groovy:payload.getFirstName()]" level="INFO" doc:name="Logger"/>
-        <logger message="LASTNAME: #[groovy:payload.getLastName()]" level="INFO" doc:name="Logger"/>
-        <logger message="INDUSTRY: #[groovy:payload.getIndustry()]" level="INFO" doc:name="Logger"/>
+        <linkedin:re-share config-ref="LinkedinConf" commentText="${reShareCommentText}" shareId="${shareId}" visibility="CONNECTIONS_ONLY" doc:name="Re share"/>
+        <logger message="### re-share operation took place." doc:name="Logger" level="INFO"/>
+
+        <linkedin:post-share config-ref="LinkedinConf" commentText="The Future of Integration" imageUrl="http://siliconangle.com/files/2012/03/mulesoft-logo-hires.jpg" title="The Future of Integration" url="http://blogs.mulesoft.org/webinar-the-future-of-integration/" visibility="CONNECTIONS_ONLY" doc:name="Post share"/>
+        <logger message="### post-share operation took place." doc:name="Logger" level="INFO"/>
+
+		<linkedin:send-message config-ref="LinkedinConf" message="Message" subject="Subject" doc:name="Send message">
+            <linkedin:recepient-ids>
+                <linkedin:recepient-id>${userId}</linkedin:recepient-id>
+            </linkedin:recepient-ids>
+        </linkedin:send-message>
+        <logger message="### send-message operation took place." doc:name="Logger" level="INFO"/>
+
+	    <linkedin:send-invite-by-email config-ref="LinkedinConf" email="${userEmail}" firstName="${userFirstName}" lastName="${userLastName}" message="${inviteMessage}" subject="${inviteSubject}" doc:name="Send invite by email"/>
+        <logger message="### send-invite-by-email operation took place." doc:name="Logger" level="INFO"/>
         
-        <scripting:component doc:name="Groovy">
+        <expression-transformer expression="#[string:Message related operations took place. Check the console.]" doc:name="Notification"/>
+
+    </sub-flow>
+    
+    <sub-flow name="searchFlow" doc:name="searchFlow">
+    
+        <linkedin:search-people config-ref="LinkedinConf"  doc:name="Search people" >
+            <linkedin:search-parameters>
+                <linkedin:search-parameter key="LAST_NAME">${userLastName}</linkedin:search-parameter>
+            </linkedin:search-parameters>
+            <linkedin:profile-fields>
+                <linkedin:profile-field>FIRST_NAME</linkedin:profile-field>
+            </linkedin:profile-fields>
+        </linkedin:search-people>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
             <scripting:script engine="Groovy">
-                <scripting:text><![CDATA[payload.getFirstName()+"|"+payload.getLastName()+"|"+payload.getIndustry()]]></scripting:text>
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after search-people ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
             </scripting:script>
-        </scripting:component>
-    </flow>
+        </scripting:transformer>
+        
+        <linkedin:search-people-with-facets config-ref="LinkedinConf" doc:name="Search people with facets">
+            <linkedin:search-parameters>
+                <linkedin:search-parameter key="LAST_NAME">${userLastName}</linkedin:search-parameter>
+            </linkedin:search-parameters>
+            <linkedin:profile-fields>
+                <linkedin:profile-field>FIRST_NAME</linkedin:profile-field>
+            </linkedin:profile-fields>
+            <linkedin:facets>
+                <linkedin:facet key="CURRENT_COMPANY">${userCurrentCompanyId}</linkedin:facet>
+            </linkedin:facets>
+        </linkedin:search-people-with-facets>     
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after search-people-with-facets ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:search-people-with-facet-fields config-ref="LinkedinConf" doc:name="Search people with facet fields">
+            <linkedin:search-parameters>
+                <linkedin:search-parameter key="LAST_NAME">${userLastName}</linkedin:search-parameter>
+            </linkedin:search-parameters>
+            <linkedin:profile-fields>
+                <linkedin:profile-field>FIRST_NAME</linkedin:profile-field>
+            </linkedin:profile-fields>
+            <linkedin:facet-fields>
+                <linkedin:facet-field>NAME</linkedin:facet-field>
+            </linkedin:facet-fields>
+            <linkedin:facets>
+                <linkedin:facet key="CURRENT_COMPANY">${userCurrentCompanyId}</linkedin:facet>
+            </linkedin:facets>
+        </linkedin:search-people-with-facet-fields>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after search-people-with-facet-fields ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <expression-transformer expression="#[string:Search related operations took place. Check the console.]" doc:name="Notification"/>
+        
+    </sub-flow>
+    
+    <sub-flow name="updatesFlow" doc:name="updatesFlow">
+    
+        <linkedin:post-network-update config-ref="LinkedinConf" updateText="${updateText}" doc:name="Post network update"/>
+       	<logger message="### post-network-update operation took place." doc:name="Logger" level="INFO"/>
+        
+        <linkedin:get-user-updates config-ref="LinkedinConf" doc:name="Get user updates" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-user-updates ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:get-network-updates config-ref="LinkedinConf" doc:name="get-network-updates"  />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-network-updates ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:get-user-updates-by-id config-ref="LinkedinConf" doc:name="get-user-updates-by-id" id="${userId}" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-user-updates-by-id ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:post-comment config-ref="LinkedinConf" commentText="commentText" networkUpdateId="${networkUpdatedId}" doc:name="Post comment"/>
+        <logger message="### post-comment operation took place." doc:name="Logger" level="INFO"/>
+        
+        <linkedin:like-post config-ref="LinkedinConf" networkUpdateId="${networkUpdatedId}" doc:name="Like post"/>
+        <logger message="### like-post operation took place." doc:name="Logger" level="INFO"/>
+        
+        <linkedin:get-network-update-likes config-ref="LinkedinConf" doc:name="Get network update likes" networkUpdateId="${networkUpdatedId}"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-network-update-likes ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+
+        <linkedin:get-network-update-comments config-ref="LinkedinConf" doc:name="Get network update comments" networkUpdateId="${networkUpdatedId}"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-network-update-comments ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer> 
+        
+        <linkedin:post-comment config-ref="LinkedinConf" commentText="commentText" networkUpdateId="${networkUpdatedId}" doc:name="Post comment"/>
+        <logger message="### post-comment operation took place." doc:name="Logger" level="INFO"/>
+        
+        <linkedin:unlike-post config-ref="LinkedinConf" networkUpdateId="${networkUpdatedId}" doc:name="Unlike post"/>
+        <logger message="### unlike-post operation took place." doc:name="Logger" level="INFO"/> 
+        
+        <expression-transformer expression="#[string:Updates related operations took place. Check the console.]" doc:name="Notification"/>
+        
+    </sub-flow> 
+    
+    <sub-flow name="profileFlow" doc:name="profileFlow">
+        
+        <linkedin:get-connections-for-current-user config-ref="LinkedinConf"  doc:name="Get connections for current user" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-connections-for-current-user ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:get-profile-by-id config-ref="LinkedinConf"  doc:name="Get profile by id" id="${userId}">
+            <linkedin:profile-fields>
+                <linkedin:profile-field>FIRST_NAME</linkedin:profile-field>
+            </linkedin:profile-fields>
+        </linkedin:get-profile-by-id>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-profile-by-id ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:get-profile-for-current-user config-ref="LinkedinConf"  doc:name="Get profile for current user" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-profile-for-current-user ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:get-connections-by-id config-ref="LinkedinConf" id="${userId}" doc:name="Get connections by id" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-connections-by-id ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:get-profile-by-url config-ref="LinkedinConf"  doc:name="Get profile by url" profileType="PUBLIC" url="${profileUrl}" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-profile-by-url ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer>
+        
+        <linkedin:get-connections-by-url config-ref="LinkedinConf"  doc:name="Get connections by url" url="${profileUrl}" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <scripting:transformer doc:name="println">
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[import groovy.json.*
+                                         println "### Payload after get-connections-by-url ###"                          
+                                         println JsonOutput.prettyPrint(payload.toString())]]></scripting:text>
+            </scripting:script>
+        </scripting:transformer> 
+        
+        <expression-transformer expression="#[string:Profile related operations took place. Check the console.]" doc:name="Notification"/>
+        
+    </sub-flow>
     
     <flow name="AuthorizeFlow" doc:name="AuthorizeFlow">
         <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="authorize" doc:name="HTTP"/>
-        <linkedin:authorize config-ref="LinkedinConf" doc:name="Linkedin"/>
+        <linkedin:authorize config-ref="LinkedinConf" doc:name="Authorize"/>
         <!-- This flow is to be called after the Authorize callback -->
-        <flow-ref name="GetCurrentUserProfile" doc:name="Flow Reference"/>
+        <flow-ref name="profileFlow" doc:name="Flow Reference"/>
     </flow>
 </mule>

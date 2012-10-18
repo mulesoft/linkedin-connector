@@ -7,5 +7,6 @@
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="con" path="MULE_LIB"/>
+	<classpathentry kind="con" path="MULE_LIB/LinkedIn"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

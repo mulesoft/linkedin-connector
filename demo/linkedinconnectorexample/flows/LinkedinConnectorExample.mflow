@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="LinkedinConnectorExample">
-    <global-element type="http://www.mulesoft.org/schema/mule/linkedin/config" name="Linkedin" entity-id="Linkedin#1">
+    <global-element type="http://www.mulesoft.org/schema/mule/linkedin/config" name="LinkedIn" entity-id="LinkedIn#1">
         <properties>
             <property value="LinkedinConf" name="name"/>
             <property value="1" name="auxiliary;index"/>
-            <property value="h8fukix8k5dg" name="apiKey"/>
-            <property value="CHcUtQb0eS88DiPQ" name="apiSecret"/>
+            <property value="${apiKey}" name="apiKey"/>
+            <property value="${apiSecret}" name="apiSecret"/>
+            <property value="r_fullprofile+r_emailaddress+r_network+rw_nus" name="scope"/>
             <property value="1" name="auxiliary;index"/>
             <property value="1" name="auxiliary;index"/>
             <property value="1" name="auxiliary;index"/>
+            <property value="1" name="auxiliary;index"/>
+            <property value="1" name="auxiliary;index"/>
+            <property value="1" name="auxiliary;index"/>
+            <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/oauth-callback-config;0">
+                <property value="callback" name="path"/>
+                <property value="localhost" name="domain"/>
+                <property value="8081" name="remotePort"/>
+                <property value="8081" name="localPort"/>
+                <property value="2" name="auxiliary;wrapIn"/>
+                <property value="2" name="auxiliary;index"/>
+            </property-collection>
         </properties>
     </global-element>
-    <flow SubFlow="false" name="GetCurrentUserProfile" entity-id="7932ce94-8b85-4861-a085-d3d45fe86143">
+    <flow SubFlow="true" name="messagesFlow" entity-id="0325c8db-eb40-489c-a8e3-0c20130f7f70">
         <properties>
             <property name="processingStrategy2"/>
             <property name="processingStrategy"/>
@@ -22,69 +34,47 @@
             <property value="3" name="auxiliary;index"/>
             <property value="3" name="auxiliary;index"/>
         </properties>
-        <lane index="0" hadOnlyOneElement="false" entity-id="compartment-lane#1">
-            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="HTTP#1">
+        <lane isChoiceOtherwiseLane="false" index="0" hadOnlyOneElement="false" entity-id="compartment-lane#1">
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Update current status" entity-id="LinkedIn#2">
                 <properties>
-                    <property value="one-way" name="exchange-pattern"/>
-                    <property value="request-response" name="exchange-pattern"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/update-current-status" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
                     <property value="4" name="auxiliary;index"/>
-                    <property value="http://www.mulesoft.org/schema/mule/http/endpoint" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property name="httpLabel"/>
-                    <property value="localhost" name="host"/>
-                    <property value="8081" name="port"/>
-                    <property value="getCurrentUserProfile" name="path"/>
-                    <property name="method"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property name="businessEventsLabel"/>
-                    <property name="tracking:enable-default-events"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property name="address"/>
-                    <property name="encoding"/>
-                    <property name="disableTransportTransformer"/>
-                    <property name="mimeType"/>
-                    <property name="responseTimeout"/>
-                    <property name="followRedirects"/>
+                    <property value="${statusContent}" name="status"/>
+                    <property name="postToTwitter"/>
                     <property value="4" name="auxiliary;index"/>
                     <property value="4" name="auxiliary;index"/>
                     <property value="4" name="auxiliary;index"/>
-                    <property name="connector-ref"/>
-                    <property name="ref"/>
-                    <property name="transformer-refs"/>
-                    <property name="responseTransformer-refs"/>
                     <property value="4" name="auxiliary;index"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property name="user"/>
-                    <property name="password"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property name="contentType"/>
-                    <property name="keep-alive"/>
                     <property value="4" name="auxiliary;index"/>
                     <property value="4" name="auxiliary;index"/>
                     <property value="4" name="auxiliary;index"/>
                 </properties>
-            </endpoint>
-            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Linkedin" entity-id="Linkedin#2">
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#1">
                 <properties>
-                    <property value="LinkedinConf" name="config-ref"/>
-                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-profile-for-current-user" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
-                    <property value="LinkedinConf" name="config-ref"/>
-                    <property value="5" name="auxiliary;index"/>
-                    <property value="5" name="auxiliary;index"/>
-                    <property value="5" name="auxiliary;index"/>
-                    <property value="5" name="auxiliary;index"/>
-                    <property value="5" name="auxiliary;index"/>
+                    <property value="### update-current-status operation took place." name="message"/>
+                    <property value="INFO" name="level"/>
+                    <property name="category"/>
                     <property value="5" name="auxiliary;index"/>
                     <property value="5" name="auxiliary;index"/>
                     <property value="5" name="auxiliary;index"/>
                 </properties>
             </pattern>
-            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#1">
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Re share" entity-id="LinkedIn#3">
                 <properties>
-                    <property value="NAME:     #[groovy:payload.getFirstName()]" name="message"/>
-                    <property value="INFO" name="level"/>
-                    <property name="category"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/re-share" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="6" name="auxiliary;index"/>
+                    <property value="${reShareCommentText}" name="commentText"/>
+                    <property value="${shareId}" name="shareId"/>
+                    <property value="CONNECTIONS_ONLY" name="visibility"/>
+                    <property value="6" name="auxiliary;index"/>
+                    <property value="6" name="auxiliary;index"/>
+                    <property value="6" name="auxiliary;index"/>
+                    <property value="6" name="auxiliary;index"/>
                     <property value="6" name="auxiliary;index"/>
                     <property value="6" name="auxiliary;index"/>
                     <property value="6" name="auxiliary;index"/>
@@ -92,123 +82,1405 @@
             </pattern>
             <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#2">
                 <properties>
-                    <property value="LASTNAME: #[groovy:payload.getLastName()]" name="message"/>
+                    <property value="### re-share operation took place." name="message"/>
                     <property value="INFO" name="level"/>
                     <property name="category"/>
                     <property value="7" name="auxiliary;index"/>
                     <property value="7" name="auxiliary;index"/>
                     <property value="7" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Post share" entity-id="LinkedIn#4">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/post-share" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="8" name="auxiliary;index"/>
+                    <property value="The Future of Integration" name="commentText"/>
+                    <property value="http://siliconangle.com/files/2012/03/mulesoft-logo-hires.jpg" name="imageUrl"/>
+                    <property value="The Future of Integration" name="title"/>
+                    <property value="http://blogs.mulesoft.org/webinar-the-future-of-integration/" name="url"/>
+                    <property value="CONNECTIONS_ONLY" name="visibility"/>
+                    <property name="postToTwitter"/>
+                    <property value="8" name="auxiliary;index"/>
+                    <property value="8" name="auxiliary;index"/>
+                    <property value="8" name="auxiliary;index"/>
+                    <property value="8" name="auxiliary;index"/>
+                    <property value="8" name="auxiliary;index"/>
+                    <property value="8" name="auxiliary;index"/>
+                    <property value="8" name="auxiliary;index"/>
                 </properties>
             </pattern>
             <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#3">
                 <properties>
-                    <property value="INDUSTRY: #[groovy:payload.getIndustry()]" name="message"/>
+                    <property value="### post-share operation took place." name="message"/>
                     <property value="INFO" name="level"/>
                     <property name="category"/>
-                    <property value="8" name="auxiliary;index"/>
-                    <property value="8" name="auxiliary;index"/>
-                    <property value="8" name="auxiliary;index"/>
+                    <property value="9" name="auxiliary;index"/>
+                    <property value="9" name="auxiliary;index"/>
+                    <property value="9" name="auxiliary;index"/>
                 </properties>
             </pattern>
-            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyComponent" name="Groovy" entity-id="Groovy#1">
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Send message" entity-id="LinkedIn#5">
                 <properties>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
-                        <property value="payload.getFirstName()+&quot;|&quot;+payload.getLastName()+&quot;|&quot;+payload.getIndustry()" name="text"/>
-                        <property value="Groovy" name="engine"/>
-                        <property value="10" name="auxiliary;wrapIn"/>
-                        <property value="10" name="auxiliary;index"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/send-message" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="Message" name="message"/>
+                    <property value="Subject" name="subject"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/send-message-recepient-idss;0">
+                        <property value="11" name="auxiliary;wrapIn"/>
+                        <property value="11" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/send-message-recepient-ids;1">
+                            <property value="${userId}" name="value"/>
+                            <property value="12" name="auxiliary;wrapIn"/>
+                            <property value="12" name="auxiliary;index"/>
+                        </property-collection>
                     </property-collection>
-                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
-                        <property value="payload.getFirstName()+&quot;|&quot;+payload.getLastName()+&quot;|&quot;+payload.getIndustry()" name="text"/>
-                        <property value="Groovy" name="engine"/>
-                        <property value="10" name="auxiliary;wrapIn"/>
-                        <property value="10" name="auxiliary;index"/>
-                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#4">
+                <properties>
+                    <property value="### send-message operation took place." name="message"/>
+                    <property value="INFO" name="level"/>
+                    <property name="category"/>
+                    <property value="13" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Send invite by email" entity-id="LinkedIn#6">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/send-invite-by-email" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="14" name="auxiliary;index"/>
+                    <property value="${userEmail}" name="email"/>
+                    <property value="${userFirstName}" name="firstName"/>
+                    <property value="${userLastName}" name="lastName"/>
+                    <property value="${inviteMessage}" name="message"/>
+                    <property value="${inviteSubject}" name="subject"/>
+                    <property value="14" name="auxiliary;index"/>
+                    <property value="14" name="auxiliary;index"/>
+                    <property value="14" name="auxiliary;index"/>
+                    <property value="14" name="auxiliary;index"/>
+                    <property value="14" name="auxiliary;index"/>
+                    <property value="14" name="auxiliary;index"/>
+                    <property value="14" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#5">
+                <properties>
+                    <property value="### send-invite-by-email operation took place." name="message"/>
+                    <property value="INFO" name="level"/>
+                    <property name="category"/>
+                    <property value="15" name="auxiliary;index"/>
+                    <property value="15" name="auxiliary;index"/>
+                    <property value="15" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/expression-transformer" name="Notification" entity-id="Expression#1">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="16" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="16" name="auxiliary;index"/>
+                    <property value="16" name="auxiliary;index"/>
+                    <property value="16" name="auxiliary;index"/>
+                    <property name="evaluator"/>
+                    <property value="#[string:Message related operations took place. Check the console.]" name="expression"/>
+                    <property name="custom-evaluator"/>
+                    <property name="returnSourceIfNull"/>
+                    <property value="16" name="auxiliary;index"/>
+                    <property value="16" name="auxiliary;index"/>
+                    <property value="16" name="auxiliary;index"/>
                 </properties>
             </pattern>
         </lane>
     </flow>
-    <flow SubFlow="false" name="AuthorizeFlow" entity-id="7c14b1ee-84cc-4424-95a6-e30988f81fef">
+    <flow SubFlow="true" name="searchFlow" entity-id="c18a8085-7be2-46b7-b0d5-09ca565f5133">
         <properties>
             <property name="processingStrategy2"/>
             <property name="processingStrategy"/>
-            <property value="12" name="auxiliary;index"/>
+            <property value="17" name="auxiliary;index"/>
             <property name="bussinessEventsLabel"/>
             <property name="tracking:enable-default-events"/>
-            <property value="12" name="auxiliary;index"/>
-            <property value="12" name="auxiliary;index"/>
-            <property value="12" name="auxiliary;index"/>
+            <property value="17" name="auxiliary;index"/>
+            <property value="17" name="auxiliary;index"/>
+            <property value="17" name="auxiliary;index"/>
         </properties>
-        <lane index="0" hadOnlyOneElement="false" entity-id="compartment-lane#2">
-            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="HTTP#2">
+        <lane isChoiceOtherwiseLane="false" index="0" hadOnlyOneElement="false" entity-id="compartment-lane#2">
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Search people" entity-id="LinkedIn#7">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/search-people" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="sortOrder"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property value="18" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-search-parameterss;0">
+                        <property value="19" name="auxiliary;wrapIn"/>
+                        <property value="19" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-search-parameters;1">
+                            <property value="${userLastName}" name="value"/>
+                            <property value="20" name="auxiliary;wrapIn"/>
+                            <property value="20" name="auxiliary;index"/>
+                            <property value="LAST_NAME" name="key"/>
+                        </property-collection>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-profile-fieldss;0">
+                        <property value="21" name="auxiliary;wrapIn"/>
+                        <property value="21" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-profile-fields;1">
+                            <property value="FIRST_NAME" name="value"/>
+                            <property value="22" name="auxiliary;wrapIn"/>
+                            <property value="22" name="auxiliary;index"/>
+                        </property-collection>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#1">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="23" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="23" name="auxiliary;index"/>
+                    <property value="23" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="23" name="auxiliary;index"/>
+                    <property value="23" name="auxiliary;index"/>
+                    <property value="23" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#1">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="24" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="24" name="auxiliary;index"/>
+                    <property value="24" name="auxiliary;index"/>
+                    <property value="24" name="auxiliary;index"/>
+                    <property value="24" name="auxiliary;index"/>
+                    <property value="24" name="auxiliary;index"/>
+                    <property value="24" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after search-people ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="25" name="auxiliary;wrapIn"/>
+                        <property value="25" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after search-people ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="25" name="auxiliary;wrapIn"/>
+                        <property value="25" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Search people with facets" entity-id="LinkedIn#8">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facets" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="sortOrder"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property value="27" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facets-search-parameterss;0">
+                        <property value="28" name="auxiliary;wrapIn"/>
+                        <property value="28" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facets-search-parameters;1">
+                            <property value="${userLastName}" name="value"/>
+                            <property value="29" name="auxiliary;wrapIn"/>
+                            <property value="29" name="auxiliary;index"/>
+                            <property value="LAST_NAME" name="key"/>
+                        </property-collection>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facets-profile-fieldss;0">
+                        <property value="30" name="auxiliary;wrapIn"/>
+                        <property value="30" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facets-profile-fields;1">
+                            <property value="FIRST_NAME" name="value"/>
+                            <property value="31" name="auxiliary;wrapIn"/>
+                            <property value="31" name="auxiliary;index"/>
+                        </property-collection>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facets-facetss;0">
+                        <property value="32" name="auxiliary;wrapIn"/>
+                        <property value="32" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facets-facets;1">
+                            <property value="${userCurrentCompanyId}" name="value"/>
+                            <property value="33" name="auxiliary;wrapIn"/>
+                            <property value="33" name="auxiliary;index"/>
+                            <property value="CURRENT_COMPANY" name="key"/>
+                        </property-collection>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#2">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="34" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="34" name="auxiliary;index"/>
+                    <property value="34" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="34" name="auxiliary;index"/>
+                    <property value="34" name="auxiliary;index"/>
+                    <property value="34" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#2">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="35" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="35" name="auxiliary;index"/>
+                    <property value="35" name="auxiliary;index"/>
+                    <property value="35" name="auxiliary;index"/>
+                    <property value="35" name="auxiliary;index"/>
+                    <property value="35" name="auxiliary;index"/>
+                    <property value="35" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after search-people-with-facets ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="36" name="auxiliary;wrapIn"/>
+                        <property value="36" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after search-people-with-facets ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="36" name="auxiliary;wrapIn"/>
+                        <property value="36" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Search people with facet fields" entity-id="LinkedIn#9">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="sortOrder"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property value="38" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields-search-parameterss;0">
+                        <property value="39" name="auxiliary;wrapIn"/>
+                        <property value="39" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields-search-parameters;1">
+                            <property value="${userLastName}" name="value"/>
+                            <property value="40" name="auxiliary;wrapIn"/>
+                            <property value="40" name="auxiliary;index"/>
+                            <property value="LAST_NAME" name="key"/>
+                        </property-collection>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields-profile-fieldss;0">
+                        <property value="41" name="auxiliary;wrapIn"/>
+                        <property value="41" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields-profile-fields;1">
+                            <property value="FIRST_NAME" name="value"/>
+                            <property value="42" name="auxiliary;wrapIn"/>
+                            <property value="42" name="auxiliary;index"/>
+                        </property-collection>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields-facet-fieldss;0">
+                        <property value="43" name="auxiliary;wrapIn"/>
+                        <property value="43" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields-facet-fields;1">
+                            <property value="NAME" name="value"/>
+                            <property value="44" name="auxiliary;wrapIn"/>
+                            <property value="44" name="auxiliary;index"/>
+                        </property-collection>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields-facetss;0">
+                        <property value="45" name="auxiliary;wrapIn"/>
+                        <property value="45" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/search-people-with-facet-fields-facets;1">
+                            <property value="${userCurrentCompanyId}" name="value"/>
+                            <property value="46" name="auxiliary;wrapIn"/>
+                            <property value="46" name="auxiliary;index"/>
+                            <property value="CURRENT_COMPANY" name="key"/>
+                        </property-collection>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#3">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="47" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="47" name="auxiliary;index"/>
+                    <property value="47" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="47" name="auxiliary;index"/>
+                    <property value="47" name="auxiliary;index"/>
+                    <property value="47" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#3">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="48" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="48" name="auxiliary;index"/>
+                    <property value="48" name="auxiliary;index"/>
+                    <property value="48" name="auxiliary;index"/>
+                    <property value="48" name="auxiliary;index"/>
+                    <property value="48" name="auxiliary;index"/>
+                    <property value="48" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after search-people-with-facet-fields ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="49" name="auxiliary;wrapIn"/>
+                        <property value="49" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after search-people-with-facet-fields ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="49" name="auxiliary;wrapIn"/>
+                        <property value="49" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/expression-transformer" name="Notification" entity-id="Expression#2">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="51" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="51" name="auxiliary;index"/>
+                    <property value="51" name="auxiliary;index"/>
+                    <property value="51" name="auxiliary;index"/>
+                    <property name="evaluator"/>
+                    <property value="#[string:Search related operations took place. Check the console.]" name="expression"/>
+                    <property name="custom-evaluator"/>
+                    <property name="returnSourceIfNull"/>
+                    <property value="51" name="auxiliary;index"/>
+                    <property value="51" name="auxiliary;index"/>
+                    <property value="51" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+        </lane>
+    </flow>
+    <flow SubFlow="true" name="updatesFlow" entity-id="52ab589d-6bd5-4b51-8159-8bd13a8f8158">
+        <properties>
+            <property name="processingStrategy2"/>
+            <property name="processingStrategy"/>
+            <property value="52" name="auxiliary;index"/>
+            <property name="bussinessEventsLabel"/>
+            <property name="tracking:enable-default-events"/>
+            <property value="52" name="auxiliary;index"/>
+            <property value="52" name="auxiliary;index"/>
+            <property value="52" name="auxiliary;index"/>
+        </properties>
+        <lane isChoiceOtherwiseLane="false" index="0" hadOnlyOneElement="false" entity-id="compartment-lane#3">
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Post network update" entity-id="LinkedIn#10">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/post-network-update" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="53" name="auxiliary;index"/>
+                    <property value="${updateText}" name="updateText"/>
+                    <property value="53" name="auxiliary;index"/>
+                    <property value="53" name="auxiliary;index"/>
+                    <property value="53" name="auxiliary;index"/>
+                    <property value="53" name="auxiliary;index"/>
+                    <property value="53" name="auxiliary;index"/>
+                    <property value="53" name="auxiliary;index"/>
+                    <property value="53" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#6">
+                <properties>
+                    <property value="### post-network-update operation took place." name="message"/>
+                    <property value="INFO" name="level"/>
+                    <property name="category"/>
+                    <property value="54" name="auxiliary;index"/>
+                    <property value="54" name="auxiliary;index"/>
+                    <property value="54" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get user updates" entity-id="LinkedIn#11">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-user-updates" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="55" name="auxiliary;index"/>
+                    <property value="55" name="auxiliary;index"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="startDate"/>
+                    <property name="endDate"/>
+                    <property value="55" name="auxiliary;index"/>
+                    <property value="55" name="auxiliary;index"/>
+                    <property value="55" name="auxiliary;index"/>
+                    <property value="55" name="auxiliary;index"/>
+                    <property value="55" name="auxiliary;index"/>
+                    <property value="55" name="auxiliary;index"/>
+                    <property value="55" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#4">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="56" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="56" name="auxiliary;index"/>
+                    <property value="56" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="56" name="auxiliary;index"/>
+                    <property value="56" name="auxiliary;index"/>
+                    <property value="56" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#4">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="57" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="57" name="auxiliary;index"/>
+                    <property value="57" name="auxiliary;index"/>
+                    <property value="57" name="auxiliary;index"/>
+                    <property value="57" name="auxiliary;index"/>
+                    <property value="57" name="auxiliary;index"/>
+                    <property value="57" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-user-updates ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="58" name="auxiliary;wrapIn"/>
+                        <property value="58" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-user-updates ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="58" name="auxiliary;wrapIn"/>
+                        <property value="58" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="get-network-updates" entity-id="LinkedIn#12">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-network-updates" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="60" name="auxiliary;index"/>
+                    <property value="60" name="auxiliary;index"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="startDate"/>
+                    <property name="endDate"/>
+                    <property name="showHiddenMembers"/>
+                    <property value="60" name="auxiliary;index"/>
+                    <property value="60" name="auxiliary;index"/>
+                    <property value="60" name="auxiliary;index"/>
+                    <property value="60" name="auxiliary;index"/>
+                    <property value="60" name="auxiliary;index"/>
+                    <property value="60" name="auxiliary;index"/>
+                    <property value="60" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#5">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="61" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="61" name="auxiliary;index"/>
+                    <property value="61" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="61" name="auxiliary;index"/>
+                    <property value="61" name="auxiliary;index"/>
+                    <property value="61" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#5">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="62" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="62" name="auxiliary;index"/>
+                    <property value="62" name="auxiliary;index"/>
+                    <property value="62" name="auxiliary;index"/>
+                    <property value="62" name="auxiliary;index"/>
+                    <property value="62" name="auxiliary;index"/>
+                    <property value="62" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-network-updates ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="63" name="auxiliary;wrapIn"/>
+                        <property value="63" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-network-updates ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="63" name="auxiliary;wrapIn"/>
+                        <property value="63" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="get-user-updates-by-id" entity-id="LinkedIn#13">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-user-updates-by-id" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="65" name="auxiliary;index"/>
+                    <property value="${userId}" name="id"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="startDate"/>
+                    <property name="endDate"/>
+                    <property value="65" name="auxiliary;index"/>
+                    <property value="65" name="auxiliary;index"/>
+                    <property value="65" name="auxiliary;index"/>
+                    <property value="65" name="auxiliary;index"/>
+                    <property value="65" name="auxiliary;index"/>
+                    <property value="65" name="auxiliary;index"/>
+                    <property value="65" name="auxiliary;index"/>
+                    <property value="65" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#6">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="66" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="66" name="auxiliary;index"/>
+                    <property value="66" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="66" name="auxiliary;index"/>
+                    <property value="66" name="auxiliary;index"/>
+                    <property value="66" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#6">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="67" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="67" name="auxiliary;index"/>
+                    <property value="67" name="auxiliary;index"/>
+                    <property value="67" name="auxiliary;index"/>
+                    <property value="67" name="auxiliary;index"/>
+                    <property value="67" name="auxiliary;index"/>
+                    <property value="67" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-user-updates-by-id ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="68" name="auxiliary;wrapIn"/>
+                        <property value="68" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-user-updates-by-id ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="68" name="auxiliary;wrapIn"/>
+                        <property value="68" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Post comment" entity-id="LinkedIn#14">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/post-comment" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="70" name="auxiliary;index"/>
+                    <property value="commentText" name="commentText"/>
+                    <property value="${networkUpdatedId}" name="networkUpdateId"/>
+                    <property value="70" name="auxiliary;index"/>
+                    <property value="70" name="auxiliary;index"/>
+                    <property value="70" name="auxiliary;index"/>
+                    <property value="70" name="auxiliary;index"/>
+                    <property value="70" name="auxiliary;index"/>
+                    <property value="70" name="auxiliary;index"/>
+                    <property value="70" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#7">
+                <properties>
+                    <property value="### post-comment operation took place." name="message"/>
+                    <property value="INFO" name="level"/>
+                    <property name="category"/>
+                    <property value="71" name="auxiliary;index"/>
+                    <property value="71" name="auxiliary;index"/>
+                    <property value="71" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Like post" entity-id="LinkedIn#15">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/like-post" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="72" name="auxiliary;index"/>
+                    <property value="${networkUpdatedId}" name="networkUpdateId"/>
+                    <property value="72" name="auxiliary;index"/>
+                    <property value="72" name="auxiliary;index"/>
+                    <property value="72" name="auxiliary;index"/>
+                    <property value="72" name="auxiliary;index"/>
+                    <property value="72" name="auxiliary;index"/>
+                    <property value="72" name="auxiliary;index"/>
+                    <property value="72" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#8">
+                <properties>
+                    <property value="### like-post operation took place." name="message"/>
+                    <property value="INFO" name="level"/>
+                    <property name="category"/>
+                    <property value="73" name="auxiliary;index"/>
+                    <property value="73" name="auxiliary;index"/>
+                    <property value="73" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get network update likes" entity-id="LinkedIn#16">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-network-update-likes" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="74" name="auxiliary;index"/>
+                    <property value="${networkUpdatedId}" name="networkUpdateId"/>
+                    <property value="74" name="auxiliary;index"/>
+                    <property value="74" name="auxiliary;index"/>
+                    <property value="74" name="auxiliary;index"/>
+                    <property value="74" name="auxiliary;index"/>
+                    <property value="74" name="auxiliary;index"/>
+                    <property value="74" name="auxiliary;index"/>
+                    <property value="74" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#7">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="75" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="75" name="auxiliary;index"/>
+                    <property value="75" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="75" name="auxiliary;index"/>
+                    <property value="75" name="auxiliary;index"/>
+                    <property value="75" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#7">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="76" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="76" name="auxiliary;index"/>
+                    <property value="76" name="auxiliary;index"/>
+                    <property value="76" name="auxiliary;index"/>
+                    <property value="76" name="auxiliary;index"/>
+                    <property value="76" name="auxiliary;index"/>
+                    <property value="76" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-network-update-likes ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="77" name="auxiliary;wrapIn"/>
+                        <property value="77" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-network-update-likes ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="77" name="auxiliary;wrapIn"/>
+                        <property value="77" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get network update comments" entity-id="LinkedIn#17">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-network-update-comments" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="79" name="auxiliary;index"/>
+                    <property value="${networkUpdatedId}" name="networkUpdateId"/>
+                    <property value="79" name="auxiliary;index"/>
+                    <property value="79" name="auxiliary;index"/>
+                    <property value="79" name="auxiliary;index"/>
+                    <property value="79" name="auxiliary;index"/>
+                    <property value="79" name="auxiliary;index"/>
+                    <property value="79" name="auxiliary;index"/>
+                    <property value="79" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#8">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="80" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="80" name="auxiliary;index"/>
+                    <property value="80" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="80" name="auxiliary;index"/>
+                    <property value="80" name="auxiliary;index"/>
+                    <property value="80" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#8">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="81" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="81" name="auxiliary;index"/>
+                    <property value="81" name="auxiliary;index"/>
+                    <property value="81" name="auxiliary;index"/>
+                    <property value="81" name="auxiliary;index"/>
+                    <property value="81" name="auxiliary;index"/>
+                    <property value="81" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-network-update-comments ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="82" name="auxiliary;wrapIn"/>
+                        <property value="82" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-network-update-comments ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="82" name="auxiliary;wrapIn"/>
+                        <property value="82" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Post comment" entity-id="LinkedIn#18">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/post-comment" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="84" name="auxiliary;index"/>
+                    <property value="commentText" name="commentText"/>
+                    <property value="${networkUpdatedId}" name="networkUpdateId"/>
+                    <property value="84" name="auxiliary;index"/>
+                    <property value="84" name="auxiliary;index"/>
+                    <property value="84" name="auxiliary;index"/>
+                    <property value="84" name="auxiliary;index"/>
+                    <property value="84" name="auxiliary;index"/>
+                    <property value="84" name="auxiliary;index"/>
+                    <property value="84" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#9">
+                <properties>
+                    <property value="### post-comment operation took place." name="message"/>
+                    <property value="INFO" name="level"/>
+                    <property name="category"/>
+                    <property value="85" name="auxiliary;index"/>
+                    <property value="85" name="auxiliary;index"/>
+                    <property value="85" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Unlike post" entity-id="LinkedIn#19">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/unlike-post" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="86" name="auxiliary;index"/>
+                    <property value="${networkUpdatedId}" name="networkUpdateId"/>
+                    <property value="86" name="auxiliary;index"/>
+                    <property value="86" name="auxiliary;index"/>
+                    <property value="86" name="auxiliary;index"/>
+                    <property value="86" name="auxiliary;index"/>
+                    <property value="86" name="auxiliary;index"/>
+                    <property value="86" name="auxiliary;index"/>
+                    <property value="86" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#10">
+                <properties>
+                    <property value="### unlike-post operation took place." name="message"/>
+                    <property value="INFO" name="level"/>
+                    <property name="category"/>
+                    <property value="87" name="auxiliary;index"/>
+                    <property value="87" name="auxiliary;index"/>
+                    <property value="87" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/expression-transformer" name="Notification" entity-id="Expression#3">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="88" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="88" name="auxiliary;index"/>
+                    <property value="88" name="auxiliary;index"/>
+                    <property value="88" name="auxiliary;index"/>
+                    <property name="evaluator"/>
+                    <property value="#[string:Updates related operations took place. Check the console.]" name="expression"/>
+                    <property name="custom-evaluator"/>
+                    <property name="returnSourceIfNull"/>
+                    <property value="88" name="auxiliary;index"/>
+                    <property value="88" name="auxiliary;index"/>
+                    <property value="88" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+        </lane>
+    </flow>
+    <flow SubFlow="true" name="profileFlow" entity-id="91cdaffe-3707-4e6f-8ba2-34da10446913">
+        <properties>
+            <property name="processingStrategy2"/>
+            <property name="processingStrategy"/>
+            <property value="89" name="auxiliary;index"/>
+            <property name="bussinessEventsLabel"/>
+            <property name="tracking:enable-default-events"/>
+            <property value="89" name="auxiliary;index"/>
+            <property value="89" name="auxiliary;index"/>
+            <property value="89" name="auxiliary;index"/>
+        </properties>
+        <lane isChoiceOtherwiseLane="false" index="0" hadOnlyOneElement="false" entity-id="compartment-lane#4">
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get connections for current user" entity-id="LinkedIn#20">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-connections-for-current-user" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="90" name="auxiliary;index"/>
+                    <property value="90" name="auxiliary;index"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="modificationDate"/>
+                    <property name="modificationType"/>
+                    <property value="90" name="auxiliary;index"/>
+                    <property value="90" name="auxiliary;index"/>
+                    <property value="90" name="auxiliary;index"/>
+                    <property value="90" name="auxiliary;index"/>
+                    <property value="90" name="auxiliary;index"/>
+                    <property value="90" name="auxiliary;index"/>
+                    <property value="90" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#9">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="91" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="91" name="auxiliary;index"/>
+                    <property value="91" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="91" name="auxiliary;index"/>
+                    <property value="91" name="auxiliary;index"/>
+                    <property value="91" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#9">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="92" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="92" name="auxiliary;index"/>
+                    <property value="92" name="auxiliary;index"/>
+                    <property value="92" name="auxiliary;index"/>
+                    <property value="92" name="auxiliary;index"/>
+                    <property value="92" name="auxiliary;index"/>
+                    <property value="92" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-connections-for-current-user ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="93" name="auxiliary;wrapIn"/>
+                        <property value="93" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-connections-for-current-user ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="93" name="auxiliary;wrapIn"/>
+                        <property value="93" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get profile by id" entity-id="LinkedIn#21">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-profile-by-id" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property value="${userId}" name="id"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property value="95" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/get-profile-by-id-profile-fieldss;0">
+                        <property value="96" name="auxiliary;wrapIn"/>
+                        <property value="96" name="auxiliary;index"/>
+                        <property-collection name="@http://www.mulesoft.org/schema/mule/linkedin/get-profile-by-id-profile-fields;1">
+                            <property value="FIRST_NAME" name="value"/>
+                            <property value="97" name="auxiliary;wrapIn"/>
+                            <property value="97" name="auxiliary;index"/>
+                        </property-collection>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#10">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="98" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="98" name="auxiliary;index"/>
+                    <property value="98" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="98" name="auxiliary;index"/>
+                    <property value="98" name="auxiliary;index"/>
+                    <property value="98" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#10">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="99" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="99" name="auxiliary;index"/>
+                    <property value="99" name="auxiliary;index"/>
+                    <property value="99" name="auxiliary;index"/>
+                    <property value="99" name="auxiliary;index"/>
+                    <property value="99" name="auxiliary;index"/>
+                    <property value="99" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-profile-by-id ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="100" name="auxiliary;wrapIn"/>
+                        <property value="100" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-profile-by-id ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="100" name="auxiliary;wrapIn"/>
+                        <property value="100" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get profile for current user" entity-id="LinkedIn#22">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-profile-for-current-user" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="102" name="auxiliary;index"/>
+                    <property value="102" name="auxiliary;index"/>
+                    <property value="102" name="auxiliary;index"/>
+                    <property value="102" name="auxiliary;index"/>
+                    <property value="102" name="auxiliary;index"/>
+                    <property value="102" name="auxiliary;index"/>
+                    <property value="102" name="auxiliary;index"/>
+                    <property value="102" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#11">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="103" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="103" name="auxiliary;index"/>
+                    <property value="103" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="103" name="auxiliary;index"/>
+                    <property value="103" name="auxiliary;index"/>
+                    <property value="103" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#11">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="104" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="104" name="auxiliary;index"/>
+                    <property value="104" name="auxiliary;index"/>
+                    <property value="104" name="auxiliary;index"/>
+                    <property value="104" name="auxiliary;index"/>
+                    <property value="104" name="auxiliary;index"/>
+                    <property value="104" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-profile-for-current-user ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="105" name="auxiliary;wrapIn"/>
+                        <property value="105" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-profile-for-current-user ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="105" name="auxiliary;wrapIn"/>
+                        <property value="105" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get connections by id" entity-id="LinkedIn#23">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-connections-by-id" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="107" name="auxiliary;index"/>
+                    <property value="${userId}" name="id"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="modificationDate"/>
+                    <property name="modificationType"/>
+                    <property value="107" name="auxiliary;index"/>
+                    <property value="107" name="auxiliary;index"/>
+                    <property value="107" name="auxiliary;index"/>
+                    <property value="107" name="auxiliary;index"/>
+                    <property value="107" name="auxiliary;index"/>
+                    <property value="107" name="auxiliary;index"/>
+                    <property value="107" name="auxiliary;index"/>
+                    <property value="107" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#12">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="108" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="108" name="auxiliary;index"/>
+                    <property value="108" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="108" name="auxiliary;index"/>
+                    <property value="108" name="auxiliary;index"/>
+                    <property value="108" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#12">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="109" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="109" name="auxiliary;index"/>
+                    <property value="109" name="auxiliary;index"/>
+                    <property value="109" name="auxiliary;index"/>
+                    <property value="109" name="auxiliary;index"/>
+                    <property value="109" name="auxiliary;index"/>
+                    <property value="109" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-connections-by-id ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="110" name="auxiliary;wrapIn"/>
+                        <property value="110" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-connections-by-id ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="110" name="auxiliary;wrapIn"/>
+                        <property value="110" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get profile by url" entity-id="LinkedIn#24">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-profile-by-url" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="112" name="auxiliary;index"/>
+                    <property value="${profileUrl}" name="url"/>
+                    <property value="PUBLIC" name="profileType"/>
+                    <property value="112" name="auxiliary;index"/>
+                    <property value="112" name="auxiliary;index"/>
+                    <property value="112" name="auxiliary;index"/>
+                    <property value="112" name="auxiliary;index"/>
+                    <property value="112" name="auxiliary;index"/>
+                    <property value="112" name="auxiliary;index"/>
+                    <property value="112" name="auxiliary;index"/>
+                    <property value="112" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#13">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="113" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="113" name="auxiliary;index"/>
+                    <property value="113" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="113" name="auxiliary;index"/>
+                    <property value="113" name="auxiliary;index"/>
+                    <property value="113" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#13">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="114" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="114" name="auxiliary;index"/>
+                    <property value="114" name="auxiliary;index"/>
+                    <property value="114" name="auxiliary;index"/>
+                    <property value="114" name="auxiliary;index"/>
+                    <property value="114" name="auxiliary;index"/>
+                    <property value="114" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-profile-by-url ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="115" name="auxiliary;wrapIn"/>
+                        <property value="115" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-profile-by-url ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="115" name="auxiliary;wrapIn"/>
+                        <property value="115" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Get connections by url" entity-id="LinkedIn#25">
+                <properties>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="http://www.mulesoft.org/schema/mule/linkedin/get-connections-by-url" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property value="LinkedinConf" name="config-ref"/>
+                    <property value="117" name="auxiliary;index"/>
+                    <property value="${profileUrl}" name="url"/>
+                    <property name="count"/>
+                    <property name="start"/>
+                    <property name="modificationDate"/>
+                    <property name="modificationType"/>
+                    <property value="117" name="auxiliary;index"/>
+                    <property value="117" name="auxiliary;index"/>
+                    <property value="117" name="auxiliary;index"/>
+                    <property value="117" name="auxiliary;index"/>
+                    <property value="117" name="auxiliary;index"/>
+                    <property value="117" name="auxiliary;index"/>
+                    <property value="117" name="auxiliary;index"/>
+                    <property value="117" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/json/object-to-json-transformer" name="Object to JSON" entity-id="Object to JSON#14">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="118" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="118" name="auxiliary;index"/>
+                    <property value="118" name="auxiliary;index"/>
+                    <property name="mapper-ref"/>
+                    <property name="sourceClass"/>
+                    <property value="118" name="auxiliary;index"/>
+                    <property value="118" name="auxiliary;index"/>
+                    <property value="118" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/scripting/groovyTransformer" name="println" entity-id="Groovy#14">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="119" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="119" name="auxiliary;index"/>
+                    <property value="119" name="auxiliary;index"/>
+                    <property value="119" name="auxiliary;index"/>
+                    <property value="119" name="auxiliary;index"/>
+                    <property value="119" name="auxiliary;index"/>
+                    <property value="119" name="auxiliary;index"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script-for-properties;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-connections-by-url ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="120" name="auxiliary;wrapIn"/>
+                        <property value="120" name="auxiliary;index"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;0">
+                        <property value="import groovy.json.*&#xA;                                         println &quot;### Payload after get-connections-by-url ###&quot;                          &#xA;                                         println JsonOutput.prettyPrint(payload.toString())" name="text"/>
+                        <property value="Groovy" name="engine"/>
+                        <property value="120" name="auxiliary;wrapIn"/>
+                        <property value="120" name="auxiliary;index"/>
+                    </property-collection>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/expression-transformer" name="Notification" entity-id="Expression#4">
+                <properties>
+                    <property name="returnClass"/>
+                    <property name="ignoreBadInput"/>
+                    <property name="encoding"/>
+                    <property value="122" name="auxiliary;index"/>
+                    <property name="mimeType"/>
+                    <property value="122" name="auxiliary;index"/>
+                    <property value="122" name="auxiliary;index"/>
+                    <property value="122" name="auxiliary;index"/>
+                    <property name="evaluator"/>
+                    <property value="#[string:Profile related operations took place. Check the console.]" name="expression"/>
+                    <property name="custom-evaluator"/>
+                    <property name="returnSourceIfNull"/>
+                    <property value="122" name="auxiliary;index"/>
+                    <property value="122" name="auxiliary;index"/>
+                    <property value="122" name="auxiliary;index"/>
+                </properties>
+            </pattern>
+        </lane>
+    </flow>
+    <flow SubFlow="false" name="AuthorizeFlow" entity-id="3f4de657-21d6-40e5-bf78-eb30c1e8b28e">
+        <properties>
+            <property name="processingStrategy2"/>
+            <property name="processingStrategy"/>
+            <property value="123" name="auxiliary;index"/>
+            <property name="bussinessEventsLabel"/>
+            <property name="tracking:enable-default-events"/>
+            <property value="123" name="auxiliary;index"/>
+            <property value="123" name="auxiliary;index"/>
+            <property value="123" name="auxiliary;index"/>
+        </properties>
+        <lane isChoiceOtherwiseLane="false" index="0" hadOnlyOneElement="false" entity-id="compartment-lane#5">
+            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="HTTP#1">
                 <properties>
                     <property value="one-way" name="exchange-pattern"/>
                     <property value="request-response" name="exchange-pattern"/>
-                    <property value="13" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
                     <property value="http://www.mulesoft.org/schema/mule/http/endpoint" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
-                    <property value="13" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
                     <property name="httpLabel"/>
                     <property value="localhost" name="host"/>
                     <property value="8081" name="port"/>
                     <property value="authorize" name="path"/>
                     <property name="method"/>
-                    <property value="13" name="auxiliary;index"/>
-                    <property value="13" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
                     <property name="businessEventsLabel"/>
                     <property name="tracking:enable-default-events"/>
-                    <property value="13" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
                     <property name="address"/>
                     <property name="encoding"/>
                     <property name="disableTransportTransformer"/>
                     <property name="mimeType"/>
                     <property name="responseTimeout"/>
                     <property name="followRedirects"/>
-                    <property value="13" name="auxiliary;index"/>
-                    <property value="13" name="auxiliary;index"/>
-                    <property value="13" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
                     <property name="connector-ref"/>
                     <property name="ref"/>
                     <property name="transformer-refs"/>
                     <property name="responseTransformer-refs"/>
-                    <property value="13" name="auxiliary;index"/>
-                    <property value="13" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
                     <property name="user"/>
                     <property name="password"/>
-                    <property value="13" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
                     <property name="contentType"/>
                     <property name="keep-alive"/>
-                    <property value="13" name="auxiliary;index"/>
-                    <property value="13" name="auxiliary;index"/>
-                    <property value="13" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
+                    <property value="124" name="auxiliary;index"/>
                 </properties>
             </endpoint>
-            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Linkedin" entity-id="Linkedin#3">
+            <pattern type="http://www.mulesoft.org/schema/mule/linkedin/linkedin-connector" name="Authorize" entity-id="LinkedIn#26">
                 <properties>
                     <property value="LinkedinConf" name="config-ref"/>
                     <property value="http://www.mulesoft.org/schema/mule/linkedin/authorize" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
                     <property value="LinkedinConf" name="config-ref"/>
-                    <property value="14" name="auxiliary;index"/>
-                    <property value="14" name="auxiliary;index"/>
-                    <property value="14" name="auxiliary;index"/>
-                    <property value="14" name="auxiliary;index"/>
-                    <property value="14" name="auxiliary;index"/>
-                    <property value="14" name="auxiliary;index"/>
-                    <property value="14" name="auxiliary;index"/>
-                    <property value="14" name="auxiliary;index"/>
+                    <property value="125" name="auxiliary;index"/>
+                    <property value="125" name="auxiliary;index"/>
+                    <property value="125" name="auxiliary;index"/>
+                    <property value="125" name="auxiliary;index"/>
+                    <property value="125" name="auxiliary;index"/>
+                    <property value="125" name="auxiliary;index"/>
+                    <property value="125" name="auxiliary;index"/>
+                    <property value="125" name="auxiliary;index"/>
                 </properties>
             </pattern>
             <pattern type="http://www.mulesoft.org/schema/mule/core/flow-ref" name="Flow Reference" entity-id="Flow Reference#1">
                 <properties>
-                    <property value="GetCurrentUserProfile" name="name"/>
-                    <property value="15" name="auxiliary;index"/>
-                    <property value="15" name="auxiliary;index"/>
-                    <property value="15" name="auxiliary;index"/>
+                    <property value="profileFlow" name="name"/>
+                    <property value="126" name="auxiliary;index"/>
+                    <property value="126" name="auxiliary;index"/>
+                    <property value="126" name="auxiliary;index"/>
                 </properties>
             </pattern>
         </lane>

@@ -56,7 +56,7 @@ import java.util.Set;
  * 
  * @author MuleSoft, Inc.
  */
-@Connector(name = "linkedin", friendlyName = "LinkedIn")
+@Connector(name = "linkedin", friendlyName = "LinkedIn", minMuleVersion = "3.4")
 @OAuth(requestTokenUrl = "https://api.linkedin.com/uas/oauth/requestToken", 
 accessTokenUrl = "https://api.linkedin.com/uas/oauth/accessToken", 
 authorizationUrl = "https://api.linkedin.com/uas/oauth/authorize")

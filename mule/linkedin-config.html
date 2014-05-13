@@ -66,6 +66,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -154,7 +197,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="search" >
+  <div id="searchContainer" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -651,9 +694,8 @@ specify which configuration to use.</p>
 
 
 <!-- ========= OAUTH DETAIL ======== -->
-<h2>OAuth</h2>
-<p>This connector uses OAuth as an authorization and authentication mechanism. All the message processors or sources that require the connector
-to be authorized by the service provider will throw a NotAuthorizedException until the connector is authorized properly.</p>
+<h2>OAuth1</h2>
+<p>This connector uses OAuth1 as an authorization and authentication mechanism.</p>
 <p>Authorizing the connector is a simple process of calling:</p>
 <pre>
     &lt;linkedin:authorize/&gt;
@@ -701,12 +743,11 @@ can be called.</p>
 
 </table>
 <h3>After Authorization</h3>
-<p>The <i>authorize</i> message processor is an intercepting one. If the connector is not authorized yet, it will with a redirect
-to the service provider so the user can authorize the connector. This is the reason as to why the authorize needs to be behind
-and <i>http:inbound-endpoint</i>. The service provider upon successful authentication and authorization then will call back the
-connector. The connector will extract information from that call, set its internal state to authorized, and then continue
-execution. When we say continue execution we mean executing everything that was after the authorize whose execution got
-interrupted because the connector was not authorized.</p>
+<p>The <i>authorize</i>  message processor is an intercepting one. If something that requires authentication is requested but the connector
+ is not authorized yet, the authorize message processor will be triggered. It will redirect the user to the service provider so that he can
+ authorize the connector. This is why the authorize message processor needs to be behind an <i>http:inbound-endpoint</i>. Once authentication and
+ authorization are successful, the service provider will respond to the connector with a callback. The connector will extract information
+ from this callback, set its own internal state to authorized, and then move on to executing anything that had been interrupted by the authorization method.</p>
 <pre>
   &lt;flow name="authorizationAndAuthenticationFlow"&gt;
       &lt;http:inbound-endpoint host="localhost" port="8080" path="oauth-authorize"/&gt;
@@ -716,10 +757,10 @@ interrupted because the connector was not authorized.</p>
       &lt;/http:response-builder&gt;
   &lt;/flow&gt;
 </pre>
-<p>In the previous example we added the <i>http:response-build</i> (notice that this element is available only in Mule 3.3.0 and later). If
-the connector is not authorized, the execution of the response builder will be delayed up to the point of the callback execution.</p>
-<p>On the other hand if the connector has been authorized and you call <i>authorize</i> again then the flow execution will not stop, it will
-rather continue and the <i>http:response-builder</i> will get executed right away rather than after the callback.</p>
+<p>In the above example we added the <i>http:response-builder</i> (keep in mind that this element is available only in Mule 3.3.0 and later). If
+the connector is not yet authorized, the execution of the response builder will be delayed until the callback is received.</p>
+<p>On the other hand, if the connector had already been authorized before, then the flow execution will not be delayed; it will
+continue and the <i>http:response-builder</i> will get executed right away rather than after the callback.</p>
 <h3>Error Handling during Authorization</h3>
 <p>If for any reason, an errors ocurrs while processing the callback, the exception strategy of the flow containing the authorize will be
 executed. So, if the callback sent the wrong information you can handle that situation by setting up an exception strategy as follows:</p>
@@ -737,6 +778,17 @@ executed. So, if the callback sent the wrong information you can handle that sit
       &lt;/catch-exception-strategy&gt;
   &lt;/flow&gt;
 </pre>
+<p> What happens if a tenant who is not yet authorized wants to perform an OAuth protected operation? You can set this with the <b>onNoToken</b> property: </p>
+<pre>
+&lt;google-calendars:config-with-oauth name=&quot;google-calendars&quot; consumerKey=&quot;${google.apiclient}&quot; consumerSecret=&quot;${google.apisecret}&quot; onNoToken=&quot;[STOP_FLOW|EXCEPTION]&quot;&gt;
+    &lt;google-calendars:oauth-callback-config connector-ref=&quot;${oauth.http.connector}&quot; domain=&quot;${oauth.url}&quot; localPort=&quot;${https.port}&quot; async=&quot;false&quot; path=&quot;oauth2callback&quot; /&gt;
+&lt;/google-calendars:config-with-oauth&gt;
+</pre>
+<p>The <b>onNoToken</b> property can be set to two different values:</p>
+<ul>
+<li>STOP_FLOW: acts as a filter and kills the execution of the flow</li>
+<li>EXCEPTION: throws an exception informing that the token is still not acquired</li>
+</ul>
 <h3>Unauthorize</h3>
 <p>Once this connector has been authorized further calls to the <i>authorize</i> message processor will be no-ops. If you wish to reset
 the state of the connector back to a non-authorized state you can call:</p>
@@ -746,9 +798,9 @@ the state of the connector back to a non-authorized state you can call:</p>
 <p>Keep in mind that after the connector is unauthorized all future calls that attempt to access protected resources will fail until
  the connector is re-authorized.</p>
 <h3>Callback Customization</h3>
-<p>As mentioned earlier once authorize gets called and before we redirect the user to the service provider we create a callback
-endpoint. The callback endpoint will get called automatically by the service provider once the user is authenticated and he
-grants authorization to the connector to access his private information.</p>
+<p>As mentioned earlier, once authorize gets called and before we redirect the user to the service provider, we create a
+ callback endpoint. The callback endpoint will get called automatically by the service provider once the user is authenticated
+  and he grants authorization to the connector to access his private information.</p>
 <p>The callback can be customized in the config element of the this connector as follows:</p>
 <pre>
     &lt;linkedin:config&gt;
@@ -853,6 +905,11 @@ we will extract the OAuth access token property and OAuth access token secret pr
 
 
 
+
+
+
+
+
 <!-- ========= MESSAGE PROCESSOR DETAIL ======== -->
 <!-- Message Processors -->
 <h2>Message Processors</h2>
@@ -875,7 +932,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the connections by id. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the connections by id. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1004"
  >http://developer.linkedin.com/docs/DOC-1004</a>
  <p/>
@@ -889,7 +948,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:profile-field&gt;HONORS&lt;/linkedin:profile-field&gt;
     &lt;/linkedin:profile-fields&gt;
 &lt;/linkedin:get-connections-by-id&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -906,64 +967,74 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>id</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The id to search</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>id</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The id to search</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>modificationDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification date, if set modification type needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>modificationDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification date, if set modification type needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>modificationType</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification type, if set modification date needs to be specified</td>
-                        <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ConnectionModificationType.html">ConnectionModificationType</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>modificationType</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification type, if set modification date needs to be specified</td>
+                            <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ConnectionModificationType.html">ConnectionModificationType</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1010,9 +1081,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></td>
-                <td class="jd-descrcol">the connections by id
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></td>
+                    <td class="jd-descrcol">the connections by id
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1036,7 +1110,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the connections by url. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the connections by url. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1004"
  >http://developer.linkedin.com/docs/DOC-1004</a>
  <p/>
@@ -1050,7 +1126,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:profile-field&gt;HONORS&lt;/linkedin:profile-field&gt;
     &lt;/linkedin:profile-fields&gt;
 &lt;/linkedin:get-connections-by-url&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1067,64 +1145,74 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>url</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The url to search</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>url</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The url to search</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>modificationDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification date, if set modification type needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>modificationDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification date, if set modification type needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>modificationType</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification type, if set modification date needs to be specified</td>
-                        <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ConnectionModificationType.html">ConnectionModificationType</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>modificationType</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification type, if set modification date needs to be specified</td>
+                            <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ConnectionModificationType.html">ConnectionModificationType</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1171,9 +1259,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></td>
-                <td class="jd-descrcol">the connections by url
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></td>
+                    <td class="jd-descrcol">the connections by url
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1197,7 +1288,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the connections for current user. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the connections for current user. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1004"
  >http://developer.linkedin.com/docs/DOC-1004</a>
  <p/>
@@ -1210,7 +1303,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:profile-field&gt;HONORS&lt;/linkedin:profile-field&gt;
     &lt;/linkedin:profile-fields&gt;
 &lt;/linkedin:get-connections-for-current-user&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1229,50 +1324,58 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>modificationDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification date, if set modification type needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>modificationDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification date, if set modification type needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>modificationType</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification type, if set modification date needs to be specified</td>
-                        <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ConnectionModificationType.html">ConnectionModificationType</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>modificationType</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The modification type, if set modification date needs to be specified</td>
+                            <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ConnectionModificationType.html">ConnectionModificationType</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1317,9 +1420,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></td>
-                <td class="jd-descrcol">the connections for current user
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Connections.html">Connections</a></td>
+                    <td class="jd-descrcol">the connections for current user
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1343,12 +1449,16 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the network update comments. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the network update comments. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1043"
  >http://developer.linkedin.com/docs/DOC-1043</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:get-network-update-comments networkUpdateId="some-network-update-id"/&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1365,14 +1475,16 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The network update id to search</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The network update id to search</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -1390,9 +1502,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/UpdateComments.html">UpdateComments</a></td>
-                <td class="jd-descrcol">the network update comments
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/UpdateComments.html">UpdateComments</a></td>
+                    <td class="jd-descrcol">the network update comments
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1416,12 +1531,16 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the network update likes. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the network update likes. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1043"
  >http://developer.linkedin.com/docs/DOC-1043</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:get-network-update-likes networkUpdateId="some-network-update-id"/&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1438,14 +1557,16 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The network update id to search</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The network update id to search</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -1463,9 +1584,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Likes.html">Likes</a></td>
-                <td class="jd-descrcol">the network update likes
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Likes.html">Likes</a></td>
+                    <td class="jd-descrcol">the network update likes
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1489,7 +1613,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the network updates. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the network updates. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1006"
  >http://developer.linkedin.com/docs/DOC-1006</a>
  <p/>
@@ -1503,7 +1629,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:update-type&gt;RECOMMENDATION_UPDATE&lt;/linkedin:update-type&gt;
     &lt;/linkedin:update-types&gt;
 &lt;/linkedin:get-network-updates&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1522,62 +1650,72 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>startDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start date, if set end date needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>startDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start date, if set end date needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>endDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The end date, if set start date needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>endDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The end date, if set start date needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>showHiddenMembers</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to show hidden memberts</td>
-                        <td class="jd-descrcol">Boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>showHiddenMembers</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to show hidden memberts</td>
+                            <td class="jd-descrcol">Boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1624,9 +1762,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Network.html">Network</a></td>
-                <td class="jd-descrcol">the network updates
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Network.html">Network</a></td>
+                    <td class="jd-descrcol">the network updates
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1650,7 +1791,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the profile by id. For details see <a href="http://developer.linkedin.com/docs/DOC-1002"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the profile by id. For details see <a href="http://developer.linkedin.com/docs/DOC-1002"
  >http://developer.linkedin.com/docs/DOC-1002</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:get-profile-by-id id="some-id"&gt;
@@ -1659,7 +1802,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:profile-field&gt;HONORS&lt;/linkedin:profile-field&gt;
     &lt;/linkedin:profile-fields&gt;
 &lt;/linkedin:get-profile-by-id&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1676,14 +1821,16 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>id</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The id to search</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>id</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The id to search</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -1724,9 +1871,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Person.html">Person</a></td>
-                <td class="jd-descrcol">the profile by id
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Person.html">Person</a></td>
+                    <td class="jd-descrcol">the profile by id
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1750,12 +1900,16 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the profile by url. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the profile by url. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1002"
  >http://developer.linkedin.com/docs/DOC-1002</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:get-profile-by-url url="some-url" profileType="STANDARD"/&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1772,26 +1926,30 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>url</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The url to search</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>url</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The url to search</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>profileType</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The profile type to search</td>
-                        <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ProfileType.html">ProfileType</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>profileType</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The profile type to search</td>
+                            <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ProfileType.html">ProfileType</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1834,9 +1992,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Person.html">Person</a></td>
-                <td class="jd-descrcol">the profile by url
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Person.html">Person</a></td>
+                    <td class="jd-descrcol">the profile by url
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1860,7 +2021,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the profile for current user. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the profile for current user. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1002"
  >http://developer.linkedin.com/docs/DOC-1002</a>
  <p/>
@@ -1870,7 +2033,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:profile-field&gt;HONORS&lt;/linkedin:profile-field&gt;
     &lt;/linkedin:profile-fields&gt;
 &lt;/linkedin:get-profile-for-current-user&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1921,9 +2086,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Person.html">Person</a></td>
-                <td class="jd-descrcol">the profile for current user
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Person.html">Person</a></td>
+                    <td class="jd-descrcol">the profile for current user
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1947,7 +2115,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the network updates. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the network updates. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1006"
  >http://developer.linkedin.com/docs/DOC-1006</a>
  <p/>
@@ -1960,7 +2130,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:update-type&gt;RECOMMENDATION_UPDATE&lt;/linkedin:update-type&gt;
     &lt;/linkedin:update-types&gt;
 &lt;/linkedin:get-user-updates&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1979,50 +2151,58 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>startDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start date, if set end date needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>startDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start date, if set end date needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>endDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The end date, if set start date needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>endDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The end date, if set start date needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -2067,9 +2247,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Network.html">Network</a></td>
-                <td class="jd-descrcol">the network updates
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Network.html">Network</a></td>
+                    <td class="jd-descrcol">the network updates
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -2093,7 +2276,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the network updates. For details see <a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Gets the network updates. For details see <a
  href="http://developer.linkedin.com/docs/DOC-1006"
  >http://developer.linkedin.com/docs/DOC-1006</a>
  <p/>
@@ -2107,7 +2292,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:update-type&gt;RECOMMENDATION_UPDATE&lt;/linkedin:update-type&gt;
     &lt;/linkedin:update-types&gt;
 &lt;/linkedin:get-user-updates-by-id&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2124,64 +2311,74 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>id</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The id to search</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>id</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The id to search</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>startDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start date, if set end date needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>startDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start date, if set end date needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>endDate</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The end date, if set end date needs to be specified</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>endDate</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The end date, if set end date needs to be specified</td>
+                            <td class="jd-descrcol">Date</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -2228,9 +2425,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Network.html">Network</a></td>
-                <td class="jd-descrcol">the network updates
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/Network.html">Network</a></td>
+                    <td class="jd-descrcol">the network updates
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -2254,11 +2454,15 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Like post. For details see <a href="http://developer.linkedin.com/docs/DOC-1043"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Like post. For details see <a href="http://developer.linkedin.com/docs/DOC-1043"
  >http://developer.linkedin.com/docs/DOC-1043</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:like-post networkUpdateId="some-network-update-id"/&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2275,15 +2479,17 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The network update id
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The network update id
 </td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -2313,11 +2519,15 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Post comment. For details see <a href="http://developer.linkedin.com/docs/DOC-1043"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Post comment. For details see <a href="http://developer.linkedin.com/docs/DOC-1043"
  >http://developer.linkedin.com/docs/DOC-1043</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:post-comment networkUpdateId="some-network-update-id" commentText="some-comment-text"/&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2334,27 +2544,31 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The network update id</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The network update id</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>commentText</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The comment text
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>commentText</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The comment text
 </td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -2384,11 +2598,15 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Post network update. For details see <a href="http://developer.linkedin.com/docs/DOC-1009"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Post network update. For details see <a href="http://developer.linkedin.com/docs/DOC-1009"
  >http://developer.linkedin.com/docs/DOC-1009</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:post-network-update updateText="some-update-text"/&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2405,15 +2623,17 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>updateText</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The update text
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>updateText</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The update text
 </td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -2443,7 +2663,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Post share. For details see <a href="http://developer.linkedin.com/docs/DOC-1212"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Post share. For details see <a href="http://developer.linkedin.com/docs/DOC-1212"
  >http://developer.linkedin.com/docs/DOC-1212</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:post-share commentText="some-comment"
@@ -2452,7 +2674,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
                      imageUrl="some-image-url"
                      visibility="ALL_MEMBERS"
                      postToTwitter="true"/&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2469,75 +2693,87 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>commentText</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The comment text</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>commentText</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The comment text</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>title</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The title</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>title</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The title</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>url</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The url</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>url</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The url</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>imageUrl</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The image url</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>imageUrl</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The image url</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>visibility</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The visibility</td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>visibility</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The visibility</td>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>postToTwitter</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to post to twitter
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>postToTwitter</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to post to twitter
 </td>
-                        <td class="jd-descrcol">Boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">Boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -2567,13 +2803,17 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Re-share. For details see <a href="http://developer.linkedin.com/docs/DOC-1212"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Re-share. For details see <a href="http://developer.linkedin.com/docs/DOC-1212"
  >http://developer.linkedin.com/docs/DOC-1212</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:re-share shareId="some-share-id"
                    commentText="some-comment"
                    visibility="ALL_MEMBERS"/&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2590,39 +2830,45 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>shareId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The share id</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>shareId</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The share id</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>commentText</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The comment text</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>commentText</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The comment text</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>visibility</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The visibility
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>visibility</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The visibility
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -2652,7 +2898,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Search people. For details see <a href="http://developer.linkedin.com/docs/DOC-1005"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Search people. For details see <a href="http://developer.linkedin.com/docs/DOC-1005"
  >http://developer.linkedin.com/docs/DOC-1005</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:search-people start="10"
@@ -2667,7 +2915,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:profile-field&gt;HONORS&lt;/linkedin:profile-field&gt;
     &lt;/linkedin:profile-fields&gt;
 &lt;/linkedin:search-people&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2688,38 +2938,44 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
-                        <td class="jd-descrcol">RELEVANCE</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The sort order to use, defaults to RELEVANCE</td>
-                        <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/SearchSortOrder.html">SearchSortOrder</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
+                            <td class="jd-descrcol">RELEVANCE</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The sort order to use, defaults to RELEVANCE</td>
+                            <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/SearchSortOrder.html">SearchSortOrder</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -2772,9 +3028,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/People.html">People</a></td>
-                <td class="jd-descrcol">the people
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/People.html">People</a></td>
+                    <td class="jd-descrcol">the people
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -2798,7 +3057,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Search people. For details see <a href="http://developer.linkedin.com/docs/DOC-1005"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Search people. For details see <a href="http://developer.linkedin.com/docs/DOC-1005"
  >http://developer.linkedin.com/docs/DOC-1005</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:search-people-with-facet-fields start="10"
@@ -2821,7 +3082,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:facet key="PAST_COMPANY"&gt;MuleSource&lt;/linkedin:facet&gt;
     &lt;/linkedin:facets&gt;
 &lt;/linkedin:search-people-with-facet-fields&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2844,38 +3107,44 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
-                        <td class="jd-descrcol">RELEVANCE</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The sort order, defaults to RELEVANCE</td>
-                        <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/SearchSortOrder.html">SearchSortOrder</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
+                            <td class="jd-descrcol">RELEVANCE</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The sort order, defaults to RELEVANCE</td>
+                            <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/SearchSortOrder.html">SearchSortOrder</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -2950,9 +3219,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/PeopleSearch.html">PeopleSearch</a></td>
-                <td class="jd-descrcol">the people
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/PeopleSearch.html">PeopleSearch</a></td>
+                    <td class="jd-descrcol">the people
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -2976,7 +3248,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Search people. For details see <a href="http://developer.linkedin.com/docs/DOC-1005"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Search people. For details see <a href="http://developer.linkedin.com/docs/DOC-1005"
  >http://developer.linkedin.com/docs/DOC-1005</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:search-people-with-facets start="10"
@@ -2995,7 +3269,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:facet key="PAST_COMPANY"&gt;MuleSource&lt;/linkedin:facet&gt;
     &lt;/linkedin:facets&gt;
 &lt;/linkedin:search-people-with-facets&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3016,38 +3292,44 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>start</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>start</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The start, if set count needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>count</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The count, if set start needs to be specified</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
-                        <td class="jd-descrcol">RELEVANCE</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The sort order to use, defaults to RELEVANCE</td>
-                        <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/SearchSortOrder.html">SearchSortOrder</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>sortOrder</nobr></td>
+                            <td class="jd-descrcol">RELEVANCE</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The sort order to use, defaults to RELEVANCE</td>
+                            <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/SearchSortOrder.html">SearchSortOrder</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -3112,9 +3394,12 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/People.html">People</a></td>
-                <td class="jd-descrcol">the people
+                
+                    <td class="jd-descrcol"><a href="../java/com/google/code/linkedinapi/schema/People.html">People</a></td>
+                    <td class="jd-descrcol">the people
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3138,7 +3423,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Send invite. For details see <a href="http://developer.linkedin.com/docs/DOC-1012"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Send invite. For details see <a href="http://developer.linkedin.com/docs/DOC-1012"
  >http://developer.linkedin.com/docs/DOC-1012</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:send-invite-by-email email="some-email"
@@ -3146,7 +3433,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
                                lastName="some-last-name"
                                subject="some-subject"
                                message="some-message"/&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3163,63 +3452,73 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>email</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The email</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>email</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The email</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>firstName</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The first name</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>firstName</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The first name</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>lastName</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The last name</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>lastName</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The last name</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>subject</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The subject</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>subject</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The subject</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>message</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The message
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>message</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The message
 </td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -3249,7 +3548,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Send message. For details see <a href="http://developer.linkedin.com/docs/DOC-1044"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Send message. For details see <a href="http://developer.linkedin.com/docs/DOC-1044"
  >http://developer.linkedin.com/docs/DOC-1044</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:send-message subject="some-subject" message="some-message"&gt;
@@ -3258,7 +3559,9 @@ we will extract the OAuth access token property and OAuth access token secret pr
         &lt;linkedin:recepient-id&gt;recipientId2&lt;/linkedin:recepient-id&gt;
     &lt;/linkedin:recepient-ids&gt;
 &lt;/linkedin:send-message&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3277,27 +3580,31 @@ we will extract the OAuth access token property and OAuth access token secret pr
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>subject</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The subject</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>subject</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The subject</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>message</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The message
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>message</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The message
 </td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -3350,11 +3657,15 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Unlike post. For details see <a href="http://developer.linkedin.com/docs/DOC-1043"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Unlike post. For details see <a href="http://developer.linkedin.com/docs/DOC-1043"
  >http://developer.linkedin.com/docs/DOC-1043</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:unlike-post networkUpdateId="some-network-update-id"/&gt;</pre></div> 
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3371,15 +3682,17 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The network update id
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>networkUpdateId</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The network update id
 </td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -3409,11 +3722,15 @@ we will extract the OAuth access token property and OAuth access token secret pr
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Update current status. For details see <a href="http://developer.linkedin.com/docs/DOC-1007"
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Update current status. For details see <a href="http://developer.linkedin.com/docs/DOC-1007"
  >http://developer.linkedin.com/docs/DOC-1007</a>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;linkedin:update-current-status status="new-status" postToTwitter="true"/&gt;</pre></div>
- </p></div>
+ 
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3430,27 +3747,31 @@ we will extract the OAuth access token property and OAuth access token secret pr
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>status</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The status</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>status</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The status</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>postToTwitter</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to post the update to Twitter
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>postToTwitter</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to post the update to Twitter
 </td>
-                        <td class="jd-descrcol">Boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">Boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           

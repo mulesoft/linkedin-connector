@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -155,7 +198,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="search" >
+  <div id="searchContainer" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -225,11 +268,17 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/adapter/package-summary.html">org.mule.module.linkedin.adapter</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/adapters/package-summary.html">org.mule.module.linkedin.adapters</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/agents/package-summary.html">org.mule.module.linkedin.agents</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/connection/package-summary.html">org.mule.module.linkedin.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/devkit/package-summary.html">org.mule.module.linkedin.devkit</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/oauth/package-summary.html">org.mule.module.linkedin.oauth</a></li>
     <li class="selected api apilevel-">
@@ -305,13 +354,6 @@
   
   
 
-  
-   
-  
-  
-  
-  
-
 
 <div class="sum-details-links">
 
@@ -371,11 +413,6 @@ Summary:
   
 
   
-  
-      implements 
-      
-        ProcessInterceptor&lt;T,&nbsp;O&gt; 
-      
   
   
 
@@ -506,7 +543,7 @@ Summary:
             T</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/process/ProcessCallbackProcessInterceptor.html#execute(org.mule.api.process.ProcessCallback<T, O>, O, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)">execute</a></span>(ProcessCallback&lt;T,&nbsp;O&gt; processCallback, O object, MessageProcessor messageProcessor, MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/process/ProcessCallbackProcessInterceptor.html#execute(<any>, O, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)">execute</a></span>(<any> processCallback, O object, MessageProcessor messageProcessor, MuleEvent event)</nobr>
         
   </td></tr>
 
@@ -727,48 +764,6 @@ From class
 </td></tr>
 
 
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.process.ProcessInterceptor" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.process.ProcessInterceptor-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  org.mule.api.process.ProcessInterceptor
-
-<div id="inherited-methods-org.mule.api.process.ProcessInterceptor">
-  <div id="inherited-methods-org.mule.api.process.ProcessInterceptor-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.api.process.ProcessInterceptor-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            T</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">execute</span>(ProcessCallback&lt;T,&nbsp;O&gt; arg0, O arg1, MessageProcessor arg2, MuleEvent arg3)</nobr>
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
 </table>
 
 
@@ -849,7 +844,7 @@ From interface
 
 
 
-<A NAME="execute(org.mule.api.process.ProcessCallback<T, O>, O, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)"></A>
+<A NAME="execute(<any>, O, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -862,7 +857,7 @@ From interface
         T
       </span>
       <span class="sympad">execute</span>
-      <span class="normal">(ProcessCallback&lt;T,&nbsp;O&gt; processCallback, O object, MessageProcessor messageProcessor, MuleEvent event)</span>
+      <span class="normal">(<any> processCallback, O object, MessageProcessor messageProcessor, MuleEvent event)</span>
     </h4>
       <div class="api-level">
         <div>

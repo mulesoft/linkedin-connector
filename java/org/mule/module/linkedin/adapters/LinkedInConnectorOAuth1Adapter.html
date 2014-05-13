@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -155,7 +198,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="search" >
+  <div id="searchContainer" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -224,12 +267,18 @@
   <a href="../../../../../../java/com/google/code/linkedinapi/schema/xpp/package-summary.html">com.google.code.linkedinapi.schema.xpp</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/adapter/package-summary.html">org.mule.module.linkedin.adapter</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/adapters/package-summary.html">org.mule.module.linkedin.adapters</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/agents/package-summary.html">org.mule.module.linkedin.agents</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/connection/package-summary.html">org.mule.module.linkedin.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/linkedin/devkit/package-summary.html">org.mule.module.linkedin.devkit</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/linkedin/oauth/package-summary.html">org.mule.module.linkedin.oauth</a></li>
     <li class="api apilevel-">
@@ -305,15 +354,6 @@
   
   
   
-   
-  
-  
-
-  
-   
-  
-  
-  
   
 
   
@@ -355,8 +395,6 @@
   
   
 
-  
-   
   
   
   
@@ -415,6 +453,13 @@
   
   
    
+  
+  
+  
+
+  
+   
+  
   
   
   
@@ -522,11 +567,7 @@ Summary:
   
 
   
-  
-  
-
-  
-    extends <a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html">LinkedInConnectorHttpCallbackAdapter</a><br/>
+    extends <a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorProcessAdapter.html">LinkedInConnectorProcessAdapter</a><br/>
   
   
   
@@ -535,15 +576,9 @@ Summary:
   
       implements 
       
-        MuleContextAware 
-      
-        Initialisable 
-      
-        Startable 
-      
-        Stoppable 
-      
         OAuth1Adapter 
+      
+        OAuth1Connector 
       
   
   
@@ -559,7 +594,7 @@ Summary:
 
     <tr>
         
-        <td colspan="8" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="7" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -567,7 +602,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="7" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">org.mule.module.linkedin.LinkedInConnector</a></td>
+        <td colspan="6" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/LinkedInConnector.html">org.mule.module.linkedin.LinkedInConnector</a></td>
     </tr>
     
 
@@ -577,7 +612,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="6" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorCapabilitiesAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorCapabilitiesAdapter</a></td>
+        <td colspan="5" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorCapabilitiesAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorCapabilitiesAdapter</a></td>
     </tr>
     
 
@@ -589,27 +624,11 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="5" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html">org.mule.module.linkedin.adapters.LinkedInConnectorMetadataAdapater</a></td>
+        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html">org.mule.module.linkedin.adapters.LinkedInConnectorMetadataAdapater</a></td>
     </tr>
     
 
     <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-        
-        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorLifecycleAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorLifecycleAdapter</a></td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -619,13 +638,11 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorProcessAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorProcessAdapter</a></td>
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorLifecycleAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorLifecycleAdapter</a></td>
     </tr>
     
 
     <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -637,13 +654,11 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter</a></td>
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorProcessAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorProcessAdapter</a></td>
     </tr>
     
 
     <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -728,8 +743,6 @@ Summary:
 
 
 
-
-
 <tr class="api apilevel-" >
 <td colspan="12">
 
@@ -763,12 +776,19 @@ Summary:
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
-        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html#MODULE_NAME">MODULE_NAME</a></td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html#MIN_MULE_VERSION">MIN_MULE_VERSION</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html#MODULE_NAME">MODULE_NAME</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html#MODULE_VERSION">MODULE_VERSION</a></td>
         <td class="jd-descrcol" width="100%"></td>
@@ -925,6 +945,8 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+
+
 </table>
 
 
@@ -970,11 +992,11 @@ org.mule.api.lifecycle.Stoppable
     
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
-          private
-          static
           
-          Logger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#logger">logger</a></td>
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#name">name</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -984,8 +1006,8 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          MuleContext</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#muleContext">muleContext</a></td>
+          OAuth1Manager</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#oauthManager">oauthManager</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1028,8 +1050,8 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#requestToken">requestToken</a></td>
+          OnNoTokenPolicy</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#onNoTokenPolicy">onNoTokenPolicy</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1040,12 +1062,23 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#requestTokenSecret">requestTokenSecret</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#requestToken">requestToken</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
       <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#requestTokenSecret">requestTokenSecret</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -1067,107 +1100,6 @@ org.mule.api.lifecycle.Stoppable
 <table id="inhfields" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Fields</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter" class="jd-expando-trigger closed"
-          ><img id="inherited-fields-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>From class
-<a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter</a>
-<div id="inherited-fields-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter">
-  <div id="inherited-fields-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-fields-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          static
-          final
-          Logger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#LOGGER">LOGGER</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Boolean</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#async">async</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Connector</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#connector">connector</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#domain">domain</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Integer</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#localPort">localPort</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#path">path</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Integer</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#remotePort">remotePort</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-</table>
-  </div>
-</div>
-</td></tr>
-
 
 
 
@@ -1294,6 +1226,8 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+
+
 </table>
 
 
@@ -1315,7 +1249,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#LinkedInConnectorOAuth1Adapter()">LinkedInConnectorOAuth1Adapter</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#LinkedInConnectorOAuth1Adapter(org.mule.security.oauth.OAuth1Manager)">LinkedInConnectorOAuth1Adapter</a></span>(OAuth1Manager oauthManager)</nobr>
         
   </td></tr>
 
@@ -1393,6 +1327,22 @@ org.mule.api.lifecycle.Stoppable
             
             
             
+            Boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getAsync()">getAsync</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1402,6 +1352,22 @@ org.mule.api.lifecycle.Stoppable
  
 </div>
   
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Connector</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getConnector()">getConnector</a></span>()</nobr>
+        
   </td></tr>
 
 
@@ -1418,6 +1384,142 @@ org.mule.api.lifecycle.Stoppable
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getConsumer()">getConsumer</a></span>()</nobr>
         
+        <div class="jd-descrdiv">Retrieves consumer
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getConsumerKey()">getConsumerKey</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getConsumerSecret()">getConsumerSecret</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getDomain()">getDomain</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Integer</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getLocalPort()">getLocalPort</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            OAuthMessageSigner</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getMessageSigner()">getMessageSigner</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getName()">getName</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            OAuth1Manager</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getOauth1Manager()">getOauth1Manager</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            OAuth1Manager</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getOauthManager()">getOauthManager</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves oauthManager
+ 
+</div>
+  
   </td></tr>
 
 
@@ -1488,6 +1590,42 @@ org.mule.api.lifecycle.Stoppable
             
             
             
+            
+            OnNoTokenPolicy</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getOnNoTokenPolicy()">getOnNoTokenPolicy</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves onNoTokenPolicy
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getPath()">getPath</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
             &lt;P&gt;
             ProcessTemplate&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/linkedin/adapters/LinkedInConnectorCapabilitiesAdapter.html">LinkedInConnectorCapabilitiesAdapter</a>&gt;</nobr>
         </td>
@@ -1499,6 +1637,62 @@ org.mule.api.lifecycle.Stoppable
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Integer</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getRemotePort()">getRemotePort</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getRequestToken()">getRequestToken</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves requestToken
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getRequestTokenSecret()">getRequestTokenSecret</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves requestTokenSecret
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1518,6 +1712,22 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            SigningStrategy</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getSigningStrategy()">getSigningStrategy</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1525,10 +1735,10 @@ org.mule.api.lifecycle.Stoppable
             
             
             
-            void</nobr>
+            String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#hasBeenAuthorized()">hasBeenAuthorized</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#getVerifierRegex()">getVerifierRegex</a></span>()</nobr>
         
   </td></tr>
 
@@ -1544,7 +1754,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#hasBeenAuthorized()">hasBeenAuthorized</a></span>()</nobr>
         
   </td></tr>
 
@@ -1610,10 +1820,8 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setAuthorizationUrl(java.lang.String)">setAuthorizationUrl</a></span>(String value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setAsync(java.lang.Boolean)">setAsync</a></span>(Boolean async)</nobr>
         
-        <div class="jd-descrdiv">Sets authorizationUrl</div>
-  
   </td></tr>
 
 
@@ -1628,9 +1836,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setAuthorizationUrl(java.lang.String)">setAuthorizationUrl</a></span>(String value)</nobr>
         
-        <div class="jd-descrdiv">Sets muleContext</div>
+        <div class="jd-descrdiv">Sets authorizationUrl</div>
   
   </td></tr>
 
@@ -1646,7 +1854,107 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setOauthRestoreAccessToken(org.mule.api.oauth.RestoreAccessTokenCallback)">setOauthRestoreAccessToken</a></span>(RestoreAccessTokenCallback value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setConnector(org.mule.api.transport.Connector)">setConnector</a></span>(Connector value)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setConsumer(oauth.signpost.OAuthConsumer)">setConsumer</a></span>(OAuthConsumer value)</nobr>
+        
+        <div class="jd-descrdiv">Sets consumer</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setDomain(java.lang.String)">setDomain</a></span>(String value)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setLocalPort(java.lang.Integer)">setLocalPort</a></span>(Integer value)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setName(java.lang.String)">setName</a></span>(String name)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setOauthManager(org.mule.security.oauth.OAuth1Manager)">setOauthManager</a></span>(OAuth1Manager value)</nobr>
+        
+        <div class="jd-descrdiv">Sets oauthManager</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setOauthRestoreAccessToken(org.mule.security.oauth.callback.RestoreAccessTokenCallback)">setOauthRestoreAccessToken</a></span>(RestoreAccessTokenCallback value)</nobr>
         
         <div class="jd-descrdiv">Sets oauthRestoreAccessToken</div>
   
@@ -1664,7 +1972,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setOauthSaveAccessToken(org.mule.api.oauth.SaveAccessTokenCallback)">setOauthSaveAccessToken</a></span>(SaveAccessTokenCallback value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setOauthSaveAccessToken(org.mule.security.oauth.callback.SaveAccessTokenCallback)">setOauthSaveAccessToken</a></span>(SaveAccessTokenCallback value)</nobr>
         
         <div class="jd-descrdiv">Sets oauthSaveAccessToken</div>
   
@@ -1700,6 +2008,108 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setOnNoToken(org.mule.security.oauth.OnNoTokenPolicy)">setOnNoToken</a></span>(OnNoTokenPolicy value)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setOnNoTokenPolicy(org.mule.security.oauth.OnNoTokenPolicy)">setOnNoTokenPolicy</a></span>(OnNoTokenPolicy value)</nobr>
+        
+        <div class="jd-descrdiv">Sets onNoTokenPolicy</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setPath(java.lang.String)">setPath</a></span>(String value)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setRemotePort(java.lang.Integer)">setRemotePort</a></span>(Integer value)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setRequestToken(java.lang.String)">setRequestToken</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets requestToken</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setRequestTokenSecret(java.lang.String)">setRequestTokenSecret</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets requestTokenSecret</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorOAuth1Adapter.html#setRequestTokenUrl(java.lang.String)">setRequestTokenUrl</a></span>(String value)</nobr>
         
         <div class="jd-descrdiv">Sets requestTokenUrl</div>
@@ -1720,276 +2130,6 @@ org.mule.api.lifecycle.Stoppable
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  <a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html">org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter</a>
-
-<div id="inherited-methods-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter">
-  <div id="inherited-methods-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.module.linkedin.adapters.LinkedInConnectorHttpCallbackAdapter-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Boolean</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#getAsync()">getAsync</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves async
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Connector</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#getConnector()">getConnector</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves connector
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#getDomain()">getDomain</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves domain
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Integer</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#getLocalPort()">getLocalPort</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves localPort
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#getPath()">getPath</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves path
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Integer</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#getRemotePort()">getRemotePort</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves remotePort
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#initialise()">initialise</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#setAsync(java.lang.Boolean)">setAsync</a></span>(Boolean value)</nobr>
-        
-        <div class="jd-descrdiv">Sets async</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#setConnector(org.mule.api.transport.Connector)">setConnector</a></span>(Connector value)</nobr>
-        
-        <div class="jd-descrdiv">Sets connector</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#setDomain(java.lang.String)">setDomain</a></span>(String value)</nobr>
-        
-        <div class="jd-descrdiv">Sets domain</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#setLocalPort(java.lang.Integer)">setLocalPort</a></span>(Integer value)</nobr>
-        
-        <div class="jd-descrdiv">Sets localPort</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#setPath(java.lang.String)">setPath</a></span>(String value)</nobr>
-        
-        <div class="jd-descrdiv">Sets path</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorHttpCallbackAdapter.html#setRemotePort(java.lang.Integer)">setRemotePort</a></span>(Integer value)</nobr>
-        
-        <div class="jd-descrdiv">Sets remotePort</div>
-  
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
 
 
 <tr class="api apilevel-" >
@@ -2186,13 +2326,29 @@ From class
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html#getModuleName()">getModuleName</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html#getMinMuleVersion()">getMinMuleVersion</a></span>()</nobr>
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorMetadataAdapater.html#getModuleName()">getModuleName</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2244,7 +2400,7 @@ From class
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.api.Capability)">isCapableOf</a></span>(Capability capability)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/linkedin/adapters/LinkedInConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.api.devkit.capability.ModuleCapability)">isCapableOf</a></span>(ModuleCapability capability)</nobr>
         
         <div class="jd-descrdiv">Returns true if this module implements such capability
  
@@ -3062,46 +3218,6 @@ From class
 
 
 
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.Capabilities" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.Capabilities-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  org.mule.api.Capabilities
-
-<div id="inherited-methods-org.mule.api.Capabilities">
-  <div id="inherited-methods-org.mule.api.Capabilities-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.api.Capabilities-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            boolean</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">isCapableOf</span>(Capability arg0)</nobr>
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
 
 
 <tr class="api apilevel-" >
@@ -3166,13 +3282,29 @@ From interface
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getModuleName</span>()</nobr>
+        <span class="sympad">getMinMuleVersion</span>()</nobr>
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getModuleName</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -3196,19 +3328,19 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.adapter.HttpCallbackAdapter" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.adapter.HttpCallbackAdapter-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.devkit.ProcessAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.devkit.ProcessAdapter-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  org.mule.api.adapter.HttpCallbackAdapter
+  org.mule.api.devkit.ProcessAdapter
 
-<div id="inherited-methods-org.mule.api.adapter.HttpCallbackAdapter">
-  <div id="inherited-methods-org.mule.api.adapter.HttpCallbackAdapter-list"
+<div id="inherited-methods-org.mule.api.devkit.ProcessAdapter">
+  <div id="inherited-methods-org.mule.api.devkit.ProcessAdapter-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.api.adapter.HttpCallbackAdapter-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.api.devkit.ProcessAdapter-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -3220,91 +3352,11 @@ From interface
             
             
             
-            
-            Boolean</nobr>
+            &lt;T&gt;
+            ProcessTemplate&lt;T,&nbsp;O&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getAsync</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            Connector</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getConnector</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getDomain</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            Integer</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getLocalPort</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getPath</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            Integer</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getRemotePort</span>()</nobr>
+        <span class="sympad">getProcessTemplate</span>()</nobr>
         
   </td></tr>
 
@@ -3318,19 +3370,19 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.context.MuleContextAware" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.context.MuleContextAware-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.devkit.capability.Capabilities" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.devkit.capability.Capabilities-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  org.mule.api.context.MuleContextAware
+  org.mule.api.devkit.capability.Capabilities
 
-<div id="inherited-methods-org.mule.api.context.MuleContextAware">
-  <div id="inherited-methods-org.mule.api.context.MuleContextAware-list"
+<div id="inherited-methods-org.mule.api.devkit.capability.Capabilities">
+  <div id="inherited-methods-org.mule.api.devkit.capability.Capabilities-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.api.context.MuleContextAware-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.api.devkit.capability.Capabilities-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -3343,10 +3395,10 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">setMuleContext</span>(MuleContext arg0)</nobr>
+        <span class="sympad">isCapableOf</span>(ModuleCapability arg0)</nobr>
         
   </td></tr>
 
@@ -3528,19 +3580,19 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.oauth.OAuth1Adapter" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.oauth.OAuth1Adapter-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.security.oauth.OAuth1Adapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.security.oauth.OAuth1Adapter-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  org.mule.api.oauth.OAuth1Adapter
+  org.mule.security.oauth.OAuth1Adapter
 
-<div id="inherited-methods-org.mule.api.oauth.OAuth1Adapter">
-  <div id="inherited-methods-org.mule.api.oauth.OAuth1Adapter-list"
+<div id="inherited-methods-org.mule.security.oauth.OAuth1Adapter">
+  <div id="inherited-methods-org.mule.security.oauth.OAuth1Adapter-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.api.oauth.OAuth1Adapter-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.security.oauth.OAuth1Adapter-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -3601,38 +3653,12 @@ From interface
             
             
             
-            void</nobr>
+            OAuthConsumer</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">setAccessTokenSecret</span>(String arg0)</nobr>
+        <span class="sympad">getConsumer</span>()</nobr>
         
   </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.oauth.OAuthAdapter" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.oauth.OAuthAdapter-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  org.mule.api.oauth.OAuthAdapter
-
-<div id="inherited-methods-org.mule.api.oauth.OAuthAdapter">
-  <div id="inherited-methods-org.mule.api.oauth.OAuthAdapter-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.api.oauth.OAuthAdapter-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
 
 
 	 
@@ -3643,10 +3669,10 @@ From interface
             
             
             
-            String</nobr>
+            OAuth1Manager</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getAccessToken</span>()</nobr>
+        <span class="sympad">getOauth1Manager</span>()</nobr>
         
   </td></tr>
 
@@ -3694,7 +3720,39 @@ From interface
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getOauthVerifier</span>()</nobr>
+        <span class="sympad">getRequestToken</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getRequestTokenSecret</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getRequestTokenUrl</span>()</nobr>
         
   </td></tr>
 
@@ -3710,7 +3768,7 @@ From interface
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">hasBeenAuthorized</span>()</nobr>
+        <span class="sympad">reset</span>()</nobr>
         
   </td></tr>
 
@@ -3726,13 +3784,29 @@ From interface
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">setAccessToken</span>(String arg0)</nobr>
+        <span class="sympad">setAccessTokenSecret</span>(String arg0)</nobr>
         
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setConsumer</span>(OAuthConsumer arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -3748,7 +3822,7 @@ From interface
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -3764,7 +3838,331 @@ From interface
 
 
 	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setRequestToken</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setRequestTokenSecret</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setRequestTokenUrl</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.security.oauth.OAuth1Connector" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.security.oauth.OAuth1Connector-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.security.oauth.OAuth1Connector
+
+<div id="inherited-methods-org.mule.security.oauth.OAuth1Connector">
+  <div id="inherited-methods-org.mule.security.oauth.OAuth1Connector-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.security.oauth.OAuth1Connector-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getAccessToken</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getAccessTokenUrl</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getAuthorizationUrl</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getConsumerKey</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getConsumerSecret</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            OAuthMessageSigner</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getMessageSigner</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getScope</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            SigningStrategy</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getSigningStrategy</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getVerifierRegex</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.security.oauth.OAuthAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.security.oauth.OAuthAdapter-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.security.oauth.OAuthAdapter
+
+<div id="inherited-methods-org.mule.security.oauth.OAuthAdapter">
+  <div id="inherited-methods-org.mule.security.oauth.OAuthAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.security.oauth.OAuthAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getOauthVerifier</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hasBeenAuthorized</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setAccessToken</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setAccessTokenUrl</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setAuthorizationUrl</span>(String arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -3788,19 +4186,19 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.process.ProcessAdapter" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.process.ProcessAdapter-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.security.oauth.OnNoTokenPolicyAware" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.security.oauth.OnNoTokenPolicyAware-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  org.mule.api.process.ProcessAdapter
+  org.mule.security.oauth.OnNoTokenPolicyAware
 
-<div id="inherited-methods-org.mule.api.process.ProcessAdapter">
-  <div id="inherited-methods-org.mule.api.process.ProcessAdapter-list"
+<div id="inherited-methods-org.mule.security.oauth.OnNoTokenPolicyAware">
+  <div id="inherited-methods-org.mule.security.oauth.OnNoTokenPolicyAware-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.api.process.ProcessAdapter-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.security.oauth.OnNoTokenPolicyAware-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -3812,11 +4210,27 @@ From interface
             
             
             
-            &lt;T&gt;
-            ProcessTemplate&lt;T,&nbsp;O&gt;</nobr>
+            
+            OnNoTokenPolicy</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getProcessTemplate</span>()</nobr>
+        <span class="sympad">getOnNoTokenPolicy</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setOnNoTokenPolicy</span>(OnNoTokenPolicy arg0)</nobr>
         
   </td></tr>
 
@@ -3949,17 +4363,17 @@ From interface
 
 
 
-<A NAME="logger"></A>
+<A NAME="name"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
-        private 
-        static 
          
-        Logger
+         
+         
+        String
       </span>
-        logger
+        name
     </h4>
       <div class="api-level">
         
@@ -3979,7 +4393,7 @@ From interface
 
 
 
-<A NAME="muleContext"></A>
+<A NAME="oauthManager"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3987,9 +4401,9 @@ From interface
         private 
          
          
-        MuleContext
+        OAuth1Manager
       </span>
-        muleContext
+        oauthManager
     </h4>
       <div class="api-level">
         
@@ -4080,6 +4494,36 @@ From interface
         String
       </span>
         oauthVerifier
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="onNoTokenPolicy"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        OnNoTokenPolicy
+      </span>
+        onNoTokenPolicy
     </h4>
       <div class="api-level">
         
@@ -4198,7 +4642,7 @@ From interface
 
 
 
-<A NAME="LinkedInConnectorOAuth1Adapter()"></A>
+<A NAME="LinkedInConnectorOAuth1Adapter(org.mule.security.oauth.OAuth1Manager)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4211,7 +4655,7 @@ From interface
         
       </span>
       <span class="sympad">LinkedInConnectorOAuth1Adapter</span>
-      <span class="normal">()</span>
+      <span class="normal">(OAuth1Manager oauthManager)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4224,6 +4668,15 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>oauthManager</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -4403,6 +4856,37 @@ From interface
 </div>
 
 
+<A NAME="getAsync()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Boolean
+      </span>
+      <span class="sympad">getAsync</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <A NAME="getAuthorizationUrl()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -4436,6 +4920,37 @@ From interface
 </div>
 
 
+<A NAME="getConnector()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Connector
+      </span>
+      <span class="sympad">getConnector</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <A NAME="getConsumer()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -4461,7 +4976,259 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves consumer
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getConsumerKey()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getConsumerKey</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getConsumerSecret()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getConsumerSecret</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getDomain()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getDomain</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getLocalPort()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Integer
+      </span>
+      <span class="sympad">getLocalPort</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getMessageSigner()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        OAuthMessageSigner
+      </span>
+      <span class="sympad">getMessageSigner</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getName()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getName</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getOauth1Manager()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        OAuth1Manager
+      </span>
+      <span class="sympad">getOauth1Manager</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getOauthManager()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        OAuth1Manager
+      </span>
+      <span class="sympad">getOauthManager</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves oauthManager
+ 
+</p></div>
 
     </div>
 </div>
@@ -4566,6 +5333,70 @@ From interface
 </div>
 
 
+<A NAME="getOnNoTokenPolicy()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        OnNoTokenPolicy
+      </span>
+      <span class="sympad">getOnNoTokenPolicy</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves onNoTokenPolicy
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getPath()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getPath</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <A NAME="getProcessTemplate()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -4592,6 +5423,103 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getRemotePort()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Integer
+      </span>
+      <span class="sympad">getRemotePort</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getRequestToken()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getRequestToken</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves requestToken
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getRequestTokenSecret()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getRequestTokenSecret</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves requestTokenSecret
+ 
+</p></div>
 
     </div>
 </div>
@@ -4630,6 +5558,68 @@ From interface
 </div>
 
 
+<A NAME="getSigningStrategy()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        SigningStrategy
+      </span>
+      <span class="sympad">getSigningStrategy</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getVerifierRegex()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getVerifierRegex</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <A NAME="hasBeenAuthorized()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -4661,46 +5651,6 @@ From interface
       <table class="jd-tagtable">  
         <tr>
             <th>NotAuthorizedException</td>
-            <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="initialise()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">initialise</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>InitialisationException</td>
             <td></td>
         </tr>
       </table>
@@ -4813,6 +5763,46 @@ From interface
 </div>
 
 
+<A NAME="setAsync(java.lang.Boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setAsync</span>
+      <span class="normal">(Boolean async)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>async</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="setAuthorizationUrl(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -4854,7 +5844,7 @@ From interface
 </div>
 
 
-<A NAME="setMuleContext(org.mule.api.MuleContext)"></A>
+<A NAME="setConnector(org.mule.api.transport.Connector)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4866,8 +5856,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">setMuleContext</span>
-      <span class="normal">(MuleContext value)</span>
+      <span class="sympad">setConnector</span>
+      <span class="normal">(Connector value)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4879,7 +5869,47 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets muleContext</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setConsumer(oauth.signpost.OAuthConsumer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setConsumer</span>
+      <span class="normal">(OAuthConsumer value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets consumer</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4895,7 +5925,168 @@ From interface
 </div>
 
 
-<A NAME="setOauthRestoreAccessToken(org.mule.api.oauth.RestoreAccessTokenCallback)"></A>
+<A NAME="setDomain(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDomain</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLocalPort(java.lang.Integer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setLocalPort</span>
+      <span class="normal">(Integer value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setName(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setName</span>
+      <span class="normal">(String name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOauthManager(org.mule.security.oauth.OAuth1Manager)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOauthManager</span>
+      <span class="normal">(OAuth1Manager value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets oauthManager</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOauthRestoreAccessToken(org.mule.security.oauth.callback.RestoreAccessTokenCallback)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4936,7 +6127,7 @@ From interface
 </div>
 
 
-<A NAME="setOauthSaveAccessToken(org.mule.api.oauth.SaveAccessTokenCallback)"></A>
+<A NAME="setOauthSaveAccessToken(org.mule.security.oauth.callback.SaveAccessTokenCallback)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -5003,6 +6194,249 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets oauthVerifier</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnNoToken(org.mule.security.oauth.OnNoTokenPolicy)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnNoToken</span>
+      <span class="normal">(OnNoTokenPolicy value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnNoTokenPolicy(org.mule.security.oauth.OnNoTokenPolicy)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnNoTokenPolicy</span>
+      <span class="normal">(OnNoTokenPolicy value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets onNoTokenPolicy</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPath(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setPath</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setRemotePort(java.lang.Integer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setRemotePort</span>
+      <span class="normal">(Integer value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setRequestToken(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setRequestToken</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets requestToken</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setRequestTokenSecret(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setRequestTokenSecret</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets requestTokenSecret</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

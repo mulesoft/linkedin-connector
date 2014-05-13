@@ -66,6 +66,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -155,7 +198,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="search" >
+  <div id="searchContainer" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -225,11 +268,17 @@
     <li class="api apilevel-">
   <a href="../java/org/mule/module/linkedin/package-summary.html">org.mule.module.linkedin</a></li>
     <li class="api apilevel-">
+  <a href="../java/org/mule/module/linkedin/adapter/package-summary.html">org.mule.module.linkedin.adapter</a></li>
+    <li class="api apilevel-">
   <a href="../java/org/mule/module/linkedin/adapters/package-summary.html">org.mule.module.linkedin.adapters</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/module/linkedin/agents/package-summary.html">org.mule.module.linkedin.agents</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/module/linkedin/config/package-summary.html">org.mule.module.linkedin.config</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/module/linkedin/connection/package-summary.html">org.mule.module.linkedin.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/module/linkedin/devkit/package-summary.html">org.mule.module.linkedin.devkit</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/module/linkedin/oauth/package-summary.html">org.mule.module.linkedin.oauth</a></li>
     <li class="api apilevel-">
@@ -321,31 +370,43 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/AbstractConnectedProcessor.html">AbstractConnectedProcessor</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/config/AbstractDefinitionParser.html">AbstractDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/config/AbstractDefinitionParser.ParseDelegate.html">AbstractDefinitionParser.ParseDelegate</a>&lt;T&gt;</td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/AbstractExpressionEvaluator.html">AbstractExpressionEvaluator</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;</td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;</td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/AbstractPagedConnectedProcessor.html">AbstractPagedConnectedProcessor</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
@@ -785,6 +846,18 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/connection/Connection.html">Connection</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/connection/ConnectionManager.html">ConnectionManager</a>&lt;K,&nbsp;C&nbsp;extends&nbsp;<a href="../java/org/mule/module/linkedin/connection/Connection.html">Connection</a>&gt;</td>
+            <td class="jd-descrcol" width="100%">Wrapper around org.mule.api.annotations.Connector annotated class that will infuse it with connection management capabilities.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ConnectionModificationType.html">ConnectionModificationType</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -815,54 +888,62 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/ConnectivityProcessor.html">ConnectivityProcessor</a></td>
+            <td class="jd-descrcol" width="100%">Interface used to unify all message processors (those which use (or not) pagination) from the ManagedConnectionProcessInterceptor
+ 
+&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Content.html">Content</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/ContentImpl.html">ContentImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/ContentImpl.html">ContentImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Country.html">Country</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/CountryImpl.html">CountryImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/CountryImpl.html">CountryImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/CurrentShare.html">CurrentShare</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/CurrentShareImpl.html">CurrentShareImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/CurrentShareImpl.html">CurrentShareImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -1722,75 +1803,81 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/oauth/LinkedInConnectorOAuthManager.html">LinkedInConnectorOAuthManager</a></td>
+            <td class="jd-descrcol" width="100%">A <code>LinkedInConnectorOAuthManager</code> is a wrapper around <code><a href="../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code> that adds access token management capabilities to the pojo.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/adapters/LinkedInConnectorProcessAdapter.html">LinkedInConnectorProcessAdapter</a></td>
             <td class="jd-descrcol" width="100%">A <code>LinkedInConnectorProcessAdapter</code> is a wrapper around <code><a href="../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code> that enables custom processing strategies.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/config/LinkedinNamespaceHandler.html">LinkedinNamespaceHandler</a></td>
             <td class="jd-descrcol" width="100%">Registers bean definitions parsers for handling elements in <code>http://www.mulesoft.org/schema/mule/linkedin</code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/oauth/LinkedInOAuthService.html">LinkedInOAuthService</a></td>
             <td class="jd-descrcol" width="100%">The Interface LinkedInOAuthService.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/oauth/LinkedInOAuthServiceException.html">LinkedInOAuthServiceException</a></td>
             <td class="jd-descrcol" width="100%">Class description
 &nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/oauth/LinkedInOAuthServiceFactory.html">LinkedInOAuthServiceFactory</a></td>
             <td class="jd-descrcol" width="100%">A factory for creating LinkedInOAuthService objects.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/oauth/LinkedInOAuthToken.html">LinkedInOAuthToken</a></td>
             <td class="jd-descrcol" width="100%">Class description
 &nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/oauth/LinkedInRequestToken.html">LinkedInRequestToken</a></td>
             <td class="jd-descrcol" width="100%">Class description
 &nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/schema/LinkedInVisibilityType.html">LinkedInVisibilityType</a></td>
             <td class="jd-descrcol" width="100%">Class used as wrapper for VisibilityType&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/schema/transformers/LinkedInVisibilityTypeEnumTransformer.html">LinkedInVisibilityTypeEnumTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Location.html">Location</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/LocationImpl.html">LocationImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/LocationImpl.html">LocationImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -2249,246 +2336,252 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/adapter/PoolManager.html">PoolManager</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Position.html">Position</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/PositionImpl.html">PositionImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/PositionImpl.html">PositionImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Positions.html">Positions</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/PositionsField.html">PositionsField</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/PositionsImpl.html">PositionsImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/PositionsImpl.html">PositionsImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/config/PostCommentDefinitionParser.html">PostCommentDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/PostCommentMessageProcessor.html">PostCommentMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">PostCommentMessageProcessor invokes the <code><a href="../java/org/mule/module/linkedin/LinkedInConnector.html#postComment(java.lang.String, java.lang.String)">postComment(java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/config/PostNetworkUpdateDefinitionParser.html">PostNetworkUpdateDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/PostNetworkUpdateMessageProcessor.html">PostNetworkUpdateMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">PostNetworkUpdateMessageProcessor invokes the <code><a href="../java/org/mule/module/linkedin/LinkedInConnector.html#postNetworkUpdate(java.lang.String)">postNetworkUpdate(java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/config/PostShareDefinitionParser.html">PostShareDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/processors/PostShareMessageProcessor.html">PostShareMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">PostShareMessageProcessor invokes the <code><a href="../java/org/mule/module/linkedin/LinkedInConnector.html#postShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.schema.LinkedInVisibilityType, java.lang.Boolean)">postShare(java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.linkedin.schema.LinkedInVisibilityType, java.lang.Boolean)</a></code> method in <code><a href="../java/org/mule/module/linkedin/LinkedInConnector.html">LinkedInConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/process/ProcessCallbackProcessInterceptor.html">ProcessCallbackProcessInterceptor</a>&lt;T,&nbsp;O&gt;</td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Proficiency.html">Proficiency</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/ProficiencyImpl.html">ProficiencyImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/ProficiencyImpl.html">ProficiencyImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/ProficiencyLevelType.html">ProficiencyLevelType</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for null.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ProfileField.html">ProfileField</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/ProfileField.html">ProfileField</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ProfileField.Scope.html">ProfileField.Scope</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/transformers/ProfileFieldEnumTransformer.html">ProfileFieldEnumTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/ProfileFieldImpl.html">ProfileFieldImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/ProfileFieldImpl.html">ProfileFieldImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/ProfileType.html">ProfileType</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/client/enumeration/transformers/ProfileTypeEnumTransformer.html">ProfileTypeEnumTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Property.html">Property</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/PropertyImpl.html">PropertyImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/PropertyImpl.html">PropertyImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Publication.html">Publication</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/PublicationAuthor.html">PublicationAuthor</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for publication-author complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/PublicationAuthorImpl.html">PublicationAuthorImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/PublicationAuthorImpl.html">PublicationAuthorImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/PublicationImpl.html">PublicationImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/PublicationImpl.html">PublicationImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Publications.html">Publications</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/PublicationsImpl.html">PublicationsImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/PublicationsImpl.html">PublicationsImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Publisher.html">Publisher</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/PublisherImpl.html">PublisherImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/PublisherImpl.html">PublisherImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -3026,42 +3119,48 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/devkit/SplashScreenAgent.html">SplashScreenAgent</a></td>
+            <td class="jd-descrcol" width="100%">Marks DevKit org.mule.api.agent.Agent implementations to take care of logging information at Mule app level mainly for troubleshooting purposes.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/StartDate.html">StartDate</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/StartDateImpl.html">StartDateImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/StartDateImpl.html">StartDateImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/Status.html">Status</a></td>
             <td class="jd-descrcol" width="100%"><p>Java class for anonymous complex type.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/impl/StatusImpl.html">StatusImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/google/code/linkedinapi/schema/xpp/StatusImpl.html">StatusImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/transformers/StringToDateTransformer.html">StringToDateTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -3151,6 +3250,20 @@
 
 <h2 id="letter_U">U</h2>
 <table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/connection/UnableToAcquireConnectionException.html">UnableToAcquireConnectionException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the connection needed for executing an
+  operation is null.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/linkedin/connection/UnableToReleaseConnectionException.html">UnableToReleaseConnectionException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the release connection operation of the
+  connection manager fails.&nbsp;</td>
+        </tr>
     
     
         <tr class="alt-color api apilevel-" >
